@@ -1,0 +1,17 @@
+#class pathvars open;
+
+#var {PATHS}
+{
+    {running}{0}
+    {run_speed}
+    {
+        {fast}{0}
+        {normal}{0.75}
+        {slow}{1}
+    }
+    {current_speed}{0.75}
+    {current_mode}{1}
+    {creating}{0}
+};
+
+#class pathvars close;

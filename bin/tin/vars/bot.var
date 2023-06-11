@@ -1,0 +1,55 @@
+#class botvars open;
+
+#var halt 0;
+#var mobname "";
+#var bot 0;
+
+#var {BOT}
+{
+    {foundmob} {0}
+    {foundplayer} {0}
+    {singlestep} {0}
+    {stepping} {0}
+    {current_engaged} {0}
+    {current_area} {}
+    {vnum} {0}
+    {path} {}
+    {position} {0}
+    {auto_step} {0}
+    {no_path} {1}
+    {walk_speed}{1.5}
+    {reloading}{0}
+    {failed_step}{0}
+    {reseting}{0}
+    {healing}{0}
+    {is_riding}{0}
+    {Warrior}
+    {
+        {auto_kick}{0}
+        {auto_swing}{0}
+        {auto_bash}{0}
+    }
+    {cycle}{0}
+    {Beorning}
+    {
+        {auto_rend}{0}
+        {auto_bite}{0}
+    }
+    {Arcane}
+    {
+        {casting}{1}
+    }
+    {Olog}
+    {
+        {auto_smash}{0}
+        {auto_cleave}{0}
+        {auto_stomp}{0}
+        {auto_frenzy}{0}
+        {smash_ready}{1}
+        {cleave_ready}{1}
+        {frenzy_ready}{1}
+        {stomp_ready}{1}
+    }
+};
+
+#class botvars close;

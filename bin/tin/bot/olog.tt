@@ -1,0 +1,183 @@
+#class olog_bot open;
+
+
+#alias {set auto smash}
+{
+    #if {$BOT[Olog][auto_smash]}
+    {
+        WarningMessage Disabling Auto Smash...;
+        #var {BOT[Olog][auto_smash]} {0};
+
+    };
+    #else
+    {
+        InfoMessage Enabling Auto Smash...;
+        #var {BOT[Olog][auto_smash]} {1};
+    };
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+
+#action {You mount %1 and start riding %2.}
+{
+    #var BOT[is_riding] 1;
+}
+
+#action {You stop riding %1.}
+{
+    #var BOT[is_riding] 0;
+}
+
+#alias {set auto cleave}
+{
+    #if {$BOT[Olog][auto_cleave]}
+    {
+        WarningMessage Disabling Auto Cleave...;
+        #var {BOT[Olog][auto_cleave]} {0};
+    };
+    #else
+    {
+        InfoMessage Enabling Auto Cleave...;
+        #var {BOT[Olog][auto_cleave]} {1};
+    };
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+#alias {set auto stomp}
+{
+    #if {$BOT[Olog][auto_stomp]}
+    {
+        WarningMessage Disabling Auto Stomp...;
+        #var {BOT[Olog][auto_stomp]} {0};
+    };
+    #else
+    {
+        InfoMessage Enabling Auto Stomp...;
+        #var {BOT[Olog][auto_stomp]} {1};
+    };
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+#alias {set auto frenzy}
+{
+    #if {$BOT[Olog][auto_frenzy]}
+    {
+        WarningMessage Disabling Auto Frenzy...;
+        #var {BOT[Olog][auto_frenzy]} {0};
+
+    };
+    #else
+    {
+        InfoMessage Enabling Auto Frenzy...;
+        #var {BOT[Olog][auto_frenzy]} {1};
+    };
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+#action {You cleave %1 body with your might blow!}
+{
+    #math {BOT[current_engaged]} {$BOT[current_engaged] + 1};
+}
+
+#action {You cleave %1 body in twain, from your might blow!}
+{
+    #math {BOT[current_engaged]} {$BOT[current_engaged] + 1};
+}
+
+#action {You stomp the ground with such fury, that %1 is left bedazzled and cannot move!}
+{
+    #math {BOT[current_engaged]} {$BOT[current_engaged] + 1};
+}
+
+#tick {olog_bot} {
+
+    #if {$BOT[current_engaged] <= 0} {
+      #RETURN;
+    };
+
+    #if {$BOT[Olog][auto_smash] && $BOT[Olog][smash_ready]} {
+        smash;
+    };
+
+    #if {$BOT[Olog][auto_cleave] && $BOT[Olog][cleave_ready] && $BOT[is_riding]} {
+        cleave;
+    };
+
+    #if {$BOT[Olog][auto_frenzy] && $BOT[Olog][frenzy_ready]} {
+        frenzy;
+    };
+
+    #if {$BOT[Olog][auto_stomp] && $BOT[Olog][stomp_ready] && $BOT[is_riding]} {
+        stomp;
+    };
+
+}{5};
+
+#function {_class_prompt}
+{
+    #if {$PROMPT[is_enabled] == 0}
+    {
+        #RETURN {#NOP;};
+    };
+
+    #showme {   Class: <188>Olog<088>}{$SCREEN[prompt][first_row]}{$SCREEN[prompt][fourth_col]};
+    #showme {    Bash: @_toggle_button{$BOT[Warrior][auto_bash]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col]};
+    #button {$SCREEN[prompt][third_row];$SCREEN[prompt][fourth_col];$SCREEN[prompt][third_row]+1;$SCREEN[prompt][fourth_col]+15}{
+        #if {$BOT[Warrior][auto_bash]} {
+            #variable BOT[Warrior][auto_bash] {0};
+            #showme {    Bash: @_toggle_button{$BOT[Warrior][auto_bash]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col]};
+
+        };
+        #else {
+            #variable BOT[Warrior][auto_bash] {1};
+            #showme {    Bash: @_toggle_button{$BOT[Warrior][auto_bash]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col]};
+        };
+    };
+
+    #showme {   Smash: @_toggle_button{$BOT[Olog][auto_smash]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][fourth_col]};
+    #button {$SCREEN[prompt][fifth_row];$SCREEN[prompt][fourth_col];$SCREEN[prompt][fifth_row]+1;$SCREEN[prompt][fourth_col]+15}{
+        #if {$BOT[Olog][auto_smash]} {
+            #variable BOT[Olog][auto_smash] {0};
+            #showme {   Smash: @_toggle_button{$BOT[Olog][auto_smash]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][fourth_col]};
+
+        };
+        #else {
+            #variable BOT[Olog][auto_smash] {1};
+            #showme {   Smash: @_toggle_button{$BOT[Olog][auto_smash]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][fourth_col]};
+        };
+    };
+
+    #math {SCREEN[prompt][fourth_col_second]} {$SCREEN[prompt][fourth_col] + 18};
+
+    #showme {    Cleave: @_toggle_button{$BOT[Olog][auto_cleave]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col_second]};
+    #button {$SCREEN[prompt][third_row];$SCREEN[prompt][fourth_col_second];$SCREEN[prompt][third_row]+1;$SCREEN[prompt][fourth_col_second]+15}{
+        #if {$BOT[Olog][auto_cleave]} {
+            #variable BOT[Olog][auto_cleave] {0};
+            #showme {    Cleave: @_toggle_button{$BOT[Olog][auto_cleave]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col_second]};
+
+        };
+        #else {
+            #variable BOT[Olog][auto_cleave] {1};
+            #showme {    Cleave: @_toggle_button{$BOT[Olog][auto_cleave]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col_second]};
+        };
+    };
+
+    #showme {     Stomp: @_toggle_button{$BOT[Olog][auto_stomp]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][fourth_col_second]};
+    #button {$SCREEN[prompt][fifth_row];$SCREEN[prompt][fourth_col_second];$SCREEN[prompt][fifth_row]+1;$SCREEN[prompt][fourth_col_second]+15}{
+        #if {$BOT[Olog][auto_stomp]} {
+            #variable BOT[Olog][auto_stomp] {0};
+            #showme {     Stomp: @_toggle_button{$BOT[Olog][auto_stomp]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][fourth_col_second]};
+
+        };
+        #else {
+            #variable BOT[Olog][auto_stomp] {1};
+            #showme {     Stomp: @_toggle_button{$BOT[Olog][auto_stomp]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][fourth_col_second]};
+        };
+    };
+
+    #return {#NOP;};
+};
+
+@PUBSUB_SUBSCRIBE{class_toggle; _class_prompt};
+
+#class olog_bot close;

@@ -1,0 +1,14 @@
+#class pkvars open;
+
+#var {PK}
+{
+    {active}{0}
+    {target}{}
+    {auto}
+    {
+        {engage}{0}
+        {track}{0}
+    }
+};
+
+#class pkvars close;

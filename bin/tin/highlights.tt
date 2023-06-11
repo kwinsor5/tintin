@@ -1,0 +1,130 @@
+#class highlights open;
+
+
+#nop {== Spells}
+#nop Chill Ray
+#highlight {%1 shudders as your chill ray strikes %2.} { <aef> };
+#highlight {Your chill ray leaves a layer of frost on the corpse %1} { <aef> };
+
+#nop Firebolt
+#highlight {Your firebolt scorches %1} { <fac> };
+#highlight {Your firebolt burns %1 to ashes.} { <fac> };
+
+#nop Shield Down
+#sub {Your magical shield dissolves.} {Your magical shield dissolves. <--- SHIELD DOWN};
+#highlight {<--- SHIELD DOWN} { light bold underscore Jade };
+
+#nop Lightning Bolt
+#highlight {Your lightning bolt strikes %1, bullseye!} { <ffc> };
+#highlight {Your lightning bolt electrocutes %1 to death.} { <ffc> };
+
+#nop Fireball
+#highlight {You smirk as your fireball explodes in the face of %1.} { <faa> };
+
+#nop Darkbolt
+#highlight {Your dark bolt hits %1 body.} { <cce> };
+#highlight {Your dark bolt slays %1.} { <cce> };
+
+#nop Blaze
+#highlight {The whole place is ablaze with fire, the flames reaching to you.} { bold Red };
+
+#nop {== Generic}
+#HIGHLIGHT {Exits are: %1} {light underscore orange}
+#HIGHLIGHT {You discover a weakness in %1} {light azure}
+#HIGHLIGHT {You find an opening in %1} {light blue}
+#HIGHLIGHT {You rear back and extend your foreleg swiping at %1!} {<bef>}
+#highlight {You rush forward wildly.} {bold azure}
+#HIGHLIGHT {You kick %1} {light lime}
+#HIGHLIGHT {Your riposte %1} {bold azure}
+#highlight {:Scratched} {light bold green}
+#highlight {:Bruised} {dim bold yellow}
+#highlight {:Hurt} {light bold orange}
+#highlight {:Wounded} {dim bold pink}
+#highlight {:Bloodied} {bold red}
+#highlight {:Awful} {underscore bold red}
+#nop {
+    #highlight {:%1 weakened} {light bold green};
+    #highlight {:%1 duped} {dim bold yellow};
+    #highlight {:%1 dispirited} {light bold orange};
+    #highlight {:%1 clumsy} {dim bold pink};
+    #highlight {:%1 sickly} {bold red};
+    #highlight {:%1 retarded} {underscore bold red};
+};
+#highlight {You have %1 hit, %2 stamina, %3 moves, %4 spirit.} {bold white}
+#highlight {Statsum: %d}{ Jade }
+
+#highlight {Faroth Exists On} { Jade };
+#highlight {Faroth Exists Off} { Red };
+#highlight {Vale Exists On} { Jade };
+#highlight {Vale Exists Off} { Red };
+
+#nop Environment Colors;
+#highlight {The road slowly starts to disappear under a carpet of snow.}{<F81A4D4>}
+#highlight {Snow lies upon the ground.}{<FFFFAFA>}
+#highlight {Snow falls gently instantly thawing as it hits the water.}{<FFFFAFA>}
+#highlight {The fields become blankets of white as snow quickly covers the ground.}{<F477BC3>}
+#highlight {Wet snow falls through the trees, but cannot cover the ground.}{<F477BC3>}
+
+#highlight {Lightning lights up the sullen sky through the rain.}{blink <FF0FB3E>}
+#highlight {The storm intesifies as flashes of lightning pierce the sky.}{blink <FF0FB3E>}
+#highlight {Flashes of lightning and the sound of heavy rain comes through the trees.}{blink <FF0FB3E>}
+#highlight {Flashes of lightning can be seen through the trees.}{blink <FF0FB3E>}
+
+#highlight {Rain falls heavily onto the water, dampening its motion.} {<F789AC7>}
+
+#nop equipment
+
+#nop armor
+#highlight {a fine, silver shield}{silver}
+#highlight {a blue bandana}{blue}
+#highlight {a red silk sash}{red}
+#highlight {a red embroidered robe}{red}
+#highlight {a glittering crown}{yellow}
+#highlight {a light, mithril buckler}{light silver}
+#highlight {a silvery-white robe}{light silver}
+#highlight {a werewolf fur}{light ebony}
+#highlight {a black cloth belt}{light ebony}
+#highlight {a wide, black-scaled belt}{light ebony}
+#highlight {a dragon shield}{light ebony}
+#highlight {a golden shield}{Yellow}
+#highlight {a sapphirine kite shield}{light azure}
+#highlight {a mithril mask}{light silver}
+#highlight {a light mithril mail shirt}{light silver}
+#highlight {light mithril mail boots}{light silver}
+#highlight {a pair of fine, chainmail %1}{silver}
+
+
+#nop cotton
+#highlight {a pair of soft leather boots}{tan}
+#highlight {a pair of black, padded boots}{light ebony}
+#highlight {a pair of shiny black boots}{light ebony}
+#highlight {a dirty, frayed cloak}{tan}
+#highlight {a pair of white cotton %0}{white}
+#highlight {a white cotton %0}{white}
+#highlight {a pair of shiny black sleeves}{light ebony}
+#highlight {a loose, dark cowl}{light ebony}
+
+#nop weapons
+#highlight {a triple-headed morningstar}{silver}
+#highlight {a dragon-toothed whip}{light ebony}
+#highlight {a twilight dagger}{violet}
+#highlight {an ornate mithril sword}{light silver}
+#highlight {an ancient mithril sword}{light silver}
+#highlight {a gold inlaid greatsword}{Yellow}
+#highlight {a light ash spear}{light silver}
+#highlight {a short elven blade}{light silver}
+
+#nop jewelry
+#highlight {a bronze ring}{Tan}
+#highlight {an iron ring}{light ebony}
+#highlight {a primitive necklace}{tan}
+#highlight {a plain golden ring}{Yellow}
+#highlight {a silver inscribed medallion}{silver}
+#highlight {a black alloy bracer}{light ebony}
+#highlight {an etched silver bracer}{silver}
+#highlight {a golden sceptre}{Yellow}
+#highlight {a shining steel bracelet}{silver}
+
+#highlight {R.I.P.}{blink red}
+
+#class highlights close;

@@ -1,0 +1,188 @@
+#class player-killer open;
+
+#nop required: pk.var;
+#nop required: tracking.tt
+#nop required: target.tt
+
+#action {*{a|an} {Hobbit|Elf|Human|Bear|Uruk|Dwarf|Olog-Hai}* is {standing|sleeping|resting|riding|here}}
+{
+    #if {"$PK[target]" == "%2" && $PK[auto][engage] == 1}
+    {
+        kill %2;
+        InfoMessage Found target!;
+    };
+}{1};
+
+#action {*{a|an} {Hobbit|Elf|Human|Bear|Uruk|Dwarf|Olog-Hai}* (busy) is {standing|sleeping|resting|riding|here}}
+{
+    #if {"$PK[target]" == "%2" && $PK[auto][engage] == 1}
+    {
+        kill %2;
+        InfoMessage Found target!;
+    };
+}{1};
+
+#action {*{a|an} {Hobbit|Elf|Human|Bear|Uruk|Dwarf|Olog-Hai}* is entering from %3}
+{
+    #if {"$PK[target]" == "%2" && $PK[auto][engage] == 1}
+    {
+        kill %2;
+        InfoMessage Found target!;
+    };
+}{1};
+
+#alias {^tb$}
+{
+    InfoMessage Tracking *a Hobbit*...;
+    #var {PK[active]} {1};
+    #var {PK[target]} {Hobbit};
+    target hobbit;
+
+    #if {$PK[auto][track] == 1}
+    {
+        track_hobbit;
+    };
+    @_tracker_prompt{};
+};
+
+#alias {^td$}
+{
+    InfoMessage Tracking *a Dwarf*...;
+    #var {PK[active]} {1};
+    #var {PK[target]} {Dwarf};
+    target dwarf;
+
+    #if {$PK[auto][track] == 1}
+    {
+        track_dwarf;
+    };
+    @_tracker_prompt{};
+};
+
+#alias {^th$}
+{
+    InfoMessage Tracking *a Human*...;
+    #var {PK[active]} {1};
+    #var {PK[target]} {Human};
+    target human;
+
+    #if {$PK[auto][track] == 1}
+    {
+        track_human;
+    };
+    @_tracker_prompt{};
+};
+
+#alias {^thh$}
+{
+    InfoMessage Tracking *a Haradrim*...;
+    #var {PK[active]} {1};
+    #var {PK[target]} {Haradrim};
+    target haradrim;
+
+    #if {$PK[auto][track] == 1}
+    {
+        track_haradrim;
+    };
+    @_tracker_prompt{};
+};
+#alias {^te$}
+{
+    InfoMessage Tracking *an Elf*...;
+    #var {PK[active]} {1};
+    #var {PK[target]} {Elf};
+    target elf;
+
+    #if {$PK[auto][track] == 1}
+    {
+        track_elf;
+    };
+    @_tracker_prompt{};
+};
+
+#alias {^tl$}
+{
+    InfoMessage Tracking *an Uruk-Lhuth*...;
+    #var {PK[active]} {1};
+    #var {PK[target]} {Uruk};
+    target uruk;
+
+    #if {$PK[auto][track] == 1}
+    {
+        track_lhuth;
+    };
+    @_tracker_prompt{};
+};
+
+#alias {^to$}
+{
+    InfoMessage Tracking *an Olog-Hai*...;
+    #var {PK[active]} {1};
+    #var {PK[target]} {Olog-Hai};
+    target olog;
+
+    #if {$PK[auto][track] == 1}
+    {
+        track_olog;
+    };
+    @_tracker_prompt{};
+};
+
+#alias {^tu$}
+{
+    InfoMessage Tracking *an Uruk-Hai*...;
+    #var {PK[active]} {1};
+    #var {PK[target]} {Uruk};
+    target uruk;
+
+    #if {$PK[auto][track] == 1}
+    {
+        track_hai;
+    };
+    @_tracker_prompt{};
+};
+
+#alias {^tbb$}
+{
+    InfoMessage Tracking *a Bear*...;
+    #var {PK[active]} {1};
+    #var {PK[target]} {Bear};
+    target bear;
+
+    #if {$PK[auto][track] == 1}
+    {
+        track_beorning;
+    };
+    @_tracker_prompt{};
+};
+
+#alias {^tka$}
+{
+    WarningMessage Disabling auto...;
+    #var {PK[auto][track]} {0};
+    #var {PK[auto][engage]} {0};
+
+    stopTracking;
+    @_tracker_prompt{};
+};
+
+#alias {^taa$}
+{
+    InfoMessage Enabling auto...;
+    #var {PK[auto][track]} {1};
+    #var {PK[auto][engage]} {1};
+    @_tracker_prompt{};
+}
+
+#alias {^tk$}
+{
+    WarningMessage Killing PKer...;
+    target;
+    #var {PK[active]} {0};
+    #var {PK[target]} "";
+
+    stopTracking;
+    @_tracker_prompt{};
+}
+
+#class player-killer close;

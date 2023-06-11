@@ -1,0 +1,11 @@
+#class targetsystemvar open;
+
+#var {TARGET_SYSTEM}
+{
+    {char}{0}
+    {room}{}
+    {char_in_room}{0}
+    {targets}{0}
+};
+
+#class targetsystemvar close;

@@ -1,0 +1,62 @@
+#class advancement kill
+#class advancement open
+
+#action {%1 tells you '%2advance%3'}
+{
+    @advance_character{%1};
+};
+
+
+#function advance_character
+{
+    #LOCAL _char_name %1;
+
+    #action {%%1 the %%4 is a level %%2 %%3.}
+    {
+        #if {%%2 < 6}
+        {
+            advance %%1 6;
+        };
+        #else
+        {
+            tell %%1 Sorry I can only advance characters to level 6.;
+            tell %%1 For a single level 30 advancement join our Discord!;
+            tell %%1 https://discord.gg/2ZprDt9;
+        };
+        remove_advance;
+    };
+    whois $_char_name;
+    #RETURN {#NOP};
+};
+
+#alias {remove_advance}
+{
+    #unaction {%%1 the %%4 is a level %%2 %%3.};
+};
+
+#alias {start_promotion}
+{
+    ca Let the character promotion event begin!;
+    ca For a level 6 character advancement tell me advance;
+    ca 1 hour from now the event will end;
+    ca The duration for switching sides is reduced to 10 minutes during the event;
+    ca (Only for character advancements and not PK);
+    #ticker {PromoteAdvancement}
+    {
+        ca For a level 6 character advancement tell me advance;
+    }{60};
+    #delay {RemoveAdvancement}
+    {
+        #show Killing Advancement...;
+        #class advancement kill;
+        #unticker {PromoteAdvancement};
+        #unticker {30MinuteReminder};
+        #unticker {10MinuteReminder};
+        #unticker {1MinuteReminder};
+    }{3600};
+    #delay {30MinuteReminder}{ca 30 minutes till the event ends!}{1800};
+    #delay {10MinuteReminder}{ca 10 minutes till the event ends!}{3000};
+    #delay {1MinuteReminder}{ca 1 minute till the event ends!}{3540};
+};
+
+#class advancement close

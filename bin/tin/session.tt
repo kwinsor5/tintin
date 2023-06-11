@@ -1,0 +1,17 @@
+#ACTION {^By what name do you wish to be known?}
+{
+	#READ {tin/login.tt};
+	#IF {"$LOGIN_NAME" != ""}
+	{
+		#SEND {$LOGIN_NAME};
+	};
+
+	#IF {"$LOGIN_PASSWORD" != ""}
+	{
+		#SEND {$LOGIN_PASSWORD};
+	};
+
+	#UNVARIABLE {LOGIN_NAME};
+	#UNVARIABLE {LOGIN_PASSWORD};
+};
+

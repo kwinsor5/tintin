@@ -1,0 +1,96 @@
+#class Mordu open;
+
+food meat;
+set warrior bot;
+set bear bot;
+set lang human;
+
+#alias {heal}
+{
+    sleep;
+    #delay {healing}{stand;_resume}{300};
+}
+
+#alias {hard_tactic}
+{
+    set tac def;
+}
+
+#alias {careful_tactic}
+{
+    set tac careful;
+}
+
+#alias {normal_tactic}
+{
+    set tac normal;
+}
+
+#alias {reset light}
+{
+    tell angel pracreset;
+    spec light fighting;
+    reset default;
+}
+
+#alias {reset defender}
+{
+    tell angel pracreset;
+    spec defender;
+    reset default;
+}
+
+#alias {reset heavy}
+{
+    tell angel pracreset;
+    spec heavy fighting;
+    reset default;
+}
+
+#alias {reset wild}
+{
+    tell angel pracreset;
+    spec wild;
+    reset default;
+}
+
+#alias {reset default}
+{
+    #5 prac human language;
+    #5 prac orcish language;
+    setup default ranger;
+    setup default warrior;
+}
+
+#alias {setup default ranger}
+{
+    #5 prac swimming;
+    #20 prac dodge;
+    #20 prac sneak;
+    #20 prac hide;
+    #20 prac track;
+    #10 prac pick lock;
+    #30 prac search;
+    #31 prac animals;
+    #30 prac gather herbs;
+    #30 prac awareness;
+    #30 prac tame;
+    #30 prac calm;
+    #30 prac travelling;
+}
+
+#alias {setup default warrior}
+{
+    #20 prac natural attacks;
+    #20 prac bash;
+    #20 prac rescue;
+    #20 prac berserk;
+    #20 prac find weakness;
+    #20 prac rend;
+    #20 prac bite;
+    #20 prac swipe;
+    #20 prac maul;
+    #20 prac parry;
+}
+
+#class Mordu close;

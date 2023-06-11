@@ -1,0 +1,23 @@
+#nop {Main configuration for Return of the Shadow}
+
+#read {tin/vars/files.var};
+
+
+#foreach {$DATA[%*]} {file}
+{
+    #read {$file};
+};
+
+#read {tin/pubsub.tt};
+#read {tin/config.tt};
+
+#foreach {$FILES[%*]} {file}
+{
+    #read {$file};
+};
+
+#read {tin/highlights.tt};
+#read {tin/session.tt};
+#read {tin/map.tt};
+#read {tin/prompt.tt};
+#read {tin/screen.tt};

@@ -1,0 +1,29 @@
+#CLASS {bot_path} OPEN
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A malicious spider slides down its web with a look of hunger in its eyes."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A shadowy spider sneaks through the darkness. (hiding)"}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A massive hairy spider looks at you greedily through its many eyes."}
+        {
+            #variable mobname spider;
+            #variable hardmode 1;
+            #break
+        }
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {d;w;w;s;w;d;u;e;s;w;e;n;e;s;n;e;s;d;e;e;u}
+
+#CLASS {bot_path} CLOSE

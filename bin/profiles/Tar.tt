@@ -1,0 +1,7 @@
+#class Tar kill;
+#class Tar open;
+
+#var food meat;
+
+
+#class Tar close;

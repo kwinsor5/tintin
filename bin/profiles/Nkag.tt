@@ -1,0 +1,33 @@
+#class Nkag kill;
+#class Nkag open;
+
+#var my[art][override] {1};
+#var character_ascii {art/Nkag.ascii};
+food flesh;
+primary jagged;
+secondary shadowy;
+hitter club;
+
+#alias {sw} {
+    #if {"%1" == "def"} {
+        wear cloak;
+        wear cowl;
+    };
+    #elseif {"%1" == "agg"} {
+        wear fur;
+        wear crown;
+    };
+}
+
+#alias {wa} {
+    wear all.emblazoned;
+}
+
+#alias {ra} {
+    wear all.cotton;
+    wear cowl;
+    wear slippers;
+    wear shiny;
+}
+
+#class Nkag close;

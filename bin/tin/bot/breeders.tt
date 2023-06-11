@@ -1,0 +1,41 @@
+#CLASS {bot_path} OPEN
+
+#var BOT[start_location] {10450}
+#var BOT[title] {Warg Breeders};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A ferocious warg stands here, snarling maliciously."}
+        {
+            #variable mobname warg;
+            #break
+        };
+        #case {"A trained warg waits here for an order from its masters."}
+        {
+            #variable mobname warg;
+            #break
+        };
+        #case {"An evil, black warg paces around the clearing."}
+        {
+            #variable mobname warg;
+            #break
+        };
+        #case {"A thin warg crouches here cautiously."}
+        {
+            #variable mobname warg;
+            #break
+        };
+        #case {"The master breeder stands here with whip in hand."}
+        {
+            #var mobname master;
+            #break;
+        };
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {s;w;ride;w;s;w;e;e;e;e;e;w;n;s;s;n;w;w;w;e;n;s;s;n;e;s;s;s;e;n;n;n;w;w;n;e;dismount;e;n;e}
+
+#CLASS {bot_path} CLOSE

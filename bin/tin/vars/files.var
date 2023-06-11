@@ -1,0 +1,57 @@
+#class filevar open;
+
+#var {FILES}
+{
+    {aliases}{tin/aliases.tt}
+    {actions}{tin/actions.tt}
+    {macros}{tin/macros.tt}
+    {events}{tin/events.tt}
+    {targetsystem}{tin/targetsystem.tt}
+    {mapping}{tin/mapping.tt}
+    {items}{tin/items.tt}
+    {stats}{tin/stats.tt}
+    {tabs}{tin/tabs.tt}
+    {paths}{tin/paths.tt}
+    {setup}{tin/setup_aliases.tt}
+    {follower}{tin/follower.tt}
+    {leader}{tin/leader.tt}
+    {profiles}{tin/profiles.tt}
+    {bot}{tin/bot/bot_main.tt}
+    {olog}{tin/olog.tt}
+    {tracking}{tin/tracking.tt}
+    {comm}{tin/comm.tt}
+    {xp_tracker}{tin/xp_tracker.tt}
+    {target}{tin/target.tt}
+    {player-killer}{tin/player-killer.tt}
+    {bot}{tin/bot/mirkwoods.tt}
+    {bot_main}{tin/bot/bot_main.tt}
+    {map_notes}{tin/mapnotes.tt}
+    {bot_settings}{tin/bot/bot_settings.tt}
+    {settings}{tin/settings.tt}
+    {bot_prompt}{tin/bot/bot_prompt.tt}
+    {tracker_prompt}{tin/tracker_prompt.tt}
+    {toggle}{tin/toggle.tt}
+    {fast_layout}{tin/fast-layout.tt}
+};
+
+#var {DATA}
+{
+    {tabs}{tin/tabs.tt}
+    {pathvars}{tin/vars/paths.var}
+    {screenvars}{tin/vars/screen.var}
+    {promptvars}{tin/vars/prompt.var}
+    {mappingvars}{tin/vars/mapping.var}
+    {mapvars}{tin/vars/map.var}
+    {botvars}{tin/vars/bot.var}
+    {trackvars}{tin/vars/track.var}
+    {xptrackervars}{tin/vars/xp_tracker.var}
+    {targetvars}{tin/vars/targets.var}
+    {pkvars}{tin/vars/pk.var}
+    {commvars}{tin/vars/comms.var}
+    {colorvars}{tin/vars/colors.var}
+    {weaponvars}{tin/vars/weapons.var}
+    {togglevars}{tin/vars/toggle.vars}
+    {charactervars}{tin/vars/character.var}
+};
+
+#class filevar close;

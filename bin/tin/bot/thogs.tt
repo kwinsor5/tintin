@@ -1,0 +1,65 @@
+#CLASS {bot_path} OPEN
+
+#var BOT[title] {Thogs};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A deranged gatekeeper stands here guarding the gate."}
+        {
+            #variable mobname gatekeeper;
+            #break
+        };
+        #case {"A renegade soldier stands stands here."}
+        {
+            #variable mobname soldier;
+            #break
+        };
+        #case {"A renegade soldier is sleeping here upon his bunk."}
+        {
+            #variable mobname soldier;
+            #break
+        };
+        #case {"A watchtower guard stands here eyeing the surrounding forest."}
+        {
+            #variable mobname guard;
+            #break
+        };
+        #case {"A soldier is sitting around a large table here, laughing with his friends."}
+        {
+            #variable mobname soldier;
+            #break
+        };
+        #case {"The gaoler stands here, a low growl issuing from his throat."}
+        {
+            #variable mobname gaoler;
+            #break
+        };
+        #case {"An elite guardsman stands here, guarding his post."}
+        {
+            #variable mobname guardsman;
+            #break
+        };
+        #case {"Captain Lourdes looks up at you angrily as you enter."}
+        {
+            #variable mobname Lourdes;
+            #break
+        };
+        #case {"Thog Bloodsbane stands here, with a fiery light in his eyes."}
+        {
+            #variable mobname Thog;
+            #break
+        };
+        #case {"A bodyguard stands tall in the presence of his master."}
+        {
+            #variable mobname bodyguard;
+            #break
+        }
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {e;dismount;u;d;ride;s;w;w;n;dismount;u;d;ride;e;s;s;dismount;w;s;n;e;e;s;d;n;s;u;u;n;w;#5 pick heavydoor;w;#5 pick heavydoor;e;s;n;e;s;d;n;w;ride;n;n}
+
+#CLASS {bot_path} CLOSE

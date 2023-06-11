@@ -1,0 +1,53 @@
+#class bot_settings open;
+
+#alias {set warrior bot}
+{
+    InfoMessage Loading Warrior Bot Settings...;
+    #read {tin/bot/warrior.tt};
+}
+
+#alias {set bear bot}
+{
+    InfoMessage Loading Beorning Bot Settings...;
+    #read {tin/bot/beorning.tt};
+    @_class_prompt{};
+}
+
+#alias {set olog bot}
+{
+    InfoMessage Loading Olog Bot Settings...;
+    #read {tin/bot/olog.tt};
+    @_class_prompt{};
+}
+
+#alias {set arcane bot}
+{
+    InfoMessage Loading Arcane Bot Settings...;
+    #read {tin/bot/arcane.tt};
+    @_class_prompt{};
+}
+
+
+#alias {set auto step}
+{
+   _auto;
+    @PUBSUB_PUBLISH{bot_changed};
+}
+
+#alias {set bot}
+{
+    #if {$bot}
+    {
+        WarningMessage Disabling Bot System...;
+        #var bot 0;
+    };
+    #else
+    {
+        InfoMessage Enabling Bot System...;
+        #var bot 1;
+        _bot;
+    };
+    @PUBSUB_PUBLISH{bot_changed};
+}
+
+#class bot_settings close;

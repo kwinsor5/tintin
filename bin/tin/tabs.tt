@@ -1,0 +1,53 @@
+#CLASS {tabs} OPEN
+
+#ALIAS {add tab %1}
+{
+    #class tabs open;
+    #tab {%1};
+    #class tabs close;
+    #class tabs write $FILES[tabs]
+}
+
+#TAB {Ancient Spider}
+#TAB {Bed}
+#TAB {Bed Plant}
+#TAB {Blinds East}
+#TAB {Breeders}
+#TAB {Catacombs}
+#TAB {Cultist}
+#TAB {DFR}
+#TAB {Easterlings}
+#TAB {Faroth}
+#TAB {Fidds}
+#TAB {Ford}
+#TAB {Fork}
+#TAB {Fungal}
+#TAB {Glob}
+#TAB {Glowing Rock}
+#TAB {Interloper}
+#TAB {Ivy}
+#TAB {Jaiden}
+#TAB {Matron}
+#TAB {Maze}
+#TAB {Milestone}
+#TAB {Mnt Village}
+#TAB {Mold}
+#TAB {Necro}
+#TAB {Nettles}
+#TAB {Olog Village}
+#TAB {Pier}
+#TAB {Rising}
+#TAB {Spec East}
+#TAB {Spec West}
+#TAB {Spirit Mines}
+#TAB {Thranduil}
+#TAB {Tower}
+#TAB {Vale}
+#TAB {Vale Side Exit}
+#TAB {Vale Tree}
+#TAB {Vaz}
+#TAB {Vinayost Fountain}
+#TAB {Warlock}
+#TAB {semirkwood}
+
+#CLASS {tabs} CLOSE

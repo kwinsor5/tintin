@@ -1,0 +1,761 @@
+C 50000
+
+V 2020
+
+CAVOID <118>
+CBACKGROUND 
+CBLOCK <218>
+CEXITS <278>
+CFOG <148>
+CHIDE <168>
+CINVISIBLE <208>
+CPATHS <138>
+CROOMS <178>
+CSYMBOLS <128>
+CUSER <258>
+
+F 73743
+
+G 0
+
+I 1
+
+L {ASCII NESW LINE} {NO EXITS} {x}
+L {ASCII NESW LINE} {N} {o}
+L {ASCII NESW LINE} {  E} {o}
+L {ASCII NESW LINE} {N E} {+}
+L {ASCII NESW LINE} {    S} {o}
+L {ASCII NESW LINE} {N   S} {|}
+L {ASCII NESW LINE} {  E S} {+}
+L {ASCII NESW LINE} {N E S} {+}
+L {ASCII NESW LINE} {      W} {o}
+L {ASCII NESW LINE} {N     W} {+}
+L {ASCII NESW LINE} {  E   W} {-}
+L {ASCII NESW LINE} {N E   W} {+}
+L {ASCII NESW LINE} {    S W} {+}
+L {ASCII NESW LINE} {N   S W} {+}
+L {ASCII NESW LINE} {  E S W} {+}
+L {ASCII NESW LINE} {N E S W} {+}
+L {ASCII NESW MISC} {USER} {x}
+L {ASCII NESW MISC} {DIR UNKNOWN} {+}
+L {ASCII NESW MISC} {N S VOID} {|}
+L {ASCII NESW MISC} {E W VOID} {-}
+L {ASCII NESW CURVED} {N E CURVED} {+}
+L {ASCII NESW CURVED} {S E CURVED} {+}
+L {ASCII NESW CURVED} {S W CURVED} {+}
+L {ASCII NESW CURVED} {N W CURVED} {+}
+L {ASCII NESW DIRS} {DIR N} {|}
+L {ASCII NESW DIRS} {DIR NE} {/}
+L {ASCII NESW DIRS} {DIR E} {-}
+L {ASCII NESW DIRS} {DIR SE} {\\}
+L {ASCII NESW DIRS} {DIR S} {|}
+L {ASCII NESW DIRS} {DIR SW} {/}
+L {ASCII NESW DIRS} {DIR W} {-}
+L {ASCII NESW DIRS} {DIR NW} {\\}
+L {NESW LINE} {NO EXITS} {\u2B51}
+L {NESW LINE} {N} {\u2579}
+L {NESW LINE} {  E} {\u257A}
+L {NESW LINE} {N E} {\u2517}
+L {NESW LINE} {    S} {\u257B}
+L {NESW LINE} {N   S} {\u2503}
+L {NESW LINE} {  E S} {\u250F}
+L {NESW LINE} {N E S} {\u2523}
+L {NESW LINE} {      W} {\u2578}
+L {NESW LINE} {N     W} {\u251B}
+L {NESW LINE} {  E   W} {\u2501}
+L {NESW LINE} {N E   W} {\u253B}
+L {NESW LINE} {    S W} {\u2513}
+L {NESW LINE} {N   S W} {\u252B}
+L {NESW LINE} {  E S W} {\u2533}
+L {NESW LINE} {N E S W} {\u254B}
+L {NESW MISC} {USER} {\u2B51}
+L {NESW MISC} {DIR UNKNOWN} {\u2012}
+L {NESW MISC} {N S VOID} {\u2507}
+L {NESW MISC} {E W VOID} {\u254D}
+L {NESW CURVED} {N E CURVED} {\u2570}
+L {NESW CURVED} {S E CURVED} {\u256D}
+L {NESW CURVED} {S W CURVED} {\u256E}
+L {NESW CURVED} {N W CURVED} {\u256F}
+L {NESW DIRS} {DIR N} {\u2191}
+L {NESW DIRS} {DIR NE} {\u2B08}
+L {NESW DIRS} {DIR E} {\u2B95}
+L {NESW DIRS} {DIR SE} {\u2b0A}
+L {NESW DIRS} {DIR S} {\u2193}
+L {NESW DIRS} {DIR SW} {\u2B0B}
+L {NESW DIRS} {DIR W} {\u2B05}
+L {NESW DIRS} {DIR NW} {\u2B09}
+L {MUDFONT NWS} {NO EXITS} {\u28CF}
+L {MUDFONT NWS} {N} {\u28C7}
+L {MUDFONT NWS} {  NW} {\u28CE}
+L {MUDFONT NWS} {N NW} {\u28C6}
+L {MUDFONT NWS} {     W} {\u28C9}
+L {MUDFONT NWS} {N    W} {\u28C1}
+L {MUDFONT NWS} {  NW W} {\u28C8}
+L {MUDFONT NWS} {N NW W} {\u28C0}
+L {MUDFONT NWS} {       SW} {\u288F}
+L {MUDFONT NWS} {N      SW} {\u2887}
+L {MUDFONT NWS} {  NW   SW} {\u288E}
+L {MUDFONT NWS} {N NW   SW} {\u2886}
+L {MUDFONT NWS} {     W SW} {\u2889}
+L {MUDFONT NWS} {N    W SW} {\u2881}
+L {MUDFONT NWS} {  NW W SW} {\u2888}
+L {MUDFONT NWS} {N NW W SW} {\u2880}
+L {MUDFONT NWS} {          S} {\u284F}
+L {MUDFONT NWS} {N         S} {\u2847}
+L {MUDFONT NWS} {  NW      S} {\u284E}
+L {MUDFONT NWS} {N NW      S} {\u2846}
+L {MUDFONT NWS} {     W    S} {\u2849}
+L {MUDFONT NWS} {N    W    S} {\u2841}
+L {MUDFONT NWS} {  NW W    S} {\u2848}
+L {MUDFONT NWS} {N NW W    S} {\u2880}
+L {MUDFONT NWS} {       SW S} {\u280F}
+L {MUDFONT NWS} {N      SW S} {\u2807}
+L {MUDFONT NWS} {  NW   SW S} {\u280E}
+L {MUDFONT NWS} {N NW   SW S} {\u2806}
+L {MUDFONT NWS} {     W SW S} {\u2809}
+L {MUDFONT NWS} {N    W SW S} {\u2801}
+L {MUDFONT NWS} {  NW W SW S} {\u2808}
+L {MUDFONT NWS} {N NW W SW S} {\u2800}
+L {MUDFONT NES} {NO EXITS} {\u28F9}
+L {MUDFONT NES} {N} {\u28F8}
+L {MUDFONT NES} {  NE} {\u28F1}
+L {MUDFONT NES} {N NE} {\u28F0}
+L {MUDFONT NES} {     W} {\u28C9}
+L {MUDFONT NES} {N    W} {\u28C8}
+L {MUDFONT NES} {  NE W} {\u28C2}
+L {MUDFONT NES} {N NE W} {\u28C0}
+L {MUDFONT NES} {       SE} {\u2879}
+L {MUDFONT NES} {N      SE} {\u2878}
+L {MUDFONT NES} {  NE   SE} {\u2871}
+L {MUDFONT NES} {N NE   SE} {\u2870}
+L {MUDFONT NES} {     W SE} {\u2849}
+L {MUDFONT NES} {N    W SE} {\u2848}
+L {MUDFONT NES} {  NE W SE} {\u2842}
+L {MUDFONT NES} {N NE W SE} {\u2840}
+L {MUDFONT NES} {          S} {\u28B9}
+L {MUDFONT NES} {N         S} {\u28B8}
+L {MUDFONT NES} {  NE      S} {\u28B1}
+L {MUDFONT NES} {N NE      S} {\u28B0}
+L {MUDFONT NES} {     W    S} {\u2889}
+L {MUDFONT NES} {N    W    S} {\u2888}
+L {MUDFONT NES} {  NE W    S} {\u2882}
+L {MUDFONT NES} {N NE W    S} {\u2880}
+L {MUDFONT NES} {       SE S} {\u2839}
+L {MUDFONT NES} {N      SE S} {\u2838}
+L {MUDFONT NES} {  NE   SE S} {\u2831}
+L {MUDFONT NES} {N NE   SE S} {\u2830}
+L {MUDFONT NES} {     W SE S} {\u2809}
+L {MUDFONT NES} {N    W SE S} {\u2808}
+L {MUDFONT NES} {  NE W SE S} {\u2802}
+L {MUDFONT NES} {N NE W SE S} {\u2800}
+L {MUDFONT VOID NWS} {NO EXITS} {\u2830}
+L {MUDFONT VOID NWS} {N} {\u2838}
+L {MUDFONT VOID NWS} {  NW} {\u2831}
+L {MUDFONT VOID NWS} {N NW} {\u2839}
+L {MUDFONT VOID NWS} {     W} {\u2836}
+L {MUDFONT VOID NWS} {N    W} {\u283E}
+L {MUDFONT VOID NWS} {  NW W} {\u2837}
+L {MUDFONT VOID NWS} {N NW W} {\u283F}
+L {MUDFONT VOID NWS} {       SW} {\u2870}
+L {MUDFONT VOID NWS} {N      SW} {\u2878}
+L {MUDFONT VOID NWS} {  NW   SW} {\u2871}
+L {MUDFONT VOID NWS} {N NW   SW} {\u2879}
+L {MUDFONT VOID NWS} {     W SW} {\u2876}
+L {MUDFONT VOID NWS} {N    W SW} {\u287E}
+L {MUDFONT VOID NWS} {  NW W SW} {\u2877}
+L {MUDFONT VOID NWS} {N NW W SW} {\u287F}
+L {MUDFONT VOID NWS} {          S} {\u28B0}
+L {MUDFONT VOID NWS} {N         S} {\u28B8}
+L {MUDFONT VOID NWS} {  NW      S} {\u28B1}
+L {MUDFONT VOID NWS} {N NW      S} {\u28B9}
+L {MUDFONT VOID NWS} {     W    S} {\u28B6}
+L {MUDFONT VOID NWS} {N    W    S} {\u28BE}
+L {MUDFONT VOID NWS} {  NW W    S} {\u28B7}
+L {MUDFONT VOID NWS} {N NW W    S} {\u28BF}
+L {MUDFONT VOID NWS} {       SW S} {\u28F0}
+L {MUDFONT VOID NWS} {N      SW S} {\u28F8}
+L {MUDFONT VOID NWS} {  NW   SW S} {\u28F1}
+L {MUDFONT VOID NWS} {N NW   SW S} {\u28F9}
+L {MUDFONT VOID NWS} {     W SW S} {\u28F6}
+L {MUDFONT VOID NWS} {N    W SW S} {\u28FE}
+L {MUDFONT VOID NWS} {  NW W SW S} {\u28F7}
+L {MUDFONT VOID NWS} {N NW W SW S} {\u28FF}
+L {MUDFONT VOID NES} {NO EXITS} {\u2806}
+L {MUDFONT VOID NES} {N} {\u2807}
+L {MUDFONT VOID NES} {  NE} {\u280E}
+L {MUDFONT VOID NES} {N NE} {\u280F}
+L {MUDFONT VOID NES} {     W} {\u2836}
+L {MUDFONT VOID NES} {N    W} {\u2837}
+L {MUDFONT VOID NES} {  NE W} {\u283E}
+L {MUDFONT VOID NES} {N NE W} {\u283F}
+L {MUDFONT VOID NES} {       SE} {\u2886}
+L {MUDFONT VOID NES} {N      SE} {\u2887}
+L {MUDFONT VOID NES} {  NE   SE} {\u288E}
+L {MUDFONT VOID NES} {N NE   SE} {\u288F}
+L {MUDFONT VOID NES} {     W SE} {\u28B6}
+L {MUDFONT VOID NES} {N    W SE} {\u28B7}
+L {MUDFONT VOID NES} {  NE W SE} {\u28BE}
+L {MUDFONT VOID NES} {N NE W SE} {\u28BF}
+L {MUDFONT VOID NES} {          S} {\u2846}
+L {MUDFONT VOID NES} {N         S} {\u2847}
+L {MUDFONT VOID NES} {  NE      S} {\u284E}
+L {MUDFONT VOID NES} {N NE      S} {\u284F}
+L {MUDFONT VOID NES} {     W    S} {\u2876}
+L {MUDFONT VOID NES} {N    W    S} {\u2877}
+L {MUDFONT VOID NES} {  NE W    S} {\u287E}
+L {MUDFONT VOID NES} {N NE W    S} {\u287F}
+L {MUDFONT VOID NES} {       SE S} {\u28C6}
+L {MUDFONT VOID NES} {N      SE S} {\u28C7}
+L {MUDFONT VOID NES} {  NE   SE S} {\u28CE}
+L {MUDFONT VOID NES} {N NE   SE S} {\u28CF}
+L {MUDFONT VOID NES} {     W SE S} {\u28F6}
+L {MUDFONT VOID NES} {N    W SE S} {\u28F7}
+L {MUDFONT VOID NES} {  NE W SE S} {\u28FE}
+L {MUDFONT VOID NES} {N NE W SE S} {\u28FF}
+L {MUDFONT CURVED} {N E} {\u2818}
+L {MUDFONT CURVED} {S E} {\u28A0}
+L {MUDFONT CURVED} {S W} {\u2844}
+L {MUDFONT CURVED} {N W} {\u2803}
+L {UNICODE GRAPHICS} {NO DIAGONAL} {}
+L {UNICODE GRAPHICS} {SE} {\u2E0C}
+L {UNICODE GRAPHICS} {NE} {\u2E1D}
+L {UNICODE GRAPHICS} {SE NE} {>}
+L {UNICODE GRAPHICS} {SW} {\u2E0D}
+L {UNICODE GRAPHICS} {SE SW} {\u2E0C\u2E0D}
+L {UNICODE GRAPHICS} {NE SW} {\uFF0F}
+L {UNICODE GRAPHICS} {SE NE SW} {>\u2E0D}
+L {UNICODE GRAPHICS} {NW} {\u2E1C}
+L {UNICODE GRAPHICS} {SE NW} {\uFF3C}
+L {UNICODE GRAPHICS} {NE NW} {\u2E1D\u2E1C}
+L {UNICODE GRAPHICS} {SE NE NW} {>\u2E1C}
+L {UNICODE GRAPHICS} {SW NW} {<}
+L {UNICODE GRAPHICS} {SE SW NW} {\u2E0C<}
+L {UNICODE GRAPHICS} {NE SW NW} {\u2E1D<}
+L {UNICODE GRAPHICS} {SE NE SW NW} {><}
+L {UNICODE GRAPHICS} {D} {-}
+L {UNICODE GRAPHICS} {N} {\u2191}
+L {UNICODE GRAPHICS} {S} {\u2193}
+L {UNICODE GRAPHICS} {N S} {\u2502}
+L {UNICODE GRAPHICS} {U} {+}
+L {UNICODE GRAPHICS} {E} {\U01F806}
+L {UNICODE GRAPHICS} {W} {\U01F804}
+L {UNICODE GRAPHICS} {E W} {\u2500}
+L {UNICODE GRAPHICS} {ROOM L} {[}
+L {UNICODE GRAPHICS} {ROOM L CURVED} {(}
+L {UNICODE GRAPHICS} {ROOM R} {]}
+L {UNICODE GRAPHICS} {ROOM R CURVED} {)}
+
+
+
+
+T {} { } {}
+
+
+
+R {    1} {0} {<fff>} {Creation Hall} {-} {} {} {} {Floor} {} {1.000} {1101}
+E {    7} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {    8} {e} {_handle_door e heavydoor open;} {2} {2} {} {1.000} {<baa>} {0.00}
+E {    2} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   22} {u} {u} {16} {0} {} {1.000} {} {0.00}
+E {   96} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {    2} {0} {<fff>} {A Brightly Lit Room} {-} {} {} {} {Floor} {} {1.000} {1140}
+E {    1} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {    3} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {    3} {0} {<fff>} {The Hall of the Light} {-} {} {} {} {Floor} {} {1.000} {1131}
+E {    2} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {    4} {0} {<fff>} {Behind the Waterfall} {-} {} {} {} {Floor} {} {1.000} {30080}
+E {   27} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {    5} {0} {<fff>} {The Hall of the Magus} {-} {} {} {} {Floor} {} {1.000} {1133}
+E {    6} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {    6} {0} {<fff>} {The Hall of the Minions} {-} {} {} {} {Floor} {} {1.000} {1134}
+E {    5} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {    7} {0} {<fff>} {Shaping Council} {-} {} {} {} {Floor} {} {1.000} {1103}
+E {    1} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   13} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {    8} {0} {<fff>} {The Arena} {-} {} {} {} {Floor} {} {1.000} {1120}
+E {    1} {w} {_handle_door w heavydoor open;} {8} {2} {} {1.000} {<baa>} {0.00}
+
+R {    9} {0} {<aff>} {Ainur Garden} {"} {} {} {} {Field} {} {3.000} {1115}
+E {    1} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   11} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   19} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   10} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   10} {0} {<fff>} {the Virtual Inn.} {-} {} {} {} {Floor} {} {1.000} {1106}
+E {    9} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   11} {0} {<fff>} {West Planning Meetinghouse} {-} {} {} {} {Floor} {} {1.000} {1109}
+E {   12} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {    9} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   12} {0} {<fff>} {Dark Corner} {-} {} {} {} {Floor} {} {1.000} {1117}
+E {   11} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   13} {0} {<fff>} {Items Laboratory} {-} {} {} {} {Floor} {} {1.000} {1111}
+E {    7} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   14} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   14} {0} {<fff>} {Evolution Room} {-} {} {} {} {Floor} {} {1.000} {1112}
+E {   15} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   17} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   13} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   15} {0} {<fff>} {The Eastern Room} {-} {} {} {} {Floor} {} {1.000} {1116}
+E {   16} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   14} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   16} {0} {<fff>} {A Quiet Little Garden} {-} {} {} {} {Floor} {} {1.000} {1197}
+E {    1} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   15} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   17} {0} {<fff>} {A Dark Room} {-} {} {} {} {Floor} {} {1.000} {1113}
+E {   14} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   18} {0} {} {} { } {} {} {} {} {} {1.000} {}
+E {    1} {d} {d} {32} {0} {} {1.000} {} {0.00}
+
+R {   19} {0} {<fff>} {Izhak's General Store.} {-} {} {} {} {Floor} {} {1.000} {1107}
+E {    9} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   26} {u} {u} {16} {0} {} {1.000} {} {0.00}
+
+R {   20} {0} {} {} { } {} {} {} {} {} {1.000} {}
+E {   24} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   21} {0} {<fff>} {A Dark Corner} {-} {} {} {} {Floor} {} {1.000} {1153}
+E {   26} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   22} {0} {<fff>} {A Strange Laboratory} {-} {} {} {} {Floor} {} {1.000} {1105}
+E {   23} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   24} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {    1} {d} {d} {32} {0} {} {1.000} {} {0.00}
+
+R {   23} {0} {<fff>} {The Nerd Room} {-} {} {} {} {Floor} {} {1.000} {1114}
+E {   22} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   24} {0} {<fff>} {Crappy Little Lab} {-} {} {} {} {Floor} {} {1.000} {1125}
+E {   22} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   25} {0} {} {} { } {} {} {} {} {} {1.000} {}
+E {   24} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   26} {0} {<fff>} {The Final Resting Place} {-} {} {} {} {Floor} {} {1.000} {1151}
+E {   21} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   27} {0} {<aeb>} {Waterfall Behind the Stone Wall} {*} {} {} {} {Forest} {} {4.000} {30034}
+E {   31} {u} {u} {16} {0} {} {1.000} {} {0.00}
+E {    4} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   28} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   36} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   30} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   28} {0} {<aeb>} {A Lake Below a Wall of Stone} {*} {} {} {} {Forest} {} {4.000} {30010}
+E {   33} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   32} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   34} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   27} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   29} {0} {} {} { } {} {} {} {} {} {1.000} {}
+E {   27} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   30} {0} {<adf>} {The Forsaken Lake} {~} {} {} {} {Water} {} {9.000} {30038}
+E {   27} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   35} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   31} {0} {<aeb>} {Edge of a Stone Cliff} {*} {} {} {} {Forest} {} {4.000} {30033}
+E {   63} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   27} {d} {d} {32} {0} {} {1.000} {} {0.00}
+E {   66} {n} {_handle_door n niche open;} {1} {2} {} {1.000} {<baa>} {0.00}
+
+R {   32} {0} {<aeb>} {An Abrupt Stop} {*} {} {} {} {Forest} {} {4.000} {30009}
+E {   28} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   61} {d} {_handle_door d shrub open;} {32} {2} {} {1.000} {<baa>} {0.00}
+
+R {   33} {0} {<ebd>} {A Trampled Battle Ground} {h} {} {} {} {Hills} {} {5.000} {30011}
+E {   37} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   41} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   39} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   28} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   34} {0} {<abf>} {Shallow Passage} {~} {} {} {} {Underwater} {} {11.000} {30019}
+E {   28} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   35} {0} {<adf>} {Edge of the Lake} {~} {} {} {} {Water} {} {9.000} {30042}
+E {   30} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   36} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   36} {0} {<adf>} {A Shallow Lake} {~} {} {} {} {Water} {} {9.000} {30043}
+E {   27} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   35} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   37} {0} {<ebd>} {A Black Corner} {h} {} {} {} {Hills} {} {5.000} {30008}
+E {   33} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   44} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   38} {0} {} {} { } {} {} {} {} {} {1.000} {}
+E {   33} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   39} {0} {<ebd>} {A Bloodied Corner} {h} {} {} {} {Hills} {} {5.000} {30018}
+E {   33} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   40} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {  121} {d} {_handle_door d hole open;} {32} {2} {} {1.000} {<baa>} {0.00}
+
+R {   40} {0} {<ebd>} {Entrance to a Corridor} {h} {} {} {} {Hills} {} {5.000} {30017}
+E {   41} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   42} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   43} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   39} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   41} {0} {<ebd>} {In the midst of a Battle-Torn Arena} {h} {} {} {} {Hills} {} {5.000} {30012}
+E {   44} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   45} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   40} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   33} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   42} {0} {<ebd>} {Corner of the Arena} {h} {} {} {} {Hills} {} {5.000} {30016}
+E {   40} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   45} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   43} {0} {<fff>} {Arda's Way} {-} {} {} {} {Floor} {} {1.000} {30022}
+E {   40} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   47} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   49} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   44} {0} {<ebd>} {A Dark Entrance on the Battle Field} {h} {} {} {} {Hills} {} {5.000} {30007}
+E {   41} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   37} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   46} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   56} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   45} {0} {<ebd>} {A Shaded Battle Arena} {h} {} {} {} {Hills} {} {5.000} {30013}
+E {   41} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   46} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   42} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   53} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   46} {0} {<ebd>} {A Dark Corner} {h} {} {} {} {Hills} {} {5.000} {30006}
+E {   44} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   45} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   47} {0} {<fff>} {An Elven Hall} {-} {} {} {} {Floor} {} {1.000} {30021}
+E {   43} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   48} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   48} {0} {<fff>} {Cul-de-sac} {-} {} {} {} {Floor} {} {1.000} {30020}
+E {   47} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   49} {0} {<fff>} {An Elven Hall} {-} {} {} {} {Floor} {} {1.000} {30023}
+E {   43} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   50} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   50} {0} {<fff>} {A Furnished Cove} {-} {} {} {} {Floor} {} {1.000} {30024}
+E {   49} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   51} {n} {_handle_door n heavydoor open;} {1} {2} {} {1.000} {<baa>} {0.00}
+
+R {   51} {0} {<aeb>} {Dense Brush} {*} {} {} {} {Forest} {} {4.000} {30015}
+E {   52} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   53} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   52} {0} {<aeb>} {A Forested Cell} {*} {} {} {} {Forest} {} {4.000} {30060}
+E {   51} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   53} {0} {<aeb>} {A Faint Path before a Wooden Shack} {*} {} {} {} {Forest} {} {4.000} {30014}
+E {   54} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   55} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   51} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   45} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   54} {0} {<abf>} {A Sunken Path} {~} {} {} {} {Underwater} {} {11.000} {30005}
+E {   53} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   58} {n} {_handle_door n plank open;} {1} {2} {} {1.000} {<baa>} {0.00}
+
+R {   55} {0} {<fff>} {A Wooden Shack} {-} {} {} {} {Floor} {} {1.000} {30025}
+E {   53} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {  112} {u} {u} {16} {0} {} {1.000} {} {0.00}
+E {  113} {e} {_handle_door e slab open;} {2} {2} {} {1.000} {<baa>} {0.00}
+E {  114} {d} {_handle_door d floorboard open;} {32} {2} {} {1.000} {<baa>} {0.00}
+
+R {   56} {0} {<fff>} {A Tall Dark Corridor} {-} {} {} {} {Floor} {} {1.000} {30002}
+E {   44} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   57} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   59} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   57} {0} {<fff>} {A Blackened Tunnel} {-} {} {} {} {Floor} {} {1.000} {30003}
+E {   56} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   58} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   58} {0} {<fff>} {A Dead End} {-} {} {} {} {Floor} {} {1.000} {30004}
+E {   57} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   59} {0} {<fff>} {A Blackened Tunnel} {-} {} {} {} {Floor} {} {1.000} {30001}
+E {   56} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   60} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   60} {0} {<fff>} {An Ancient Fort} {-} {} {} {} {Floor} {} {1.000} {30000}
+E {   59} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   32} {s} {_handle_door s blackslab open;} {4} {2} {} {1.000} {<baa>} {0.00}
+E {   62} {d} {_handle_door d rug open;} {32} {2} {} {1.000} {<baa>} {0.00}
+
+R {   61} {0} {<aeb>} {A Shrubbery Shanty} {*} {} {} {} {Forest} {} {4.000} {30052}
+E {   32} {u} {_handle_door u shrub open;} {16} {2} {} {1.000} {<baa>} {0.00}
+
+R {   62} {0} {<fff>} {Orcish Hole} {-} {} {} {} {Floor} {} {1.000} {30079}
+E {   60} {u} {u} {16} {0} {} {1.000} {} {0.00}
+
+R {   63} {0} {<aeb>} {A Walk Way} {*} {} {} {} {Forest} {} {4.000} {30032}
+E {   31} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   64} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   67} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   64} {0} {<fff>} {A Dingy Cave} {-} {} {} {} {Floor} {} {1.000} {30035}
+E {   63} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   65} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   65} {0} {<fff>} {A Cave End} { [📜] } {} {} {} {Floor} {} {1.000} {30036}
+E {   64} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   66} {0} {<ebd>} {A Niche} {h} {} {} {} {Hills} {} {5.000} {30051}
+E {   31} {s} {_handle_door s niche open;} {4} {2} {} {1.000} {<baa>} {0.00}
+
+R {   67} {0} {<aeb>} {A Walk Way} {*} {} {} {} {Forest} {} {4.000} {30031}
+E {   63} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   68} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   68} {0} {<aeb>} {The Middle of the Tree Fort} {*} {} {} {} {Forest} {} {4.000} {30030}
+E {   67} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   69} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {  108} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   69} {0} {<ebd>} {Hills behind the Tree Fort} {h} {} {} {} {Hills} {} {5.000} {30061}
+E {   68} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   70} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   70} {0} {<ebd>} {Winding Forested Hills} {h} {} {} {} {Hills} {} {5.000} {30062}
+E {   69} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   71} {u} {u} {16} {0} {} {1.000} {} {0.00}
+
+R {   71} {0} {<aeb>} {Entrance to a Gruesome Arena} {*} {} {} {} {Forest} {} {4.000} {30063}
+E {   70} {d} {d} {32} {0} {} {1.000} {} {0.00}
+E {   72} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   78} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   72} {0} {<aeb>} {A Dingy Entrance} {*} {} {} {} {Forest} {} {4.000} {30065}
+E {   71} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   73} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   73} {0} {<aeb>} {A Dark Turn} {*} {} {} {} {Forest} {} {4.000} {30066}
+E {   72} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   74} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   74} {0} {<aeb>} {Scene of Battle} {*} {} {} {} {Forest} {} {4.000} {30082}
+E {   73} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   75} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   84} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   85} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   75} {0} {<aeb>} {A Shaded Corner} {*} {} {} {} {Forest} {} {4.000} {30083}
+E {   74} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   76} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   76} {0} {<aeb>} {Forested Arena} {*} {} {} {} {Forest} {} {4.000} {30058}
+E {   75} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   77} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   79} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   84} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   77} {0} {<aeb>} {A Sharp Turn} {*} {} {} {} {Forest} {} {4.000} {30078}
+E {   76} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   78} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   78} {0} {<aeb>} {Entrance Hall} {*} {} {} {} {Forest} {} {4.000} {30064}
+E {   77} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   71} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   79} {0} {<aeb>} {Scattered Stumps and Weapons} {*} {} {} {} {Forest} {} {4.000} {30057}
+E {   76} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   80} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   81} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   95} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   80} {0} {<aeb>} {Forest's Edge} {*} {} {} {} {Forest} {} {4.000} {30077}
+E {   79} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   94} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   81} {0} {<aeb>} {Battle-torn Arena} {*} {} {} {} {Forest} {} {4.000} {30056}
+E {   79} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   82} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   84} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   93} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   82} {0} {<aeb>} {A Dark Arena Floor} {*} {} {} {} {Forest} {} {4.000} {30055}
+E {   81} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   83} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   83} {0} {<aeb>} {A Battle-scarred Arena} {*} {} {} {} {Forest} {} {4.000} {30054}
+E {   82} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   84} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   85} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   89} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   84} {0} {<aeb>} {Centre of the Massacre} {*} {} {} {} {Forest} {} {4.000} {30084}
+E {   83} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   81} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   76} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   74} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   85} {0} {<aeb>} {Field of Horror} {*} {} {} {} {Forest} {} {4.000} {30081}
+E {   74} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   83} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   86} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   88} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   86} {0} {<aeb>} {Edge of Darkness} {*} {} {} {} {Forest} {} {4.000} {30067}
+E {   85} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   87} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   87} {0} {<aeb>} {Below a Waft of Evil} {*} {} {} {} {Forest} {} {4.000} {30068}
+E {   86} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   88} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {  103} {u} {u} {16} {0} {} {1.000} {} {0.00}
+E {  106} {s} {_handle_door s gate open;} {4} {2} {} {1.000} {<baa>} {0.00}
+
+R {   88} {0} {<aeb>} {Blackened Arena Wall} {*} {} {} {} {Forest} {} {4.000} {30069}
+E {   87} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   85} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   89} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   89} {0} {<aeb>} {Blackened Arena Wall} {*} {} {} {} {Forest} {} {4.000} {30070}
+E {   83} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   88} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   90} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   90} {0} {<aeb>} {Battle-torn Arena Wall} {*} {} {} {} {Forest} {} {4.000} {30071}
+E {   89} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   91} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   91} {0} {<aeb>} {An Old Evil-looking Tree} {*} {} {} {} {Forest} {} {4.000} {30072}
+E {   90} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   92} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {  101} {d} {d} {32} {0} {} {1.000} {} {0.00}
+
+R {   92} {0} {<aeb>} {Forest fades into Darkness} {*} {} {} {} {Forest} {} {4.000} {30073}
+E {   91} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   93} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   93} {0} {<aeb>} {Forested Arena} {*} {} {} {} {Forest} {} {4.000} {30074}
+E {   92} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   81} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   95} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {   94} {0} {<aeb>} {Below a Hint of Goodness} {*} {} {} {} {Forest} {} {4.000} {30076}
+E {   95} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   80} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {   96} {u} {u} {16} {0} {} {1.000} {} {0.00}
+E {   99} {n} {_handle_door n door open;} {1} {2} {} {1.000} {<baa>} {0.00}
+
+R {   95} {0} {<aeb>} {Forested Arena} {*} {} {} {} {Forest} {} {4.000} {30075}
+E {   94} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   93} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {   79} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   96} {0} {<fff>} {A Royal Entrance} {-} {} {} {} {Floor} {} {1.000} {30050}
+E {   94} {d} {d} {32} {0} {} {1.000} {} {0.00}
+E {   97} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   98} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {   97} {0} {<fff>} {The Royal Barracks} { [🛋]} {} {} {} {Floor} {} {1.000} {30049}
+E {   96} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {   98} {0} {<fff>} {A Grand Chamber} { [📜] } {} {} {} {Floor} {} {1.000} {30047}
+E {   96} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {   99} {0} {<aeb>} {A Large Farmhouse} {*} {} {} {} {Forest} {} {4.000} {30085}
+E {   94} {s} {_handle_door s door open;} {4} {2} {} {1.000} {<baa>} {0.00}
+E {  100} {n} {_handle_door n stable open;} {1} {2} {} {1.000} {<baa>} {0.00}
+
+R {  100} {0} {<aeb>} {Bales of Hay} {*} {} {} {} {Forest} {} {4.000} {30086}
+E {   99} {s} {_handle_door s stable open;} {4} {2} {} {1.000} {<baa>} {0.00}
+
+R {  101} {0} {<fff>} {An Evil Hole} {-} {} {} {} {Floor} {} {1.000} {30089}
+E {   91} {u} {u} {16} {0} {} {1.000} {} {0.00}
+E {  102} {d} {d} {32} {0} {} {1.000} {} {0.00}
+
+R {  102} {0} {<fff>} {An Evil Hole} {-} {} {} {} {Floor} {} {1.000} {30088}
+E {  101} {u} {u} {16} {0} {} {1.000} {} {0.00}
+
+R {  103} {0} {<fff>} {A Dark Fortress} {-} {} {} {} {Floor} {} {1.000} {30044}
+E {   87} {d} {d} {32} {0} {} {1.000} {} {0.00}
+E {  104} {e} {e} {2} {0} {} {1.000} {} {0.00}
+E {  105} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {  104} {0} {<fff>} {Uruk Barracks} { [🛋]} {} {} {} {Floor} {} {1.000} {30046}
+E {  103} {w} {w} {8} {0} {} {1.000} {} {0.00}
+
+R {  105} {0} {<fff>} {A Wicked Stronghold} { [📜] } {} {} {} {Floor} {} {1.000} {30045}
+E {  103} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {  106} {0} {<aeb>} {Gruesome Shack} {*} {} {} {} {Forest} {} {4.000} {30026}
+E {   87} {n} {_handle_door n gate open;} {1} {2} {} {1.000} {<baa>} {0.00}
+E {  107} {s} {_handle_door s stable open;} {4} {2} {} {1.000} {<baa>} {0.00}
+
+R {  107} {0} {<aeb>} {Stable-Pen} {*} {} {} {} {Forest} {} {4.000} {30059}
+E {  106} {n} {_handle_door n stable open;} {1} {2} {} {1.000} {<baa>} {0.00}
+
+R {  108} {0} {<aeb>} {A Walk Way} {*} {} {} {} {Forest} {} {4.000} {30029}
+E {   68} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {  109} {s} {s} {4} {0} {} {1.000} {} {0.00}
+E {  110} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {  109} {0} {<aeb>} {A Small Rest Area} {*} {} {} {} {Forest} {} {4.000} {30053}
+E {  108} {n} {n} {1} {0} {} {1.000} {} {0.00}
+
+R {  110} {0} {<aeb>} {A Walk Way} {*} {} {} {} {Forest} {} {4.000} {30028}
+E {  108} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {  111} {u} {u} {16} {1} {} {1.000} {} {0.00}
+E {  112} {e} {e} {2} {0} {} {1.000} {} {0.00}
+
+R {  111} {0} {<aeb>} {A Secret Vale} {*} {} {} {} {Forest} {} {4.000} {30037}
+E {  110} {d} {d} {32} {1} {} {1.000} {} {0.00}
+
+R {  112} {0} {<aeb>} {A Make-shift Tree Fort} {*} {} {} {} {Forest} {} {4.000} {30027}
+E {  110} {w} {w} {8} {0} {} {1.000} {} {0.00}
+E {   55} {d} {d} {32} {0} {} {1.000} {} {0.00}
+
+R {  113} {0} {<fff>} {Blue Cave} {-} {} {} {} {Floor} {} {1.000} {30099}
+E {   55} {w} {_handle_door w slab open;} {8} {2} {} {1.000} {<baa>} {0.00}
+
+R {  114} {0} {<fff>} {A Dark Entrance} {-} {} {} {} {Floor} {} {1.000} {30090}
+E {   55} {u} {_handle_door u floorboard open;} {16} {2} {} {1.000} {<baa>} {0.00}
+E {  115} {w} {_handle_door w chamberdoor open;} {8} {0} {} {1.000} {<baa>} {0.00}
+
+R {  115} {0} {<fff>} {A Wide Torture Chamber} {-} {} {} {} {Floor} {} {1.000} {30091}
+E {  116} {e} {_handle_door e reddoor open;} {2} {0} {} {1.000} {<baa>} {0.00}
+E {  117} {n} {_handle_door n blackdoor open;} {1} {2} {} {1.000} {<baa>} {0.00}
+E {  118} {s} {_handle_door s bluedoor open;} {4} {2} {} {1.000} {<baa>} {0.00}
+E {  119} {w} {_handle_door w greendoor open;} {8} {2} {} {1.000} {<baa>} {0.00}
+
+R {  116} {0} {<fff>} {A Toasted Cell} {-} {} {} {} {Floor} {} {1.000} {30092}
+E {  115} {w} {_handle_door w reddoor open;} {8} {2} {} {1.000} {<baa>} {0.00}
+
+R {  117} {0} {<fff>} {A Gruesome Cell} {-} {} {} {} {Floor} {} {1.000} {30093}
+E {  115} {s} {_handle_door s blackdoor open;} {4} {2} {} {1.000} {<baa>} {0.00}
+
+R {  118} {0} {<fff>} {A Hidden Treasure} {-} {} {} {} {Floor} {} {1.000} {30095}
+E {  115} {n} {_handle_door n steeldoor open;} {1} {2} {} {1.000} {<baa>} {0.00}
+E {  120} {s} {s} {4} {0} {} {1.000} {} {0.00}
+
+R {  119} {0} {<fff>} {The Adjacent Chamber} {-} {} {} {} {Floor} {} {1.000} {30094}
+E {  115} {e} {_handle_door e greendoor open;} {2} {2} {} {1.000} {<baa>} {0.00}
+
+R {  120} {0} {<fff>} {Lights in the Sky} {-} {} {} {} {Floor} {} {1.000} {30097}
+E {  118} {n} {n} {1} {0} {} {1.000} {} {0.00}
+E {   41} {u} {_handle_door u grating open;} {16} {2} {} {1.000} {<baa>} {0.00}
+
+R {  121} {0} {<fff>} {A Hand-Made Hole} {-} {} {} {} {Floor} {} {1.000} {30048}
+E {   39} {u} {_handle_door u hole open;} {16} {2} {} {1.000} {<baa>} {0.00}

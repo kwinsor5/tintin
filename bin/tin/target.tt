@@ -1,0 +1,25 @@
+#class target open;
+
+#nop required: targets.var;
+
+#alias {target}
+{
+    #var {TARGET[target]} %0;
+    #if {"$TARGET[target]" == ""}
+    {
+        #var {TARGET[active]}{0};
+        WarningMessage Removing Targeting...;
+        @_tracker_prompt{};
+        #RETURN;
+    };
+
+    InfoMessage Setting Target: $TARGET[target];
+    #var {TARGET[active]} {1};
+    @_tracker_prompt{};
+}
+
+#alias {targ}{target}
+
+#alias {j}{k $TARGET[target]}
+
+#class target close;

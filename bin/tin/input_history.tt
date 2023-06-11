@@ -1,0 +1,19 @@
+#class input_history open;
+
+#EVENT {HISTORY UPDATE}
+{
+    #delay 0 #line ignore #shome {\e[0;7m0<088>} {-1};
+    #var last_input {%0};
+};
+
+#EVENT {PROCESSED KEYPRESS}
+{
+    #if {{%1} != {10} && {$last_input} !== {}} {
+        #var last_input {};
+        #line ignore #showme {} {-1};
+        #cursor end;
+        #history insert {};
+    };
+};
+
+#class input_history close;

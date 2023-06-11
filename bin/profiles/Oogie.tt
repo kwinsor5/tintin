@@ -1,0 +1,61 @@
+#class Oogie kill;
+#class Oogie open;
+
+#var PK[auto][track] {1};
+#var PK[auto][engage] {1};
+#var my[art][override] {1};
+
+#math {dice}{1d5};
+
+#var character_ascii {art/Oogie-$dice.ascii};
+@PUBSUB_PUBLISH{track_toggle};
+
+food flesh;
+set warrior bot;
+set olog bot;
+
+#alias {kill_command} {
+    kill %1;
+    swing;
+}
+
+#alias {wa} {
+    wear all.glass;
+}
+
+#alias {ra} {
+    remove all.glass;
+}
+
+primary shimmering;
+hitter serpentine;
+
+#action {Mount:Tired>} {
+    #if {$bot && $BOT[current_engaged] == 0} {
+        dismount;
+        ride 2.warg;
+    }
+}{1}
+
+
+#EVENT {VARIABLE UPDATED PROMPT[tactic]} {
+    #if {"%1" == "defensive"} {
+        #var character_ascii {art/Oogie-3.ascii};
+    };
+    #if {"%1" == "careful"} {
+        #var character_ascii {art/Oogie-1.ascii};
+    };
+    #if {"%1" == "normal"} {
+        #var character_ascii {art/Oogie-2.ascii};
+    };
+    #if {"%1" == "aggressive"} {
+        #var character_ascii {art/Oogie-4.ascii};
+    };
+    #if {"%1" == "berserk"} {
+        #var character_ascii {art/Oogie-5.ascii};
+    };
+    @PUBSUB_PUBLISH{update_stats};
+}
+
+
+#class Oogie close;

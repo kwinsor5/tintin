@@ -1,0 +1,327 @@
+#class bot open;
+
+#nop required: bot.var
+
+#alias {_pause}
+{
+    #class {xbot}{kill};
+    #var BOT[stepping] 0;
+    #unticker {path_walk};
+    _get_path_data;
+    #var mobname "";
+    #alias {xx} {_pause};
+    #alias {_check_mob} {_pause};
+}
+
+#alias {_stop}
+{
+    _get_path_data;
+    #class xbot kill;
+    #alias {xx} {#nop};
+    #alias {_check_mob} {#nop};
+    #var BOT[stepping] 0;
+    #var halt 1;
+}
+
+#alias {_auto}
+{
+    #if {$BOT[auto_step]}
+    {
+        WarningMessage Disabling Auto Stepping...;
+        #var BOT[auto_step] 0;
+    };
+    #else
+    {
+        InfoMessage Enabling Auto Stepping...;
+        #var {BOT[auto_step]} {1};
+    };
+}
+
+#alias {_get_path_data}
+{
+    #if {$BOT[auto_step] && !$BOT[no_path] && !$halt}
+    {
+        #map get {roomvnum} {BOT[vnum]};
+        #path save forward BOT[path];
+        #path save position BOT[position];
+    };
+}
+
+#alias {_resume}
+{
+    #local _vnum 0;
+    #map get {roomvnum} {_vnum};
+    #if {$_vnum != $BOT[vnum] && $BOT[auto_step] && !$BOT[no_path]}
+    {
+        #map run $BOT[vnum];
+        #path load $BOT[path];
+        #path goto $BOT[position];
+    };
+
+    #var halt 0;
+    #var hardmode 0;
+    #var mobname "";
+    #var BOT[foundmob] 0;
+    #delay {1} {_bot};
+}
+
+
+#alias {hard_tactic} {#NOP;}
+#alias {careful_tactic} {#NOP;}
+#alias {normal_tactic} {#NOP;}
+#alias {kill_command} {kill %1};
+
+#EVENT {VARIABLE UPDATED BOT[failed_step]}
+{
+    #if {$BOT[failed_step] >= 5}
+    {
+        @_reset_bot{};
+    };
+}
+
+#EVENT {VARIABLE UPDATED BOT[current_engaged]}
+{
+
+    #if {!$bot || $halt}
+    {
+        #RETURN;
+    };
+
+    #if {$BOT[current_engaged] == 0}
+    {
+        _resume;
+    };
+
+    #if {$hardmode && $BOT[current_engaged] > 1}
+    {
+        hard_tactic;
+        #return;
+    };
+
+    #if {$hardmode}
+    {
+        careful_tactic;
+        #return;
+    };
+
+    #if {$BOT[current_engaged] > 2}
+    {
+        hard_tactic;
+        #return;
+    };
+
+    #if {$BOT[current_engaged] == 2}
+    {
+        careful_tactic;
+        #return;
+    };
+
+    #if {$BOT[current_engaged] == 1}
+    {
+        normal_tactic;
+    };
+}
+
+#function {_check_bot_stepping}
+{
+    #if {$bot && $BOT[auto_step] && !$BOT[no_path]}
+    {
+        #MATH {BOT[failed_step]}{$BOT[failed_step] + 1};
+    };
+    #return {#NOP};
+}
+
+#action {%1 attacks YOU!}
+{
+    #math {BOT[current_engaged]} {$BOT[current_engaged] +1};
+    #if {$bot}
+    {
+        _pause;
+    };
+}{1};
+
+#action {You attack %1!}
+{
+    #math {BOT[current_engaged]} {$BOT[current_engaged] +1};
+    #if {$bot}
+    {
+        _pause;
+    };
+}{1};
+
+#action {You leap from your cover towards %1!}
+{
+    #math {BOT[current_engaged]} {$BOT[current_engaged] +1};
+    #if {$bot}
+    {
+        _pause;
+    };
+}{1};
+
+#action {%1 slumps over dead from your fatal ambush!}
+{
+    #math {BOT[current_engaged]} {$BOT[current_engaged] +1};
+    #if {$bot}
+    {
+        _pause;
+    };
+}{1};
+
+#action {They aren't here.}
+{
+    #if {$bot}
+    {
+        _resume;
+    };
+}{1};
+
+#action {You can not do it this way.}
+{
+    #if {$bot}
+    {
+        _resume;
+    };
+}{1};
+
+#action {Ambush who?}
+{
+    #if {$bot}
+    {
+        _resume;
+    };
+}{1};
+
+#alias {_check_mob} {#NOP};
+
+#alias {..}
+{
+    #var bot 1;
+    #var halt 0;
+    #var hardmode 0;
+
+    #class {xbot} {open};
+    #alias {xx}
+    {
+        #if {!$BOT[auto_step] || $BOT[no_path] || $BOT[current_engaged] > 0}
+        {
+            #RETURN;
+        };
+        #var {BOT[foundplayer]} {0};
+        #var BOT[stepping] 1;
+        #path walk;
+    };
+
+    #alias {_check_mob}
+    {
+        #var BOT[stepping] 0;
+        #if {"$mobname" != ""}
+        {
+            #local mob_name $mobname;
+            #var BOT[foundmob] 1;
+            #var BOT[foundplayer] 0;
+            _pause;
+            kill_command $mob_name;
+        };
+    };
+    #class {xbot} {close};
+    #send look;
+};
+
+#alias {killbot} {
+    _stop;
+    #class bot kill;
+    #unalias {_bot};
+    #var bot 0;
+    #var mobname {};
+    #alias {bot %1}{#NOP};
+};
+
+#alias {_bot} {
+    #if {$halt == 0} {
+        #delay {0} {..};
+        #ticker {path_walk}{xx}{$BOT[walk_speed]};
+    };
+};
+
+#alias {_load_bot_on_run}
+{
+    #local _path_length 0;
+    #var halt 0;
+
+    #path get length {_path_length};
+
+    #if {!$_path_length}
+    {
+        #var {BOT[no_path]} {1};
+    };
+    #else
+    {
+        #var {BOT[no_path]} {0};
+    };
+
+    _bot;
+}
+
+#alias {bot %1}
+{
+    InfoMessage Loading mob list and path for tin/bot/%1.tt...;
+    #var {BOT[cycle]} {0};
+    #read {tin/bot/%1.tt};
+    #var {BOT[current_area]} {%1};
+    #path load _bot_path;
+    #local _path_length 0;
+    #var {BOT[failed_step]} {0};
+
+    #path get length {_path_length};
+
+    #if {!$_path_length}
+    {
+        #var {BOT[no_path]} {1};
+    };
+    #else
+    {
+        #var {BOT[no_path]} {0};
+    };
+
+    #if {$bot}
+    {
+        #ticker {path_walk}{xx}{$BOT[walk_speed]};
+    };
+
+    @PUBSUB_PUBLISH{bot_changed};
+};
+
+#act {#PATH WALK: #END OF PATH}
+{
+    #unticker {path_walk};
+
+    #if {$BOT[cycle] && !$BOT[reloading]}
+    {
+        #var BOT[reloading] {1};
+        run $BOT[start_location];
+    };
+    #elseif {$BOT[cycle] && $BOT[reloading]}
+    {
+        #var BOT[reloading] {0};
+        bot $BOT[current_area];
+    };
+
+    #if {$bot && $BOT[auto_step] && $BOT[reseting]}
+    {
+        #variable BOT[reseting] {0};
+        bot $BOT[current_area];
+    };
+};
+
+
+#function {_reset_bot}
+{
+    _stop;
+    fr;
+    #variable BOT[failed_step] {0};
+    #variable BOT[reseting] {1};
+    #delay {reset_bot}{run $BOT[start_location];}{60};
+    #return {#NOP};
+};
+
+#class bot close;

@@ -1,0 +1,11 @@
+#class Maga open;
+
+#var {PK[auto][track]} {1};
+
+#action {You are too exhausted to move.}
+{
+    restore Maga;
+    #map undo;
+};
+
+#class Maga close;

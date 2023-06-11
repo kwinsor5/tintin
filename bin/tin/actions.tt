@@ -1,0 +1,72 @@
+#class actions kill;
+#class actions open;
+
+
+#action {The %1 seems to be closed.}
+{
+    #map undo;
+    #var door %1;
+    #path stop;
+};
+
+
+#action {%1 is dead!  R.I.P.} {
+    #variable mob {%1};
+};
+
+#action {You receive your share of experience -- %1 points.}
+{
+    get all.coins all.corpse;
+    #if {$TOGGLE[butcher]} {
+        butcher corpse;
+    };
+    #if {$TOGGLE[recover]} {
+        recover;
+    };
+    #if {$TOGGLE[keys]} {
+        get all.keys all.corpse;
+    };
+
+    _add_xp %1;
+    #math {gains[$mob][exp]} {$gains[$mob][exp] + %1};
+    #math {gains[$mob][cnt]} {$gains[$mob][cnt] + 1};
+    #math {BOT[current_engaged]} {$BOT[current_engaged] - 1};
+};
+
+#action {PANIC!}{flee};
+
+#action {You flee head over heels.}
+{
+    #if {$bot}
+    {
+        _stop;
+        #var {BOT[current_engaged]} {0};
+        WarningMessage Healing!;
+        heal;
+    };
+    #var {MAP[first_room]} {1};
+};
+
+
+#action {You are now employing %1 tactics.}
+{
+    #var PROMPT[tactic] %1;
+};
+
+#action {You are hungry.}
+{
+    #if {$AUTO[eat]}
+    {
+        gg;
+    };
+}
+
+#action {You are thirsty.}
+{
+    #if {$AUTO[drink]}
+    {
+        #2 df;
+    };
+}
+
+#class actions close;

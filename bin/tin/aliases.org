@@ -1,0 +1,335 @@
+#+title: Aliases
+#+author: Orkbolg
+#+filetags: :tintin:aliases:
+
+* Table of Content :toc:
+- [[#class-open][class open]]
+- [[#required-files][Required Files]]
+- [[#an][an]]
+- [[#rr][rr]]
+- [[#colorpalette][colorpalette]]
+- [[#infomessage][InfoMessage]]
+- [[#warningmessage][WarningMessage]]
+- [[#ride][Ride]]
+- [[#dismount][Dismount]]
+- [[#speed-walking][Speed Walking]]
+- [[#reload][reload]]
+- [[#_reset_room_data][_reset_room_data]]
+- [[#primary][primary]]
+- [[#secondary][secondary]]
+- [[#hitter][hitter]]
+- [[#wp][wp]]
+- [[#ws][ws]]
+- [[#wt][wt]]
+- [[#flag-and-unflag-shield][Flag and Unflag Shield]]
+- [[#rip][rip]]
+- [[#class-close][class close]]
+
+* class open
+
+Will open the class and assign all objects to it.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#class aliases open;
+
+#+end_src
+
+* Required Files
+
+Below are all required files for aliases.tt to work.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#nop required: weapons.var
+#nop required: map.var
+#nop required: track.var
+
+#+end_src
+
+* an
+
+This alias set tactics to berserk and ambushes the specificed target and then sets tactics back to careful
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {an %1}
+{
+    stb;
+    ambush %1;
+    stc;
+};
+
+#+end_src
+
+* rr
+
+This will cast regeneration and vitality on a target specificed or yourself if no target is provided.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {rr}
+{
+    cast 'regeneration' %0;
+    cast 'vitality' %0;
+};
+
+#+end_src
+
+* colorpalette
+
+Will print out all colors that are support by TinTin, very useful for picking out new highlights.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {colorpalette}
+{
+    #foreach {a;b;c;d;e;f} {cnt1}
+    {
+        #foreach {a;b;c;d;e;f} {cnt2}
+        {
+            #variable result <000>;
+            #foreach {a;b;c;d;e;f} {cnt3}
+            {
+                #variable result $result  <$cnt1$cnt2$cnt3> <<888>$cnt1$cnt2$cnt3><088>
+            };
+            #showme $result
+        }
+    }
+};
+
+#+end_src
+
+* InfoMessage
+
+Used to standardize all informational messages needed to be sent to the player.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {InfoMessage %1}
+{
+    #echo {%c%s}{<F0F8>}{%1};
+};
+
+#+end_src
+
+* WarningMessage
+
+Used to standardize all warning messages needed to be sent to the player.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {WarningMessage %1}
+{
+    #echo {%c%s}{<fab>}{%1};
+};
+
+#+end_src
+
+* Ride
+
+I personally like to use peroid for riding.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {^.$}
+{
+    ride;
+};
+
+#+end_src
+
+* Dismount
+
+Comma is set to dismount
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {^,$}
+{
+    dismount;
+};
+
+#+end_src
+
+* Speed Walking
+
+By default speed walking is turned off, but you want to use it put a period in the front.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {^.%p}
+{
+    #config speedwalk on;
+    %1;
+    #config speedwalk off;
+};
+
+#+end_src
+
+* reload
+
+Will read back in all TinTin files.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {^reload$}
+{
+    #read {tin/all.tt};
+};
+
+#+end_src
+
+* _reset_room_data
+
+Put anything that needs to be reset on entering a room in here. Currently, this resets the targetting system and the tracking system.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {_reset_room_data}
+{
+    #variable {char_in_room} {0};
+    #variable {TRACK[found]} {0};
+};
+
+#+end_src
+
+* primary
+
+This is used to set the primary weapon of a character. This should be put in the profile file of character so the primary weapon is set.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {primary %1}
+{
+    #variable {WEAPON[primary]} {%1};
+};
+
+#+end_src
+
+* secondary
+
+This is used to set the secondary weapon of a character. This should be put in the profile file of character so the secondary weapon is set.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {secondary %1}
+{
+    #variable {WEAPON[secondary]} {%1};
+};
+
+#+end_src
+
+* hitter
+
+This is used to set a two-handed weapon of a character. This should be put in the profile file of character so the two-handed weapon is set.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {hitter %1}
+{
+    #variable {WEAPON[hitter]} {%1};
+};
+
+#+end_src
+
+* wp
+
+Wields the primary weapon and shield
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {wp}
+{
+    #if {!$WEAPON[shield]}
+    {
+        wear shield;
+    };
+
+    wield $WEAPON[primary];
+};
+
+#+end_src
+
+* ws
+
+Wield the secondary weapon
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {ws}
+{
+    wield $WEAPON[secondary];
+};
+
+#+end_src
+
+* wt
+
+Wield hitter and removes shield if worn
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#alias {wt}
+{
+    #if {$WEAPON[shield]}
+    {
+        rem shield;
+    };
+
+    wield $WEAPON[hitter];
+};
+
+#+end_src
+
+* Flag and Unflag Shield
+
+Actions to keep track of shield being worn.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#action {You start to use %1 as a shield.}
+{
+	#var {WEAPON[shield]}{1};
+};
+
+#action {You stop using %1 shield.}
+{
+	#var {WEAPON[shield]}{0};
+};
+
+#+end_src
+
+* rip
+
+Alias to report xp and death count.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#ALIAS {rip}
+{
+     #showme {      Average Xp       Total Xp     #   Death List, R.I.P.};
+     #showme {----------------------------------------------------------};
+     #unvariable {gains[final]};
+     #foreach {$gains[]} {mob}
+     {
+          #echo {  %+14G %+14G %+5G   %s}{$gains[$mob][exp] / $gains[$mob][cnt]}{$gains[$mob][exp]}{$gains[$mob][cnt]}{$mob};
+          #math gains[final][exp] $gains[final][exp] + $gains[$mob][exp];
+          #math gains[final][cnt] $gains[final][cnt] + $gains[$mob][cnt]
+     };
+     #showme {----------------------------------------------------------};
+     #math tmp {$gains[final][exp] / $gains[final][cnt]};
+     #echo {  %+14G %+14G %+5G}{$tmp}{$gains[final][exp]}{$gains[final][cnt]}
+};
+
+#+end_src
+
+* class close
+
+Will close the class to keep from being modified.
+
+#+begin_src tintin :tangle aliases-new.tt
+
+#class aliases close;
+
+#+end_src

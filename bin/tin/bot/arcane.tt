@@ -1,0 +1,71 @@
+#class arcane_bot open;
+
+#action {You are now using slow casting.} {
+    #var BOT[Arcane][casting] {0};
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+#action {You are now using normal casting.} {
+    #var BOT[Arcane][casting] {1};
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+#action {You are now using fast casting.} {
+    #var BOT[Arcane][casting] {2};
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+
+#alias {set auto bite}
+{
+    #if {$BOT[Beorning][auto_bite]}
+    {
+        WarningMessage Disabling Auto Bite...;
+        #var {BOT[Beorning][auto_bite]} {0};
+
+    };
+    #else
+    {
+        InfoMessage Enabling Auto Bite...;
+        #var {BOT[Beorning][auto_bite]} {1};
+    };
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+#alias {set auto rend}
+{
+    #if {$BOT[Beorning][auto_rend]}
+    {
+        WarningMessage Disabling Auto Rend...;
+        #var {BOT[Beorning][auto_rend]} {0};
+    };
+    #else
+    {
+        InfoMessage Enabling Auto Rend...;
+        #var {BOT[Beorning][auto_rend]} {1};
+    };
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+
+
+#function {_class_prompt}
+{
+    #if {$PROMPT[is_enabled] == 0}
+    {
+        #RETURN {#NOP;};
+    };
+
+    #showme {   Class: <188>Arcane<088>}{$SCREEN[prompt][first_row]}{$SCREEN[prompt][fourth_col]};
+    #showme { Casting: @_toggle_casting{$BOT[Arcane][casting]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col]};
+
+
+    #math {SCREEN[prompt][fourth_col_second]} {$SCREEN[prompt][fourth_col] + 35};
+
+
+    #return {#NOP;};
+};
+
+@PUBSUB_SUBSCRIBE{class_toggle; _class_prompt};
+
+#class arcane_bot close;

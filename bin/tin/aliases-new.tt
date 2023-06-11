@@ -1,0 +1,140 @@
+#class aliases open;
+
+#nop required: weapons.var
+#nop required: map.var
+#nop required: track.var
+
+#alias {an %1}
+{
+    stb;
+    ambush %1;
+    stc;
+};
+
+#alias {rr}
+{
+    cast 'regeneration' %0;
+    cast 'vitality' %0;
+};
+
+#alias {colorpalette}
+{
+    #foreach {a;b;c;d;e;f} {cnt1}
+    {
+        #foreach {a;b;c;d;e;f} {cnt2}
+        {
+            #variable result <000>;
+            #foreach {a;b;c;d;e;f} {cnt3}
+            {
+                #variable result $result  <$cnt1$cnt2$cnt3> <<888>$cnt1$cnt2$cnt3><088>
+            };
+            #showme $result
+        }
+    }
+};
+
+#alias {InfoMessage %1}
+{
+    #echo {%c%s}{<F0F8>}{%1};
+};
+
+#alias {WarningMessage %1}
+{
+    #echo {%c%s}{<fab>}{%1};
+};
+
+#alias {^.$}
+{
+    ride;
+};
+
+#alias {^,$}
+{
+    dismount;
+};
+
+#alias {^.%p}
+{
+    #config speedwalk on;
+    %1;
+    #config speedwalk off;
+};
+
+#alias {^reload$}
+{
+    #read {tin/all.tt};
+};
+
+#alias {_reset_room_data}
+{
+    #variable {char_in_room} {0};
+    #variable {TRACK[found]} {0};
+};
+
+#alias {primary %1}
+{
+    #variable {WEAPON[primary]} {%1};
+};
+
+#alias {secondary %1}
+{
+    #variable {WEAPON[secondary]} {%1};
+};
+
+#alias {hitter %1}
+{
+    #variable {WEAPON[hitter]} {%1};
+};
+
+#alias {wp}
+{
+    #if {!$WEAPON[shield]}
+    {
+        wear shield;
+    };
+
+    wield $WEAPON[primary];
+};
+
+#alias {ws}
+{
+    wield $WEAPON[secondary];
+};
+
+#alias {wt}
+{
+    #if {$WEAPON[shield]}
+    {
+        rem shield;
+    };
+
+    wield $WEAPON[hitter];
+};
+
+#action {You start to use %1 as a shield.}
+{
+	#var {WEAPON[shield]}{1};
+};
+
+#action {You stop using %1 shield.}
+{
+	#var {WEAPON[shield]}{0};
+};
+
+#ALIAS {rip}
+{
+     #showme {      Average Xp       Total Xp     #   Death List, R.I.P.};
+     #showme {----------------------------------------------------------};
+     #unvariable {gains[final]};
+     #foreach {$gains[]} {mob}
+     {
+          #echo {  %+14G %+14G %+5G   %s}{$gains[$mob][exp] / $gains[$mob][cnt]}{$gains[$mob][exp]}{$gains[$mob][cnt]}{$mob};
+          #math gains[final][exp] $gains[final][exp] + $gains[$mob][exp];
+          #math gains[final][cnt] $gains[final][cnt] + $gains[$mob][cnt]
+     };
+     #showme {----------------------------------------------------------};
+     #math tmp {$gains[final][exp] / $gains[final][cnt]};
+     #echo {  %+14G %+14G %+5G}{$tmp}{$gains[final][exp]}{$gains[final][cnt]}
+};
+
+#class aliases close;

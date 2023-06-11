@@ -1,0 +1,44 @@
+#class xp_tracker open;
+
+#nop required: xp_tracker.var
+#nop required: prompt.tt
+
+#ticker {xp_tracker}
+{
+    #nop Increase ticks;
+    #math {XP_TRACKER[ticks]}{$XP_TRACKER[ticks]+1};
+
+    #nop Calculate average xp her minute;
+    #local _xp_per_min {0};
+    #math {_xp_per_min}{$XP_TRACKER[current]};
+
+    #nop Check for max;
+    #if {$XP_TRACKER[max] < $_xp_per_min}
+    {
+        #var {XP_TRACKER[max]} {$_xp_per_min};
+    };
+
+    #nop Check for min;
+    #if {$XP_TRACKER[min] > $_xp_per_min}
+    {
+        #var {XP_TRACKER[min]} {$_xp_per_min};
+    };
+
+    #nop Update totals;
+    #var {XP_TRACKER[current_avg]} {$_xp_per_min};
+
+    #math {XP_TRACKER[total]}{$XP_TRACKER[total]+$XP_TRACKER[current]};
+    #var {XP_TRACKER[current]} {0};
+
+    #math {XP_TRACKER[total_avg]}{$XP_TRACKER[total_avg]+$XP_TRACKER[current_avg]};
+    #math {XP_TRACKER[overall_avg]}{$XP_TRACKER[total_avg]/$XP_TRACKER[ticks]};
+    #var {XP_TRACKER[current]}{0};
+    @_update_xp_prompt{};
+}{60};
+
+#alias {_add_xp %1}
+{
+    #math {XP_TRACKER[current]}{$XP_TRACKER[current]+%1};
+};
+
+#class xp_tracker close;

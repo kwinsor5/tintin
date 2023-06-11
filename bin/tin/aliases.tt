@@ -1,0 +1,214 @@
+#class aliases open;
+
+#nop required: weapons.var
+#nop required: map.var
+#nop required: track.var
+
+#var food;
+
+#alias {an %1} {stb;ambush %1;stc}
+
+#alias {updateStatSum %1}
+{
+	#math {statsum} {$statsum + %1};
+};
+
+#alias {rr} {
+	cast 'regeneration' %0;
+	cast 'vitality' %0;
+}
+
+#alias {colorpalette}
+{
+     #foreach {a;b;c;d;e;f} {cnt1}
+     {
+          #foreach {a;b;c;d;e;f} {cnt2}
+          {
+               #variable result <000>;
+               #foreach {a;b;c;d;e;f} {cnt3}
+               {
+                    #variable result $result  <$cnt1$cnt2$cnt3> <<888>$cnt1$cnt2$cnt3><088>
+               };
+               #showme $result
+          }
+     }
+}
+
+
+#nop Info Message;
+#alias {InfoMessage %1} {
+    #echo {%c%s}{<F0F8>}{%1};
+}
+
+#nop Warning Message
+#alias {WarningMessage %1} {
+    #echo {%c%s}{<fab>}{%1};
+}
+
+#nop Ride
+#alias {^.$} {
+    ride;
+}
+
+#nop Dismount
+#alias {^,$} {
+    dismount;
+}
+
+#nop Speed Walk
+#alias {^.%p} {
+    #config speedwalk on;
+    %1;
+    #config speedwalk off;
+}
+
+#nop Reload All
+#alias {^reload$} {
+    #read {tin/all.tt}
+}
+
+#nop Reset Room Data
+#alias {_reset_room_data} {
+	#math {char_in_room}{$char_in_room=0};
+    #var {TRACK[found]} {0};
+};
+
+#nop Set Primary Weapon
+#alias {primary %1}
+{
+	#var {WEAPON[primary]}{%1};
+}
+
+#nop Set Secondary Weapon
+#alias {secondary %1}
+{
+	#var {WEAPON[secondary]}{%1};
+}
+
+#nop Set Hitter Weapon
+#alias {hitter %1}
+{
+	#var {WEAPON[hitter]}{%1};
+}
+
+#nop Wield Primary Weapon
+#alias {wp}
+{
+	wield $WEAPON[primary];
+	#if {$WEAPON[shield] == 0}
+	{
+		wear shield;
+		#var {WEAPON[shield]}{1};
+	};
+}
+
+#nop Wield Secondary Weapon
+#alias {ws}
+{
+	wield $WEAPON[secondary];
+	#if {$WEAPON[shield] == 0}
+	{
+		wear shield;
+		#var {WEAPON[shield]}{1};
+	};
+}
+
+#nop Wield Hitter Weapon
+#alias {wt}
+{
+	#if {$WEAPON[shield] == 1}
+	{
+		rem shield;
+		wield $WEAPON[hitter];
+		#var {WEAPON[shield]}{0};
+	};
+	#else
+	{
+		wield $WEAPON[hitter];
+	};
+}
+
+#nop Flag and Unflag Shield
+#action {You start to use %1 as a shield.}
+{
+	#var {WEAPON[shield]}{1};
+}
+
+#action {You stop using %1 shield.}
+{
+	#var {WEAPON[shield]}{0};
+}
+
+#alias {food %1} {#var food %1}
+#alias {gg} {get $food all;eat $food}
+
+#alias {od} {open $door}
+#alias {cd} {close $door}
+#alias {pd} {pick $door}
+#alias {kd} {knock $door}
+#alias {kg} {knock $door}
+#alias {ud} {unlock $door}
+#alias {ld} {lock $door}
+
+
+#alias {OrcOn}
+{
+	#read {tin/orc.tt};
+};
+
+#alias {OrcOff}
+{
+	#class orc kill;
+};
+
+#alias {FarothOn}
+{
+    #show {Faroth Exists On};
+	#read {tin/exits/faroth.tt};
+};
+
+#alias {FarothOff}
+{
+    #show {Faroth Exists Off};
+	#class faroth kill;
+};
+
+#alias {ValeOn}
+{
+    #show {Vale Exists On};
+	#read {tin/exits/vale.tt};
+};
+
+#alias {ValeOff}
+{
+    #show {Vale Exists Off};
+	#class vale kill;
+};
+
+#ALIAS {rip}
+{
+     #showme {      Average Xp       Total Xp     #   Death List, R.I.P.};
+     #showme {----------------------------------------------------------};
+     #unvariable {gains[final]};
+     #foreach {*gains[]} {mob}
+     {
+          #echo {  %+14G %+14G %+5G   %s}{$gains[$mob][exp] / $gains[$mob][cnt]}{$gains[$mob][exp]}{$gains[$mob][cnt]}{$mob};
+          #math {gains[final][exp]} {$gains[final][exp] + $gains[$mob][exp]};
+          #math {gains[final][cnt]} {$gains[final][cnt] + $gains[$mob][cnt]};
+     };
+     #showme {----------------------------------------------------------};
+     #math tmp {$gains[final][exp] / $gains[final][cnt]};
+     #echo {  %+14G %+14G %+5G}{$tmp}{$gains[final][exp]}{$gains[final][cnt]}
+};
+
+#alias {RescueOn}
+{
+    #action {turns to fight %1!}{rescue %1}
+}
+
+#alias {RescueOff}
+{
+    #unaction {turns to fight %1!}
+}
+
+#class aliases close;

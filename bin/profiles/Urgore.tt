@@ -1,0 +1,54 @@
+#class Urgore kill;
+#class Urgore open;
+
+#var my[art][override] {1};
+#var character_ascii {art/Urgore.ascii};
+
+food flesh;
+set arcane bot;
+set casting slow;
+primary oily;
+secondary knife;
+hitter gnarled;
+std;
+
+#alias {heal} {
+    #var BOT[healing] 1
+    _pause;
+    cast regen;
+    cast vit;
+    set casting normal;
+    #3 cast 'cure self';
+    #delay {healing}{_resume;#var BOT[healing] 0}{25};
+}
+
+#tick {passive_heal} {
+    #if {!$bot} {
+        #return;
+    };
+
+    #math {hp_per} {100*$my[hp][current]/$my[hp][max]};
+
+    #if {$BOT[current_engaged] == 0 && $hp_per <= 55 && !$BOT[healing]} {
+        InfoMessage Passive Healing Triggered...
+        heal;
+    };
+}{5};
+
+#alias {hard_tactic} {
+    set casting fast;
+    #2 p;
+}
+
+#alias {careful_tactic} {
+    set casting normal;
+    #2 p;
+}
+
+#alias {normal_tactic} {
+    set casting slow;
+    #2 p;
+}
+
+
+#class Urgore close;

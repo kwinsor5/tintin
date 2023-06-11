@@ -1,0 +1,50 @@
+#class tracker_prompt open;
+
+
+#function {_tracker_prompt}
+{
+    #if {$PROMPT[is_enabled] == 0}
+    {
+        #RETURN {#NOP;};
+    };
+
+    #screen clear square $SCREEN[prompt][first_row] $SCREEN[prompt][second_col] $SCREEN[prompt][first_row] $SCREEN[prompt][second_divider]-1;
+
+    #showme {  Target: <188>$TARGET[target]<088>}{$SCREEN[prompt][first_row]}{$SCREEN[prompt][second_col]};
+    #showme {   Track: @_toggle_button{$PK[auto][track]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][second_col]};
+    #button {$SCREEN[prompt][third_row];$SCREEN[prompt][second_col];$SCREEN[prompt][third_row]+1;$SCREEN[prompt][second_col]+15}{
+        #if {$PK[auto][track]} {
+            #variable PK[auto][track] {0};
+            #variable TRACK[active] {0};
+            #showme {   Track: @_toggle_button{$PK[auto][track]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][second_col]};
+
+        };
+        #else {
+            #variable PK[auto][track] {1};
+            #variable TRACK[active] {1};
+            #showme {   Track: @_toggle_button{$PK[auto][track]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][second_col]};
+        };
+    };
+
+    #showme {  Engage: @_toggle_button{$PK[auto][engage]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][second_col]};
+    #button {$SCREEN[prompt][fifth_row];$SCREEN[prompt][second_col];$SCREEN[prompt][fifth_row]+1;$SCREEN[prompt][second_col]+15}{
+        #if {$PK[auto][engage]} {
+            #variable PK[auto][engage] {0};
+            #showme {  Engage: @_toggle_button{$PK[auto][engage]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][second_col]};
+
+        };
+        #else {
+            #variable PK[auto][engage] {1};
+            #showme {  Engage: @_toggle_button{$PK[auto][engage]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][second_col]};
+        };
+    };
+
+
+    #return {#nop;};
+};
+
+
+@PUBSUB_SUBSCRIBE{screen_changed; _tracker_prompt;};
+@PUBSUB_SUBSCRIBE{track_toggle; _tracker_prompt;};
+
+#class tracker_prompt close;

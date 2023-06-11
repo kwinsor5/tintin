@@ -1,0 +1,47 @@
+#CLASS {Naneel} OPEN
+
+primary short;
+secondary fang;
+hitter spear;
+food waybread;
+
+#var {PK[auto][track]} {1};
+#var {PK[auto][engage]} {1};
+
+#ALIAS {^heal$}
+{
+    #5 cast 'cure self';
+    #if {$bot && $BOT[auto_step]}
+    {
+        #delay {healing}{_resume}{120};
+    };
+}
+
+#ALIAS {ra}
+{
+    wear all.cotton;
+    wear sandals;
+    wear shiny
+}
+
+#ALIAS {wa}
+{
+    wear all.mail
+}
+
+#alias {hard_tactic}
+{
+    set tac def;
+}
+
+#alias {careful_tactic}
+{
+    set tac careful;
+}
+
+#alias {normal_tactic}
+{
+    set tac normal;
+}
+
+#CLASS {Naneel} CLOSE

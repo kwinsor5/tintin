@@ -1,0 +1,82 @@
+#CLASS {bot_path} OPEN
+
+#var BOT[title] {Bone Structure};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A cave troll is standing here, pounding his two huge fists together."}
+        {
+            #variable mobname cave;
+            #break
+        };
+        #case {"A large grey troll grumbles ominously here."}
+        {
+            #variable mobname troll;
+            #break
+        };
+        #case {"A brown, angry-looking bear is padding around here."}
+        {
+            #variable mobname bear;
+            #break
+        };
+        #case {"A gigantic crystalline worm emerges from the dark soil."}
+        {
+            #variable mobname worm;
+            #break
+        };
+        #case {"A dark-haired bear prowls around here."}
+        {
+            #variable mobname bear;
+            #break
+        };
+        #case {"A massive crystalline crawler stalks around in search of food."}
+        {
+            #variable mobname crawler;
+            #break
+        };
+        #case {"A huge tiger beetle stands here drooling at the mouth."}
+        {
+            #variable mobname beetle;
+            #break
+        };
+        #case {"A large black snake is coiled up here, gazing at you intently."}
+        {
+            #variable mobname snake;
+            #break
+        };
+        #case {"A large white scorpion carefully searches the area as it tracks its prey."}
+        {
+            #variable mobname scorpion;
+            #variable hardmode 1;
+            #break
+        };
+        #case {"A massive silvery toad stares at you with hunger in its eyes."}
+        {
+            #variable mobname toad;
+            #break
+        };
+        #case {"A gigantic, black orcish warrior patrols the tunnels here."}
+        {
+            #variable mobname orc;
+            #break
+        };
+        #case {"A huge, bulky troll sits in the corner, slowly eating an old corpse."}
+        {
+            #variable mobname troll;
+            #variable hardmode 1;
+            #break
+        };
+        #case {"A massive crystalline spider stands here, chattering its teeth. (hiding)"}
+        {
+            #variable mobname spider;
+            #break
+        }
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {s;s;w;n;w;e;n;n;s;w;w;e;e;s;s;e;s;n;e;n;e;w;n;n;s;e;e;s;d;n;n;e;e;s;w;e;e;n;e;e;w;w;s;w;w;e;s;w;e;e;s;e;n;n;s;e;s;d;s;e;e;w;w;s;e;w;s;e;e;w;w;s;n;n;w;s;s;n;n;n;n;s;w;s;w;s;e;d;n;e;e;e;e;s;n;w;w;s;s;e;n;s;w;w;n;s;e;s;e;s;n;w;w;s;n;e;s;s;d;s;s;s;w;n;n;n;w;e;s;s;w;n;s;s;n;e;s;e;n;n;e;s;s;e;w;n;n;e;n;w;d;w;n;w;e;n;s;e;n;n;e;e;s;w;s;e;s;n;w;n;e;e;s;e;w;s;n;n;w;n;w;w;s;s;s;u;e;s;w;w;n;u;n;n;n;n;n;w;w;s;u;w;n;e;n;e;s;e;n;n;u;n;w;s;w;n;w;n;n;w;w;s;s;u;n;w;w;s;s;w;n;n;u}
+
+#CLASS {bot_path} CLOSE

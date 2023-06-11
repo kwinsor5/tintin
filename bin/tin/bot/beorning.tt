@@ -1,0 +1,127 @@
+#class beorning_bot open;
+
+#action {Your bash at %1 sends %2 sprawling.}
+{
+    #if {$BOT[Beorning][auto_rend]}
+    {
+        rend;
+    };
+};
+
+#action {You lunge forward biting %1 neck!}
+{
+    #if {$BOT[Beorning][auto_bite]}
+    {
+        bite;
+    }
+};
+
+#action {%1 avoids your attempt to bite them.}
+{
+    #if {$BOT[Beorning][auto_bite]}
+    {
+        bite;
+    }
+};
+
+#alias {set auto bite}
+{
+    #if {$BOT[Beorning][auto_bite]}
+    {
+        WarningMessage Disabling Auto Bite...;
+        #var {BOT[Beorning][auto_bite]} {0};
+
+    };
+    #else
+    {
+        InfoMessage Enabling Auto Bite...;
+        #var {BOT[Beorning][auto_bite]} {1};
+    };
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+#alias {set auto rend}
+{
+    #if {$BOT[Beorning][auto_rend]}
+    {
+        WarningMessage Disabling Auto Rend...;
+        #var {BOT[Beorning][auto_rend]} {0};
+    };
+    #else
+    {
+        InfoMessage Enabling Auto Rend...;
+        #var {BOT[Beorning][auto_rend]} {1};
+    };
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+
+
+#function {_class_prompt}
+{
+    #if {$PROMPT[is_enabled] == 0}
+    {
+        #RETURN {#NOP;};
+    };
+
+    #showme {   Class: <188>Beorning<088>}{$SCREEN[prompt][first_row]}{$SCREEN[prompt][fourth_col]};
+    #showme {    Bash: @_toggle_button{$BOT[Warrior][auto_bash]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col]};
+    #button {$SCREEN[prompt][third_row];$SCREEN[prompt][fourth_col];$SCREEN[prompt][third_row]+1;$SCREEN[prompt][fourth_col]+15}{
+        #if {$BOT[Warrior][auto_bash]} {
+            #variable BOT[Warrior][auto_bash] {0};
+            #showme {    Bash: @_toggle_button{$BOT[Warrior][auto_bash]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col]};
+
+        };
+        #else {
+            #variable BOT[Warrior][auto_bash] {1};
+            #showme {    Bash: @_toggle_button{$BOT[Warrior][auto_bash]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col]};
+        };
+    };
+
+    #showme {    Bite: @_toggle_button{$BOT[Beorning][auto_bite]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][fourth_col]};
+    #button {$SCREEN[prompt][fifth_row];$SCREEN[prompt][fourth_col];$SCREEN[prompt][fifth_row]+1;$SCREEN[prompt][fourth_col]+15}{
+        #if {$BOT[Beorning][auto_bite]} {
+            #variable BOT[Beorning][auto_bite] {0};
+            #showme {    Bite: @_toggle_button{$BOT[Beorning][auto_bite]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][fourth_col]};
+
+        };
+        #else {
+            #variable BOT[Beorning][auto_bite] {1};
+            #showme {    Bite: @_toggle_button{$BOT[Beorning][auto_bite]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][fourth_col]};
+        };
+    };
+
+    #math {SCREEN[prompt][fourth_col_second]} {$SCREEN[prompt][fourth_col] + 18};
+
+    #showme {    Rend: @_toggle_button{$BOT[Beorning][auto_rend]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col_second]};
+    #button {$SCREEN[prompt][third_row];$SCREEN[prompt][fourth_col_second];$SCREEN[prompt][third_row]+1;$SCREEN[prompt][fourth_col_second]+15}{
+        #if {$BOT[Beorning][auto_rend]} {
+            #variable BOT[Beorning][auto_rend] {0};
+            #showme {    Rend: @_toggle_button{$BOT[Beorning][auto_rend]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col_second]};
+
+        };
+        #else {
+            #variable BOT[Beorning][auto_rend] {1};
+            #showme {    Rend: @_toggle_button{$BOT[Beorning][auto_rend]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][fourth_col_second]};
+        };
+    };
+
+    #showme {    Maul: @_toggle_button{$BOT[Beorning][auto_maul]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][fourth_col_second]};
+    #button {$SCREEN[prompt][fifth_row];$SCREEN[prompt][fourth_col_second];$SCREEN[prompt][fifth_row]+1;$SCREEN[prompt][fourth_col_second]+15}{
+        #if {$BOT[Beorning][auto_maul]} {
+            #variable BOT[Beorning][auto_maul] {0};
+            #showme {    Maul: @_toggle_button{$BOT[Beorning][auto_maul]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][fourth_col_second]};
+
+        };
+        #else {
+            #variable BOT[Beorning][auto_maul] {1};
+            #showme {    Maul: @_toggle_button{$BOT[Beorning][auto_maul]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][fourth_col_second]};
+        };
+    };
+
+    #return {#NOP;};
+};
+
+@PUBSUB_SUBSCRIBE{class_toggle; _class_prompt};
+
+#class beorning_bot close;

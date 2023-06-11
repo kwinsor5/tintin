@@ -1,0 +1,94 @@
+#class fast_layout kill;
+#class fast_layout open;
+
+#var layout 0;
+
+#macro {\e[24~} {
+
+    #if {$layout} {
+        WarningMessage Disabling Fast Layout!!!;
+        #class layout kill;
+        #var layout 0;
+    };
+    #else {
+        enable_layout;
+        WarningMessage Enabling Fast Layout!!!;
+        #var layout 1;
+    };
+}
+
+#alias {enable_layout} {
+    #class layout kill;
+    #class layout open;
+
+    #macro {w} {
+        #send n;
+    };
+
+    #macro {d} {
+        #send e;
+    };
+
+    #macro {a} {
+        #send w;
+    };
+
+    #macro {s} {
+        #send s;
+    };
+
+    #macro {e} {
+        #send u;
+    };
+
+    #macro {q} {
+        #send d;
+    };
+
+    #macro {f} {
+        #if {$PROMPT[tactic] == "berserk"} {
+            #send set tac def;
+        };
+        #send flee;
+    };
+
+    #macro {k} {
+        kt;
+    };
+
+    #macro {t} {
+        #send track;
+    };
+
+    #macro {j} {
+        qt;
+    };
+
+    #macro {p} {
+        pt;
+    };
+
+    #macro {n} {
+        ct;
+    };
+
+    #macro {l} {
+        #send look;
+    };
+
+    #macro {'} {
+        #send search;
+    };
+
+    #macro {.} {
+        #send ride;
+    };
+
+    #macro {,} {
+        #send dismount;
+    };
+
+    #class layout close;
+};
+
+#class fast_layout close;

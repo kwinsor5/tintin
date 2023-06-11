@@ -1,0 +1,17 @@
+#nop Neia configuration
+
+#class Neia open
+
+food waybread;
+primary twilight;
+hitter longbow;
+secondary moon;
+
+#alias {kill_command}
+{
+    h;
+    ambush %1;
+    ofa;
+}
+
+#class Neia close

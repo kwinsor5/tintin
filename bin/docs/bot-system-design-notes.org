@@ -1,0 +1,41 @@
+* Bot System Design Notes
+
+This is design notes for a bot system for the MUD Return of the Shadow.
+
+** Events
+
+*** Reset Room Data
+
++ Entering a room on the map should reset the bot system to a default state.
+
+*** Mob Name
+
++ The targetting system should pass in the names of the mobs and check to see if they are a valid bot target.
+
++ If a valid target is found attack the target
+
+  + This should pause the bot system.
+
+*** Getting Attacked
+
++ Getting attacked should pause the bot system.
+
++ Multiple attacks should change tactics
+
+  + Create a variable event to change tactics based on the number of mob currently engaged with.
+
+*** Attacking
+
++ Attacking a mob should pause the bot system
+
+*** Mob Death
+
++ After a mob dies it should resume the bot system, only if you aren't currently engaged with multiple targets.
+
+  + After resuming we should re-examine the room for more mobs
+
+    + If playerfound then move forward.
+
+*** Nothing
+
++ We didn't find anything move forward.

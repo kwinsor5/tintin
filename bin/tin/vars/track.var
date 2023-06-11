@@ -1,0 +1,28 @@
+#class trackvars open;
+
+#var {TRACK}
+{
+    {target}{}
+    {mount}{}
+    {active}{0}
+    {found}{0}
+    {tracks}
+    {
+        {fresh}{10}
+        {very clear}{9}
+        {clear}{8}
+        {quite clear}{7}
+        {distinctive}{6}
+        {weathering}{5}
+        {weathered}{4}
+        {very poor}{3}
+        {barely recognisable}{2}
+        {unclear}{1}
+    }
+    {target_direction}{}
+};
+
+#var max_weight 0;
+#var track_direction "";
+
+#class trackvars close;

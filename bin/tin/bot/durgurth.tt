@@ -1,0 +1,36 @@
+#CLASS {bot_path} OPEN
+
+#var BOT[title] {Durgurth Keep};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A hardened wraith hovers here."}
+        {
+            #variable mobname wraith;
+            #break
+        };
+        #case {"A heavy suit of armour stands here wielding a broadsword."}
+        {
+            #variable mobname suit;
+            #break
+        };
+        #case {"A carangoroth lurches towards you."}
+        {
+            #variable mobname carangoroth;
+            #break
+        };
+        #case {"The skeletal, wight, form of the lord of Durgurth sits here."}
+        {
+            #variable mobname wight;
+            #variable hardmode 1;
+            #break
+        }
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {dismount;s;e;w;w;e;s;e;s;s;n;n;w;w;s;s;d;e;n;n;n;n;s;s;s;s;d;e;w;w;e;n;n;d;w;n;w;s;s;e;e;w;s;e;s;e;w;n;w;d;e;e;e;e;e;w;w;w;w;w;u;n;u;e;n;u;w;u;n;e;s;u;n;#5 pick oak;n;s;s;d;n;n;n;n;ride}
+
+#CLASS {bot_path} CLOSE

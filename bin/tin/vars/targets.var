@@ -1,0 +1,9 @@
+#class targetvars open;
+
+#var {TARGET}
+{
+    {active}{0}
+    {target}{}
+}
+
+#class targetvars close;

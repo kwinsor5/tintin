@@ -1,0 +1,4 @@
+#EVENT {PROGRAM START}
+{
+    #session {rots} {rotsmud.org} {3791} {tin/all.tt};
+};

@@ -1,0 +1,34 @@
+#nop {== Macros}
+#class macros open;
+
+#nop required: pathvars;
+
+#MACRO {\el} {@PUBSUB_PUBLISH{macro_mapoffset; {-1; 0; 0}}};
+#MACRO {\eh} {@PUBSUB_PUBLISH{macro_mapoffset; {1; 0; 0}}};
+#MACRO {\ej} {@PUBSUB_PUBLISH{macro_mapoffset; {0; -1; 0}}};
+#MACRO {\ek} {@PUBSUB_PUBLISH{macro_mapoffset; {0; 1; 0}}};
+#MACRO {\er} {@PUBSUB_PUBLISH{macro_mapoffset; {0; 0; 0}}};
+
+#MACRO {\} {#path walk forward;};
+
+#nop {
+    Key F5
+    Used to cycle between travelling speeds.
+};
+#MACRO {\e[15~} {
+    #if {$PATHS[current_mode] == 3} {
+        #var {PATHS[current_mode]} {1};
+        set run norm;
+    };
+    #else {
+        #math {PATHS[current_mode]}{$PATHS[current_mode]+1};
+        #if {$PATHS[current_mode] == 2} {
+            set run fast;
+        };
+        #else {
+            set run slow;
+        };
+    };
+}
+
+#class macros close;

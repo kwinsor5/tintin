@@ -1,0 +1,93 @@
+#CLASS {olog} OPEN
+
+#ACTION {You arch back and swing your weapon with great velocity!}
+{
+    #var BOT[Olog][cleave_ready] {0};
+    #var BOT[current_engaged] {0};
+    #delay {cleave}{#echo {<fca>--->CLEAVE READY!<---}; #var BOT[Olog][cleave_ready] {1};}{31};
+    #delay {26}{#echo {<fca>--->CLEAVE 5 SECONDS!<---}};
+}
+
+#ACTION {You enter a frenzied state, filling your body with overwhelming power!}
+{
+    #var BOT[Olog][frenzy_ready] {0};
+    #delay {frenzy}{#echo {<faa>--->FRENZY READY!<---}; #var BOT[Olog][frenzy_ready] {1};}{601};
+    #delay {556}{#echo {<faa>--->FRENZY 5 SECONDS!<---}};
+}
+
+#ACTION {You jump into the air and slam down feet first onto the ground!}
+{
+    #var BOT[Olog][stomp_ready] {0};
+    #var BOT[current_engaged] {0};
+    #delay {stomp}{#echo {<acf>--->STOMP READY!<---}; #var BOT[Olog][stomp_ready] {1};}{61};
+    #delay {56}{#echo {<acf>--->STOMP 5 SECONDS!<---}};
+}
+
+#ACTION {You smash %1 face in, with your mighty blow!}
+{
+    #var BOT[Olog][smash_ready] {0};
+    #delay {smash}{#echo {<afc>--->SMASH READY!<---}; #var BOT[Olog][smash_ready] {1};}{61};
+    #delay {56}{#echo {<afc>--->SMASH 5 SECONDS!<---}};
+}
+
+#ACTION {%1 dodges out of the way, against your attempt to smash} {
+    #var BOT[Olog][smash_ready] {0};
+    #delay {smash}{#echo {<afc>--->SMASH READY!<---}; #var BOT[Olog][smash_ready] {1};}{61};
+    #delay {56}{#echo {<afc>--->SMASH 5 SECONDS!<---}};
+}
+
+#ACTION {You slam %1 to the ground, smashing %2 head into a pile of mush!}
+{
+    #var BOT[Olog][smash_ready] {0};
+    #delay {smash}{#echo {<afc>--->SMASH READY!<---}; #var BOT[Olog][smash_ready] {1};}{61};
+    #delay {56}{#echo {<afc>--->SMASH 5 SECONDS!<---}};
+}
+
+#ALIAS {cos}
+{
+    cleave;
+    #delay {3}{stomp};
+    #delay {6}{smash;swing}
+}
+
+#ALIAS {cp}
+{
+    cleave;
+    swing %0
+}
+
+#ALIAS {ocs}
+{
+    stomp;
+    #delay {3}{cleave};
+    #delay {6}{smash;swing}
+}
+
+#ALIAS {op}
+{
+    stomp;
+    swing %0
+}
+
+#ALIAS {soc}
+{
+    smash;
+    #delay {3}{stomp};
+    #delay {6}{cleave;swing}
+}
+
+#ALIAS {sp}
+{
+    smash %0;
+    swing %0
+}
+
+#ALIAS {scp}
+{
+    swing %0;
+    cleave;
+    swing %0;
+}
+
+
+#CLASS {olog} CLOSE

@@ -1,0 +1,31 @@
+#nop Mura configuration
+
+#class Mura open
+
+food flesh;
+primary dragon;
+hitter longbow;
+secondary moon;
+
+#alias {kill_command}
+{
+    h;
+    ambush %1;
+}
+
+#alias {hard_tactic}
+{
+    order follower assist Mura;
+}
+
+#alias {careful_tactic}
+{
+    order follower assist Mura;
+}
+
+#alias {normal_tactic}
+{
+    order follower assist Mura;
+}
+
+#class Mura close

@@ -1,0 +1,31 @@
+#CLASS {bot_path} OPEN
+
+#var BOT[title] {Troll Matron};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A stony-fisted troll lumbers about here."}
+        {
+            #variable mobname troll;
+            #break
+        };
+        #case {"A massive grey spider rests its bloated body here"}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"The massive troll matron rests her bulk here."}
+        {
+            #variable mobname troll;
+            #variable hardmode 1;
+            #break
+        }
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {e;d;s;w;e;n;u;w;w;d;w;e;u;e;ride;n}
+
+#CLASS {bot_path} CLOSE

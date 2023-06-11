@@ -1,0 +1,31 @@
+#CLASS {bot_path} OPEN
+
+#variable BOT[start_location] {2518};
+#var BOT[title] {Spider Webs};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"An ugly spider crouches in the shadows. (hiding)"}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A huge wolf spider is here hunting for prey."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A twisted black spider is here waiting for dinner."}
+        {
+            #variable mobname spider;
+            #break
+        }
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {u;w;w;w;e;e;s;w;e;n;e;d}
+
+#CLASS {bot_path} CLOSE

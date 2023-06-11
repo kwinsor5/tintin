@@ -1,0 +1,96 @@
+#class paths open;
+
+#nop required: paths.var
+
+#UNPATHDIR {ne};
+#UNPATHDIR {nw};
+#UNPATHDIR {se};
+#UNPATHDIR {sw};
+
+
+#alias {^set run fast$}
+{
+   #show {<F0F8>Setting Travelling Speed Fast...};
+   #var {PATHS[current_speed]} {$PATHS[run_speed][fast]};
+};
+
+
+#alias {^set run norm$}
+{
+   #show {<F0F8>Setting Travelling Speed Normal...};
+   #var {PATHS[current_speed]} {$PATHS[run_speed][normal]};
+};
+
+
+#alias {^set run slow$}
+{
+   #show {<F0F8>Setting Travelling Speed Slow...};
+   #var {PATHS[current_speed]} {$PATHS[run_speed][slow]};
+};
+
+
+#alias {^run %1}
+{
+    #showme {<F0F8>Running to %1...};
+    #map find {%1};
+    #if {$bot && $BOT[auto_step]}
+    {
+        _load_bot_on_run;
+        #RETURN;
+    };
+    #var {PATHS[running]} {1};
+    #path run {$PATHS[current_speed]};
+};
+
+#alias {^fr %1$}
+{
+    #showme {<F0F8>Running to room %1...};
+    #map find {roomname}{%1};
+    #var {PATHS[running]} {1};
+    #path run {$PATHS[current_speed]};
+}
+
+
+#alias {create path}
+{
+    #PATHDIR {dismount} {ride} {0};
+    #PATHDIR {ride} {dismount} {0};
+    #var PATHS[creating] {1};
+
+    #path create;
+    #path start;
+
+};
+
+#alias {path stop}
+{
+    #UNPATHDIR {dismount};
+    #UNPATHDIR {ride};
+    #var PATHS[creating] {0};
+
+    #path stop;
+}
+
+#alias {step back}
+{
+    #path delete;
+    #path start;
+}
+
+#alias {save bot path}
+{
+    #class bot_path open;
+    #path save forward _bot_path;
+    #class bot_path close;
+    #class {bot_path} {write} {tin/bot/$BOT[current_area].tt};
+};
+
+#alias {save path %1}
+{
+    #class pathvars open;
+    #path save forward PATHS[%1];
+    #class pathvars close;
+    #class {pathvars} {write} {tin/vars/paths.var};
+}
+
+#class paths close;

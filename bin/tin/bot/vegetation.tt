@@ -1,0 +1,24 @@
+#class bot_path open;
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A large black snake is coiled up here, gazing at you intently."}
+        {
+            #variable mobname snake;
+            #break
+        };
+        #case {"A massive dark snake is coiled in the shadows here."}
+        {
+            #variable mobname snake;
+            #var hardmode 1;
+            #break
+        };
+    };
+    _check_mob
+};
+
+#var {_bot_path} {};
+
+#class bot_path close;

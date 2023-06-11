@@ -1,0 +1,30 @@
+#CLASS {bot_path} OPEN
+
+#variable BOT[start_location] {2345};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A big humanoid figure all covered with mud is here."}
+        {
+            #variable mobname troll;
+            #break
+        };
+        #case {"A large wild troll is here, green skinned and angry."}
+        {
+            #variable mobname troll;
+            #break
+        };
+        #case {"A hunched forest troll moves around here, arms dragging on the ground."}
+        {
+            #variable mobname troll;
+            #break;
+        };
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {w;s;s;w;u;s;s;w;w;n;n;e;n;e;s;d;e;n;n;e}
+
+#CLASS {bot_path} CLOSE

@@ -1,0 +1,72 @@
+#class bot_prompt open;
+
+#function {_bot_prompt}
+{
+    #if {$PROMPT[is_enabled] == 0}
+    {
+        #RETURN {#NOP;};
+    };
+
+    #screen clear square $SCREEN[prompt][first_row] $SCREEN[prompt][third_col] $SCREEN[prompt][first_row] $SCREEN[prompt][third_divider]-1;
+
+    #showme {    Area: <188>$BOT[title]<088>}{$SCREEN[prompt][first_row]}{$SCREEN[prompt][third_col]};
+    #showme {  Attack: @_toggle_button{$bot}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][third_col]};
+    #button {$SCREEN[prompt][third_row];$SCREEN[prompt][third_col];$SCREEN[prompt][third_row]+1;$SCREEN[prompt][third_col]+15}{
+        #if {$bot} {
+            #variable bot {0};
+                #showme {  Attack: @_toggle_button{$bot}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][third_col]};
+
+        };
+        #else {
+            #variable bot {1};
+                #showme {  Attack: @_toggle_button{$bot}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][third_col]};
+        };
+    };
+
+    #showme {    Move: @_toggle_button{$BOT[auto_step]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][third_col]};
+    #button {$SCREEN[prompt][fifth_row];$SCREEN[prompt][third_col];$SCREEN[prompt][fifth_row]+1;$SCREEN[prompt][third_col]+15}{
+        #if {$BOT[auto_step]} {
+            #variable BOT[auto_step] {0};
+            #showme {    Move: @_toggle_button{$BOT[auto_step]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][third_col]};
+
+        };
+        #else {
+            #variable BOT[auto_step] {1};
+            #showme {    Move: @_toggle_button{$BOT[auto_step]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][third_col]};
+        };
+    };
+
+    #math {SCREEN[prompt][third_col_second]} {$SCREEN[prompt][third_col] + 18};
+
+    #showme {     Bot: @_toggle_button{$TOGGLE[bot]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][third_col_second]};
+    #button {$SCREEN[prompt][third_row];$SCREEN[prompt][third_col_second];$SCREEN[prompt][third_row]+1;$SCREEN[prompt][third_col_second]+15}{
+        #if {$TOGGLE[bot]} {
+            #variable TOGGLE[bot] {0};
+            #showme {     Bot: @_toggle_button{$TOGGLE[bot]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][third_col_second]};
+
+        };
+        #else {
+            #variable TOGGLE[bot] {1};
+            #showme {     Bot: @_toggle_button{$TOGGLE[bot]}}{$SCREEN[prompt][third_row]}{$SCREEN[prompt][third_col_second]};
+        };
+    };
+
+    #showme {   Cycle: @_toggle_button{$BOT[cycle]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][third_col_second]};
+    #button {$SCREEN[prompt][fifth_row];$SCREEN[prompt][third_col_second];$SCREEN[prompt][fifth_row]+1;$SCREEN[prompt][third_col_second]+15}{
+        #if {$BOT[cycle]} {
+            #variable BOT[cycle] {0};
+            #showme {   Cycle: @_toggle_button{$BOT[cycle]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][third_col_second]};
+
+        };
+        #else {
+            #variable BOT[cycle] {1};
+            #showme {   Cycle: @_toggle_button{$BOT[cycle]}}{$SCREEN[prompt][fifth_row]}{$SCREEN[prompt][third_col_second]};
+        };
+    };
+
+    #RETURN {#NOP;};
+}
+
+@PUBSUB_SUBSCRIBE{bot_changed; _bot_prompt};
+
+#class bot_prompt close;

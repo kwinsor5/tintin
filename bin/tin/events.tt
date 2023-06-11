@@ -1,0 +1,73 @@
+#class events open
+
+#EVENT {PRESSED SECURE LINK TAB MOUSE BUTTON ONE}
+{
+    %4
+}
+
+#event {SCROLLED MOUSE WHEEL UP}
+{
+    #if {"$SCREEN[size]" == "ultra_wide" && %0 <= $SCREEN[comms][botrow] && %0 >= $SCREEN[comms][toprow] && %1 <= $SCREEN[comms][botcol] && %1 >= $SCREEN[comms][topcol]}
+    {
+        comm_window_scroll_up $comm_window[active];
+        #return;
+    };
+
+	#if {%1 == 0 || %1 == 1} {
+        #cursor history prev;
+    };
+
+    #if {%0 <= $SCREEN[buffer][botrow] && %0 >= $SCREEN[buffer][toprow] && %1 <= $SCREEN[buffer][botcol] && %1 >= $SCREEN[buffer][topcol]} {
+        #buffer up 1;
+    };
+}
+
+#event {SCROLLED MOUSE WHEEL DOWN}
+{
+    #if {"$SCREEN[size]" == "ultra_wide" && %0 <= $SCREEN[comms][botrow] && %0 >= $SCREEN[comms][toprow] && %1 <= $SCREEN[comms][botcol] && %1 >= $SCREEN[comms][topcol]}
+    {
+        comm_window_scroll_down;
+        #return;
+    };
+
+	#if {%1 == 0 || %1 == 1} {
+        #cursor history next;
+    };
+
+    #if {%0 <= $SCREEN[buffer][botrow] && %0 >= $SCREEN[buffer][toprow] && %1 <= $SCREEN[buffer][botcol] && %1 >= $SCREEN[buffer][topcol]} {
+        #buffer down 1;
+    };
+}
+
+#event {SCROLLED SHIFT MOUSE WHEEL UP}
+{
+    #if {%0 <= $SCREEN[buffer][botrow] && %0 >= $SCREEN[buffer][toprow] && %1 <= $SCREEN[buffer][botcol] && %1 >= $SCREEN[buffer][topcol]} {
+        #buffer up 10;
+    };
+}
+
+#event {SCROLLED SHIFT MOUSE WHEEL DOWN}
+{
+    #if {%0 <= $SCREEN[buffer][botrow] && %0 >= $SCREEN[buffer][toprow] && %1 <= $SCREEN[buffer][botcol] && %1 >= $SCREEN[buffer][topcol]} {
+        #buffer down 10;
+    };
+}
+
+
+#EVENT {END OF PATH}
+{
+    #var {PATHS[running]} {0};
+}
+
+#EVENT {END OF RUN}
+{
+    #var {PATHS[running]} {0};
+}
+
+#EVENT {SESSION DISCONNECTED}
+{
+	@PUBSUB_PUBLISH{session_disconnected};
+    #sess {%0} {%1} {%3} {tin/all.tt};
+};
+
+#class events close

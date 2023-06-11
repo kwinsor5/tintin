@@ -1,0 +1,11 @@
+#class character_var open;
+
+#var {my}
+{
+    {art}
+    {
+        {override} {0}
+    }
+};
+
+#class character_var close;

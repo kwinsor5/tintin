@@ -1,0 +1,30 @@
+#class action open;
+
+#action {Str: %1/%2, Int: %3/%4, Wil: %5/%6, Dex: %7/%8, Con: %9/%10, Lea: %11/%12.}
+{
+	#var statsum 0;
+    #var my[min_str] %1;
+    #var my[max_str] %2;
+    #var my[min_int] %3;
+    #var my[max_int] %4;
+    #var my[min_wil] %5;
+    #var my[max_wil] %6;
+    #var my[min_dex] %7;
+    #var my[max_dex] %8;
+    #var my[min_con] %9;
+    #var my[max_con] %10;
+    #var my[min_lea] %11;
+    #var my[max_lea] %12;
+
+	updateStatSum %2;
+	updateStatSum %4;
+	updateStatSum %6;
+	updateStatSum %8;
+	updateStatSum %10;
+	updateStatSum %12;
+	#showme {Statsum: $statsum};
+
+    @PUBSUB_PUBLISH{update_stats};
+};
+
+#class action close;

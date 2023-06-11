@@ -1,0 +1,172 @@
+#nop Skjor configuration
+
+#class Skjor kill
+#class Skjor open
+
+#var my[art][override] {1};
+#var character_ascii {art/Skjor.ascii};
+
+food cram;
+primary gleaming;
+secondary mithril;
+hitter bearded;
+
+#nop Highlight All Special Aliases
+#high {^Bash Swing Swing$} { Jade }
+#high {^Bash Swing$} { Jade }
+#high {^Swing Swing Bash Swing$} { Jade }
+#high {^HEAL!$} { Jade }
+
+#nop Wear Armor
+#alias {wa} {
+	wear all.obsidian;
+	wear all.heavy;
+};
+
+#nop Remove Armor
+#alias {ra} {
+	remove all.obsidian;
+	remove all.heavy;
+};
+
+#alias {kill_command} {
+    kill %1;
+    kick;
+};
+
+#nop Bash Swing Swing
+#alias {swp} {
+	bash;
+	sw;
+	sw;
+    #show {Bash Swing Swing};
+}
+
+#nop Bash Swing
+#alias {sp} {
+	bash;
+	sw;
+    #show {Bash Swing};
+}
+
+#alias {ssp} {
+    sw;
+    sw;
+    bash;
+    sw;
+    #show {Swing Swing Bash Swing};
+}
+
+
+#nop Specialize Wild Fighting
+#alias {{respec wild}} {
+    tell angel pracreset;
+    spec wild;
+    lead horse;
+    lead 2.horse;
+    generic_warrior_pracs;
+    generic_ranger_pracs;
+    generic_mystic_pracs;
+    generic_mage_pracs;
+    #14 prac wild swing;
+}
+
+#nop Specialize Weapon Master
+#alias {{respec weapon}} {
+    tell angel pracreset;
+    spec weapon master;
+    lead horse;
+    lead 2.horse;
+    generic_warrior_pracs;
+    generic_ranger_pracs;
+    generic_mystic_pracs;
+    generic_mage_pracs;
+    #10 prac kick;
+}
+
+#nop Specialize Defender
+#alias {{respec defender}} {
+    tell angel pracreset;
+    spec defender;
+    lead horse;
+    lead 2.horse;
+    generic_warrior_pracs;
+    generic_ranger_pracs;
+    generic_mystic_pracs;
+    generic_mage_pracs;
+    #10 prac defend;
+}
+
+#nop Specialize Heavy
+#alias {{respec heavy}} {
+    tell angel pracreset;
+    spec heavy;
+    lead horse;
+    lead 2.horse;
+    generic_warrior_pracs;
+    generic_ranger_pracs;
+    generic_mystic_pracs;
+    generic_mage_pracs;
+    #14 prac kick;
+}
+
+#nop Practice Warrior Skills
+#alias {{generic_warrior_pracs}} {
+    #36 prac weapon;
+    #5 prac two;
+    #14 prac berserk;
+    #14 prac bash;
+    #14 prac parry;
+    #18 prac find weakness;
+    #5 prac rescue;
+    prac swim;
+}
+
+#nop Practice Ranger Skills
+#alias {{generic_ranger_pracs}} {
+    #25 prac fast attack;
+    #5 prac pick;
+    #15 prac ride;
+    #20 prac dodge;
+    #15 prac track;
+    #10 prac search;
+    #20 prac travelling;
+    #10 prac awareness;
+}
+
+#nop Practice Mystic Powers
+#alias {{generic_mystic_pracs}} {
+    #5 prac remove poison;
+}
+
+#nop Practice Mage Spells
+#alias {{generic_mage_pracs}} {
+    #10 prac cure self;
+    #10 prac vitalize self;
+}
+
+#nop Healing Spam
+#alias {^heal$} {
+    #var BOT[healing] 1;
+    ra;
+    #8 cs;
+    wa;
+    #show {HEAL!};
+    #delay {healing}{_resume; #var BOT[healing] 0}{120};
+}
+
+
+#tick {passive_heal} {
+    #if {!$bot} {
+        #return;
+    };
+
+    #math {hp_per} {100*$my[hp][current]/$my[hp][max]};
+
+    #if {$BOT[current_engaged] == 0 && $hp_per <= 50 && !$BOT[healing]} {
+        _pause;
+        heal;
+    };
+}{5};
+
+#class Skjor close

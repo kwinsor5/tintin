@@ -1,0 +1,52 @@
+#class Ghokgukk kill;
+#class Ghokgukk open;
+
+food flesh;
+
+#var my[art][override] {1};
+#var character_ascii {art/Ghokgukk.ascii};
+
+primary enruned;
+secondary mithril;
+
+
+#alias {kill_command} {
+    kill %1;
+    i;
+    co;
+}
+
+#alias {wa} {
+    wear all.mail;
+}
+
+#alias {ra} {
+    wear all.cotton;
+    wear fillet;
+    wear slippers;
+    wear shiny;
+}
+
+#nop Healing Spam
+#alias {^heal$} {
+    #var BOT[healing] 1;
+    InfoMessage Healing...;
+    rr;
+    #3 1;
+    #delay {healing}{_resume; #var BOT[healing] 0}{60};
+}
+
+#tick {passive_heal} {
+    #if {!$bot} {
+        #return;
+    };
+
+    #math {hp_per} {100*$my[hp][current]/$my[hp][max]};
+
+    #if {$BOT[current_engaged] == 0 && $hp_per <= 60 && !$BOT[healing]} {
+        _pause;
+        heal;
+    };
+}{5};
+
+#class Ghokgukk close;

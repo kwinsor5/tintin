@@ -1,0 +1,42 @@
+#CLASS {bot_path} OPEN
+
+#var BOT[title] {Blind Spiders};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A blind spider hangs from a web here."}
+        {
+            #variable mobname blind;
+            #variable hardmode 1;
+            #break
+        };
+        #case {"A shadowy spider sneaks through the darkness. (hiding)"}
+        {
+            #variable mobname shadowy;
+            #break
+        };
+        #case {"A malicious spider slides down its web with a look of hunger in its eyes."}
+        {
+            #variable mobname malicious;
+            #break
+        };
+        #case {"A large hairy spider is here, looking all around."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A massive hairy spider looks at you greedily through its many eyes."}
+        {
+            #variable mobname spider;
+            #variable hardmode 1;
+            #break
+        }
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {n;e;w;s;e;e;e;e;n;s;w;w;s;s;w;s;w;s;n;e;n;e;e;e;n;e;e;s;e;e;n;n}
+
+#CLASS {bot_path} CLOSE

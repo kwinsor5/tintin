@@ -1,0 +1,158 @@
+#class {Ninrod} open;
+
+#var {PK[auto][track]} {1};
+
+#var my[art][override] {1};
+#var character_ascii {art/Ninrod.ascii};
+set arcane bot;
+
+food waybread;
+set casting slow;
+set tac def;
+primary twilight;
+secondary staff;
+
+#alias {wa}
+{
+    wear all.chain;
+}
+
+#alias {heal}
+{
+    set casting slow;
+    #5 cast 'cure self';
+    #delay {healing}{_resume}{40};
+}
+
+#alias {hard_tactic}
+{
+    set casting fast;
+    p;
+}
+
+#alias {careful_tactic}
+{
+    set casting normal;
+    p;
+}
+
+#alias {normal_tactic}
+{
+    set casting slow;
+    p;
+}
+
+#alias {ra}
+{
+    wear all.cotton;
+    wear shiny;
+    wear supple;
+}
+
+#alias {respec arcane}
+{
+    tell angel pracreset;
+    spec arcane;
+    set casting slow;
+    setup_default_mage;
+    setup_default_warrior;
+    setup_default_ranger;
+    setup_default_mystic;
+    prac tracking;
+}
+
+#alias {respec battle}
+{
+    tell angel pracreset;
+    spec battle;
+    setup_default_mage;
+    setup_default_warrior;
+    setup_default_ranger;
+    setup_default_mystic;
+    prac tracking;
+}
+
+#alias {respec cold}
+{
+    tell angel pracreset;
+    spec cold;
+    setup_default_mage;
+    setup_default_warrior;
+    setup_default_ranger;
+    setup_default_mystic;
+    prac tracking;
+}
+
+#alias {respec lightning}
+{
+    tell angel pracreset;
+    spec lightning;
+    setup_default_mage;
+    setup_default_warrior;
+    setup_default_ranger;
+    setup_default_mystic;
+    prac tracking;
+}
+
+#alias {respec fire}
+{
+    tell angel pracreset;
+    spec fire;
+    prac blaze;
+    setup_default_mage;
+    setup_default_warrior;
+    setup_default_ranger;
+    setup_default_mystic;
+}
+
+#alias {setup_default_mage}
+{
+    #5 prac cure self;
+    #5 prac magic missile;
+    #5 prac chill ray;
+    #5 prac lightning bolt;
+    #5 prac firebolt;
+    #5 prac vitalize self;
+    #5 prac shield;
+    #5 prac fireball;
+    #5 prac earthquake;
+    #5 prac create light;
+    #5 prac flash;
+    #5 prac reveal life;
+    #5 prac blink;
+    #5 prac relocate;
+    #5 prac summon;
+    #5 prac locate living;
+    #5 prac identify;
+};
+
+#alias {setup_default_warrior}
+{
+    #36 prac weapon;
+    #5 prac two;
+    #15 prac parry;
+    #5 prac rescue;
+    #14 prac berserk;
+    #14 prac bash;
+};
+
+#alias {setup_default_ranger}
+{
+    #18 prac ride;
+    #22 prac dodge;
+    #30 prac fast attack;
+    #9 prac pick;
+    prac swim;
+    #21 prac track;
+    #36 prac travelling;
+    #13 prac search;
+    #28 prac awareness;
+};
+
+#alias {setup_default_mystic}
+{
+    #8 prac remove poison;
+    #11 prac revive;
+};
+
+#class {Ninrod} close;

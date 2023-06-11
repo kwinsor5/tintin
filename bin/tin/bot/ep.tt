@@ -1,0 +1,188 @@
+#CLASS {bot_path} OPEN
+
+#var BOT[start_location] {3810};
+#var BOT[cycle] {1};
+#var BOT[title] {Enchanted Path};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A large grizzly bear with golden fur stands here."}
+        {
+            #variable mobname golden;
+            #break
+        };
+        #case {"A large black bear is standing here."}
+        {
+            #variable mobname bear;
+            #break
+        };
+        #case {"A large white bear wanders through the area."}
+        {
+            #variable mobname bear;
+            #break
+        };
+        #case {"An agile wolf, cloaked with red fur, walks through here."}
+        {
+            #variable mobname red;
+            #break
+        };
+        #case {"A brown, angry-looking bear is padding around here."}
+        {
+            #variable mobname angry;
+            #break
+        };
+        #case {"A long, purplish vine lies on the ground. (hiding)"}
+        {
+            #variable mobname vine;
+            #break
+        };
+        #case {"A large buck is here, rutting against the trees."}
+        {
+            #variable mobname buck;
+            #break
+        };
+        #case {"A huge wolf stares at you intently."}
+        {
+            #variable mobname huge;
+            #break
+        };
+        #case {"A black wolf looks at you and begins to growl."}
+        {
+            #variable mobname black;
+            #break
+        };
+        #case {"A large hairy coyote growls furiously and foams at the mouth."}
+        {
+            #variable mobname coyote;
+            #break
+        };
+        #case {"A large grey-haired wolf stands here with fangs bared."}
+        {
+            #variable mobname dire;
+            #break
+        };
+        #case {"A thin wild dog is here, glaring at you from the shadows."}
+        {
+            #variable mobname dog;
+            #break
+        };
+        #case {"A grey wolf is growling at you."}
+        {
+            #variable mobname grey;
+            #break
+        };
+        #case {"A black wolf wanders about, growling and frothing at the mouth."}
+        {
+            #variable mobname wolf;
+            #break
+        };
+        #case {"A dark-haired bear prowls around here."}
+        {
+            #variable mobname bear;
+            #break
+        };
+        #case {"A large wild dog watches you carefully."}
+        {
+            #variable mobname dog;
+            #break
+        };
+        #case {"A brown bear rests here on its haunches."}
+        {
+            #variable mobname bear;
+            #break
+        };
+        #case {"A large, brown bear is here, sleeping."}
+        {
+            #variable mobname bear;
+            #break
+        };
+        #case {"A white wolf lurks here, beautiful, yet deadly."}
+        {
+            #variable mobname wolf;
+            #break
+        };
+        #case {"A fetid black fungus grows here, covering the ground."}
+        {
+            #variable mobname fungus;
+            #break
+        };
+        #case {"A giant bat looms overhead."}
+        {
+            #variable mobname bat;
+            #break
+        };
+        #case {"A grey bat flies silently through the air."}
+        {
+            #variable mobname bat;
+            #break
+        };
+        #case {"A dark spider glares evilly at you."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A malicious spider slides down its web with a look of hunger in its eyes."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A large snake with a flattened tail moves swiftly through the water here."}
+        {
+            #variable mobname snake;
+            #break
+        };
+        #case {"A black willow tree looms here, its branches swaying back and forth."}
+        {
+            #variable mobname willow;
+            #variable hardmode 1;
+            #break
+        };
+        #case {"A red furred wolf is standing here."}
+        {
+            #variable mobname wolf;
+            #break
+        };
+        #case {"A huge wild boar with bristly spines and huge tusks snorts and stamps."}
+        {
+            #variable mobname boar;
+            #break
+        };
+        #case {"A brown wolverine walks through here, leering around him with malicious intent."}
+        {
+            #variable mobname wolverine;
+            #break
+        };
+        #case {"A dark, black spider hangs down from a web, glaring at you evilly."}
+        {
+            #variable mobname widow;
+            #break
+        };
+        #case {"A spider hangs in the webs here, nursing her hatchlings."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A large, dark brown moose is here, chewing on a shrub."}
+        {
+            #variable mobname moose;
+            #break
+        };
+        #case {"A large wild cow is standing here, munching on some grass."}
+        {
+            #variable mobname cow;
+            #break
+        };
+        #case {"A large wild bull snorts and paws at the ground."}
+        {
+            #variable mobname bull;
+            #break
+        }
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {n;e;n;dismount;n;n;e;d;w;e;e;e;e;e;e;e;u;e;e;s;s;w;n;w;s;s;ride;w;n;w;w;w;w;w;w;s;e;e;e;e;s;w;w;w;w;s;e;e;e;e;e;e;n;e;e;e;e;n;e;n;w;n;n;e;e;e;e;e;s;w;w;w;e;w;w;e;s;e;s;e;n;e;s;n;e;e;e;n;w;n;w;e;e;e;e;e;e;e;s;w;w;w;w;s;e;e;e;e;e;e;e;n;w;w;n;e;e;e;e;e;s;w;w;w;s;e;e;e;e;n;n;s;s;s;w;w;w;w;w;w;w;w;w;w;w;w;s;w;n;s;e;ride;e;e;e;e;e;s;e;s;w;s;dismount;w;w;w;ride;n;e;e;w;w;s;s;s;s;s;s;s;s;s;e;e;s;w;w;s;s;s;e;n;n;n;e;n;w;n;n;e;e;e;s;w;w;w;s;e;s;s;s;s;e;n;n;n;e;s;s;s;e;n;n;n;e;n;w;n;n;n;w;w;n;e;e;e;s;n;e;n;n;w;s;w;n;n;n;e;s;e;e;e;s;w;s;s;w;s;e;s;w;w;s;e;e;e;s;w;w;w;s;e;e;e;s;w;w;w;w;s;s;s;e;e;n;w;e;n;w;e;e;s;s;e;s;w;w;e;s;s;e;n;n;n;n;w;n;e;n;n;n;n;n;n;n;n;n;n;n;w;n;w;n;e;e;s;n;n;e;n;e;e;e;e;n;w;n;n;e;s;s;e;e;dismount;n;w;n;e;e;s;n;e;s;e;n;w;w;w;s;s;ride;e;e;e;e;e;e;n;w;w;n;e;e;e;e;e;e;e;e;e;s;s;w;w;e;s;e;w;n;e;n;w;w;w;w;w;w;e;s;e;e;w;w;w;s;w;w;w;w;s;e;e;e;e;w;w;w;w;w;w;n;e;w;w;w;w;s;e;e;w;w;w;w;w;dismount;ride;e;dismount;s;w;w;s;s;e;e;n;w;n;e;n;ride;e;s;e;s;e;e;s;s;w;w;w;w;w;w;s;s;s;s;s;s;s;e;e;e;e;e;e;n;w;w;w;w;w;n;e;e;e;e;e;e;w;w;w;w;w;w;w;n;e;e;e;e;e;e;e;n;w;w;w;w;w;w;n;n;n;e;s;s;n;e;s;n;n;e;s;s;n;e;s;n;n;e;s;e;e;n;w;n;e;e;e;e;e;e;e;e;e;n;w;n;s;w;w;n;w;w;w;s;e;e;s;w;s;w;w;w;w;s;s;w;w;s;e;e;e;e;e;e;s;w;w;w;s;s;w;dismount;s;n;ride;e;s;e;e;e;e;e;n;w;w;n;w;s;w;s;e;e;e;e;e;e;e;e;e;n;w;w;w;w;n;w;w;e;n;e;n;s;e;n;n;n;n;e;e;e;e;e;e;e;e;e;e;s;e;s;e;e;s;w;w;w;n;s;s;w;s;e;w;w;n;w;w;w;n;n;e;n;w;w;w;s;w;w;s;e;e;s;w;w;e;e;e;s;s;s;e;e;e;e;n;e;s;e;e;e;e;w;n;w;w;w;w;n;w;w;s;e;w;w;w;n;n;e;e;e;e;s;e;e;n;e;e;e;e;e;n;n;n;n;w;e;e;s;n;e;w;s;s;s;s;s;s;w;n;s;e;s;w;s;s;s;e;n;n;n;n;e;s;e;s;w;s;s;e;n;s;w;s;w;w;s;e;e;e;n;w;n;n;n;e;n;e;s;s;s;e;e;e;e;e;n;w;w;w;w;w;n;e;e;e;e;e;e;s;e;e;s;s;s;s;w;w;s;e;e;e;e;e;e;e;e;e;n;n;w;s;w;n;w;s;w;n;s;w;w;w;n;n;n;e;e;e;e;e;e;e;n;w;w;w;w;w;n;w;e;e;e;e;e;e;n;w;w;w;e;e;n;n;n;w;dismount;s;w;n;s;ride;w;w;s;w;n;w;s;w;n;w;w;s;s;w;n;n;w;dismount;n;u;w;w;n;s;s;n;w;n;s;s;u;e;d;n;e;e;d;s;ride;w;w;n;e;n;w;w;n;e;e;dismount;e;n;n;e;e;s;s;w;n;w;s;w;ride;n;n;w;s;w;s;s;e;e;e;e;e;s;w;n;e;e;n;e;n;w;e;n;w;e;e;e;e;e;e;e;e;e;e;e;s;w;w;w;w;w;w;w;w;s;e;e;e;e;e;e;e;e;e;e;n;w;n;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;e;n;n;n;dismount;n;u;d;e;ride;s;s;s;s;s;w;w;w;w;w;w;s;w;n;w;s;w;n;w;w;w;w;w;w;s;s;s;e;n;e;n;w;e;e;e;e;e;e;e;s;e;e;e;n;e;e;s;s;w;w;w;s;w;n;w;w;w;w;w;w;w;w;w;w;w;w;s;w;n;w;w;s;e;e;e;e;e;s;w;w;e;s;w;w;n;n;w;s;s;e;e;e;e;e;e;e;n;e;n;w;n;w;w;dismount;s;s;e;n;w;n;ride;e;e;e;s;e;s;e;e;n;e;s;e;n;n;e;s;s;e;n;e;s;s;e;n;n;e;s;s;w;w;w;w;s;e;e;e;e;s;w;w;w;w;s;e;e;e;e;w;s;w;w;e}
+
+#CLASS {bot_path} CLOSE

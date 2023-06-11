@@ -1,0 +1,519 @@
+#+title: README
+#+author: Orkbolg
+
+Scripts for playing [[https://rotsmud.org][Return of the Shadow]] with [[http://tintin.sourceforge.net][TinTin++]].
+
+* Table of Content :toc:
+- [[#installation][Installation]]
+- [[#quick-start][Quick Start]]
+  - [[#unix][Unix]]
+  - [[#windows][Windows]]
+- [[#profiles][Profiles]]
+  - [[#character-files][Character Files]]
+- [[#screen][Screen]]
+  - [[#main-window][Main Window]]
+  - [[#map-window][Map Window]]
+  - [[#communications-window][Communications Window]]
+  - [[#prompt-window][Prompt Window]]
+- [[#window-mode][Window Mode]]
+  - [[#default-mode][Default Mode]]
+  - [[#mapping-mode][Mapping Mode]]
+  - [[#mobile-mode][Mobile Mode]]
+- [[#general][General]]
+  - [[#buffing][Buffing]]
+  - [[#mapping][Mapping]]
+  - [[#pking][PK'ing]]
+  - [[#setup-aliases][Setup Aliases]]
+  - [[#targeting-system][Targeting System]]
+  - [[#racial][Racial]]
+
+* Installation
+
+1. Clone or download this repository.
+2. Install [[https://tintin.mudhalla.net/][TinTin++]]
+
+* Quick Start
+
+** Unix
+
+1. Run =./run.sh=
+2. This will automatically connect to [[https://rotsmud.org][rots]]
+3. After connecting and logging in to a character run the
+   command =setup default=
+   1. This will set everything up in the game to successfully work with
+      the client.
+** Windows
+
+As of Windows 10 it is possible to run TinTin++ using WSL (Windows Subsystem for Linux).
+The biggest advantage of WSL, particularly WSL 2, is performance. Installation
+instructions are as following:
+
+1. Use the search assistant to open the 'For Developers' setting and enable 'Developer Mode'.
+2. Use the search assistant to open the 'Turn Windows features on or off' setting and turn on
+  'Windows Subsystem for Linux'
+3. Use the search assistant to open the 'bash' application which should tell you to visit the
+  WSL Store where you can download your favorite Linux distribution, with Ubuntu being the
+  most convenient one.
+4. Once Ubuntu is up and running use 'sudo apt-get update' and 'sudo apt-get install tintin++'
+  to install TinTin++.
+5. Then clone or download this repository using WSL and following the Unix Quick Start.
+
+* Profiles
+
+After logging into your character their special profile will try to be loaded
+from =/profiles/{CharacterName}.tt=. Please note that capitalization is important
+as the characters is loaded from the info command.
+
+** Character Files
+
+The following variables and aliases should be set on each character profile.
+
+#+begin_src
+
+#nop This needs to be set for the gg aliase to work
+#var food {};
+
+#nop This is special for character to wear their armor set
+#alias {wa} {
+    wear all.metal;
+};
+
+#nop This is special for each character to remove their armor set
+#alias {ra} {
+    rm all.chain;
+};
+
+#nop This sets your primary weapon
+primary glimmering;
+
+#nop This sets your secondary weapon
+secondary dragon;
+
+#nop This sets your hitter weapon and/or bow
+hitter longbow;
+
+#+end_src
+
+This isn't required for the client to work correctly, but I like to add
+practices to each character profile for fast specialization switching
+for example:
+
+#+begin_src
+
+#alias {respec fire} {
+    tell angel pracreset;
+    spec fire;
+    prac blaze;
+    setup_class_pracs;
+};
+
+#alias {respec cold} {
+    tell angel pracreset;
+    spec cold;
+    setup_class_pracs;
+};
+
+#alias {respec battle} {
+    tell angel pracreset;
+    spec battle magic;
+    setup_class_pracs;
+};
+
+#alias {setup_class_pracs} {
+    setup_default_mage_prac;
+    setup_default_warrior_prac;
+    setup_default_ranger_prac;
+    setup_default_mystic_prac;
+};
+
+#+end_src
+
+* Screen
+
+** Main Window
+
+The main window for the game.
+
+** Map Window
+
+The map window will display your current known location on the map. It
+will also follow you around Arda, providing the area is known and mapped.
+
+** Communications Window
+
+The communication window should capture all the communication channels
+in the game. It will not suppress them in the main window so you can still
+see them there as well.
+
+** Prompt Window
+
+The prompt window will capture the players health, stamina, and moves when
+=advancedview= is enabled. It will also display the current room name the
+player is in and the XP per minute gauge.
+
+When the PK targeting systems is enabled it will show the current target
+keyword and whether auto engage and auto track is enabled.
+
+* Window Mode
+
+The screen is setup in three different modes
+
+** Default Mode
+
+The default  mode has the main, map, prompt and communications window.
+
+#+begin_src
+
++-----------------------+
+|  Main       |  Map    |
+|             |         |
+|             |         |
+|             |         |
+|             |---------|
+|             |  Comms  |
+|             |         |
+|             |         |
+|-------------|         |
+|  Prompt     |         |
++-----------------------+
+
+#+end_src
+
+** Mapping Mode
+
+The mapping mode has the map and main window displayed. This mode is
+great if you want a big map view of the area.
+
+#+begin_src
+
++-----------------------+
+|       Map             |
+|                       |
+|                       |
+|                       |
+|                       |
+|                       |
+|-----------------------|
+|       Main            |
+|                       |
+|                       |
++-----------------------+
+
+#+end_src
+
+To toggle this mode on and off use the alias =mapping=
+
+** Mobile Mode
+
+The mobile mode has the map and main window displayed. The map
+is much smaller and should only be used as a quick reference
+for where the player is at.
+
+#+begin_src
+
++----------+
+|  Map     |
+|          |
+|          |
+|----------|
+|  Main    |
+|          |
+|          |
+|          |
+|          |
+|          |
++----------+
+
+#+end_src
+
+* General
+** Buffing
+
+To enable buffering mode press =||= which will toggle rescuing members of
+your group. To assign followers just group them and type =group= to display
+them and an action will fire to capture everybody in your current group.
+
+#+begin_src
+> ||
+
+Buffer Mode Enabled.
+
+> ||
+
+Buffer Mode Disabled.
+#+end_src
+
+** Mapping
+
+For mapping to work =advancedview= must be enabled. The mapping system uses
+the room name, room id, and terrain to build the map. When leaving the room
+it will check for duplicate entries. If there are you will be prompted.
+
+*** Enabling Mapping
+
+To enable mapping just use the command =automapping= to toggle mapping on
+and off.
+
+*** Autosaving
+
+A ticker is loaded up at start to save the map any time a change is made every
+60 seconds.
+
+*** Doors
+
+When you are mapping and need to create a door use the following commands to
+do so.
+
+**** GMD
+
+The alias =gmd= is used to create a new room in the direction given and assign
+a non-locked door.
+
+#+begin_src
+Example:
+
+> gmd e heavydoor
+
+#+end_src
+
+**** MD
+
+The alias =md= is used to mark an exit as a door with the given name and mark
+it as avoid on the map, avoid will keep the =#map run= and =#path run= command
+from using that direction. Use this command if you want to mark a door that
+can't be entered in while mounted.
+
+#+begin_src
+Example:
+
+> md e heavydoor
+
+#+end_src
+
+**** MDD
+
+The alias =mdd= is used to mark an exit as a door with the given name and not
+mark it as avoid on the map. Use this command if you want to mark an exit that
+is hidden but can still ride through it.
+
+#+begin_src
+Example:
+
+> mdd e bush
+
+#+end_src
+
+**** DMG
+
+The alias =dmg= is used to create a new room in the direction given and assign
+a locked gate to the door.
+
+#+begin_src
+Example:
+
+> dmg e heavygate
+
+#+end_src
+
+**** MG
+
+The alias =mg= is used to mark an exit as a gate with the given name and mark
+it as avoid on the map.
+
+#+begin_src
+Example:
+
+> mg e heavygate
+
+#+end_src
+
+**** MLD
+
+The alias =mld= is used to mark an exit as a locked door with the given name and
+mark the exit as avoid on the map.
+
+#+begin_src
+Example:
+
+> mld e heavydoor
+
+#+end_src
+
+**** MPD
+
+The alias =mpd= is used to mark an exit as a pick-able door with the given name
+and mark the exit as avoid on the map.
+
+#+begin_src
+Example:
+
+> mpd e heavydoor
+
+#+end_src
+
+*** Legend
+
+The map for TinTin is configured to display the terrain around the room and special
+identifiers in the room such as smobs, keys and etc...
+
+**** Terrain
+
+The terrain around the room is set by using the command =#map set roomterrian= to
+get a full list of terrains use the command =#map terrain=
+
+| Terrain      | Symbol | Colour       |
+|--------------+--------+--------------|
+| Crack        | Cc     | <caa>        |
+| Dense Forest | *      | <abb>        |
+| Field        | "'     | <aff>        |
+| Floor        | Oo     | <aaa>        |
+| Forest       | *      | <aeb>        |
+| Hills        | h      | <ebd>        |
+| Mountains    | v^     | <eff>v<aef>^ |
+| Road         | -      | <fff>        |
+| Swamp        | %      | <daf>        |
+| Underwater   | ~      | <abf>        |
+| Water        | ~      | <adf>        |
+| Water Noswim | ~      | <aaf>        |
+
+**** Room Symbols
+
+| Alias       | Symbol | Description                                 |
+|-------------+--------+---------------------------------------------|
+| mark key    | 🗝️       | Used to mark a room that loads a key        |
+| mark smob   | 💀     | Used to mark a room with a dangerous mob    |
+| mark guild  | 📜     | Used to mark a guildmaster                  |
+| mark shop   | 🪙     | Used to mark a shop                         |
+| mark quest  | 🗨     | Used to mark a quest giver or quest turn in |
+| mark inn    | 🛋     | Used to mark an inn                         |
+| mark tame   | 🐆     | Used to mark a special tame animal          |
+| mark spider | 🕸     | Used to mark a group of spiders for xp      |
+| mark sign   | 🪧     | Used to mark something of importance     |
+| mark lever  | ⪚       | Used to mark a lever                        |
+
+** PK'ing
+
+The PVP, player versus player, system will set the target of you choosing
+and bypass the targeting system. To use auto track and engage you should
+add the following to your characters profile:
+
+#+begin_src
+
+#var {PK[auto][track]} {1};
+#var {PK[auto][engage]} {1};
+
+#+end_src
+
+| Alias | Action                         |
+|-------+--------------------------------|
+| tb    | Hobbit                         |
+| td    | Dwarf                          |
+| th    | Human                          |
+| te    | Elf                            |
+| tl    | Uruk-Lhuth                     |
+| tbb   | Beorning                       |
+| tka   | Disables auto track and engage |
+| taa   | Enable auto track and engage   |
+| tk    | Kills PK'ing targeting         |
+
+** Setup Aliases
+
+There are a couple setup aliases that need to be run for the targeting system
+and mapping system to work correctly. These are all just personal aliases that
+I use and can be reconfigured, however you'll need to update =targetsystem.tt=.
+
+*** setup default
+
+This alias sets all the colours and settings needed by this repository to work
+correctly.
+
+*** setup alias
+
+This sets all the character aliases in-game for tactics, track, group, detail
+damage and drinking.
+
+*** setup mage
+
+This sets all the character aliases in-game for mage spells, this is required
+for the targeting system.
+
+*** setup hai mage
+
+Same as =setup mage= but for Uruk-Hai mages.
+
+*** setup lhuth
+
+Same as =setup mage= but for Uruk-Lhuths
+
+*** setup mystic
+
+This sets all the character aliases in-game for mystic powers, this is required
+for the targeting system.
+
+*** setup ranger
+
+This sets a very basic amount of in-games aliases for rangers.
+
+** Targeting System
+
+The targeting system gets a full list of mobs in the room and
+tries to guess their common name by their description. Then assigns
+them to a static aliases for quick actions.
+
+It does this by capturing the third word in the mobs look
+description, unless that word is in the badwords list in which it
+uses the second word. After getting the keyword for the mob it then
+checks to see if that mob keyword is already in the targeting list.
+If so it increments the number assignment to the mob. For example
+if you are in a room with 4 war orcs. It will get the word *built*
+because this is the third word in the look description and assign
+values 1 through 4 for them. So if you use the alias =l1= or =lt= it will
+exam the first *1.built* mob in the room. Furthermore if you use
+the alias =l4= it will exam the fourth *4.built* mob in the room.
+
+#+begin_src
+
+Noisy Tunnel (#14486) [ Floor ]    Exits are: E S W
+(1) A heavily built and tattooed war orc sneers at you.
+(2) A heavily built and tattooed war orc sneers at you.
+(3) A heavily built and tattooed war orc sneers at you.
+(4) A heavily built and tattooed war orc sneers at you.
+
+> lt
+
+exam 1.built
+
+> l2
+
+exam 2.built
+
+#+end_src
+
+For the first target in each room the post-fix of =t= is added to the
+action. For example, =lt= will exam the first target in the room, =kt=
+will attack the first target in the room, =pt= will send the p command
+to the first target in the room, and etc...
+
+Please refer to the =tin/targetsystem.tt= file for the full list of
+aliases assigned to this.
+
+
+** Racial
+
+Currently there are two racial configurations setup for RotS, Olog-Hai and
+Common Orc. To use the Common Orc class type =OrcOn= this will read the
+Orc.tt file to load all the triggers and aliases needed for the Orc
+race.
+
+Olog-Hai configuration is always active and can be found in Olog.tt
+which set timers and delays for commands.
+
+Currently, there skills are setup for perfectly time combos, please see list
+below:
+
+- cos - cleave stomp smash swing
+- ocs - stomp cleave smash swing
+- soc - smash stomp cleave swing
+
+There are also timers setup to give you a five second warning before the skill
+becomes available.

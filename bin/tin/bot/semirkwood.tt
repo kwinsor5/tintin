@@ -1,0 +1,119 @@
+#CLASS {bot_path} OPEN
+
+#variable BOT[start_location] {7470};
+#var BOT[title] {Southeast Mirkwoods};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A massive mirkwolf stares at you through blood red eyes."}
+        {
+            #variable mobname massive;
+            #break
+        };
+        #case {"A cave troll is standing here, pounding his two huge fists together."}
+        {
+            #variable mobname troll;
+            #break
+        };
+        #case {"A huge mirkwolf tenses its massive frame in readiness."}
+        {
+            #variable mobname huge;
+            #break
+        };
+        #case {"A hunched forest troll moves around here, arms dragging on the ground."}
+        {
+            #variable mobname troll;
+            #break
+        };
+        #case {"An evil, black warg paces around the clearing."}
+        {
+            #variable mobname evil;
+            #break
+        };
+        #case {"A malicious spider slides down its web with a look of hunger in its eyes."}
+        {
+            #variable mobname malicious;
+            #break
+        };
+        #case {"A trained warg waits here for an order from its master."}
+        {
+            #variable mobname trained;
+            #break
+        };
+        #case {"A large grizzly bear with golden fur stands here."}
+        {
+            #variable mobname golden;
+            #break
+        };
+        #case {"A blind spider hangs from a web here."}
+        {
+            #variable mobname blind;
+            #variable hardmode 1;
+            #break
+        };
+        #case {"A spry spider weaves the cobwebs together as it scurries around the chamber."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A goblin hunter stands next to his kill, spear in hand."}
+        {
+            #variable mobname goblin;
+            #break
+        };
+        #case {"A trained warg waits here for an order from its masters."}
+        {
+            #variable mobname trained;
+            #break
+        };
+        #case {"A breeder assistant stands here trying to look busy."}
+        {
+            #variable mobname breeder;
+            #break
+        };
+        #case {"A huge troll, with a massive gut rests here, covered in oily black mud."}
+        {
+            #variable mobname troll;
+            #variable hardmode 1;
+            #break
+        };
+        #case {"A large hunting spider carefully tests the air as it tracks its prey."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A fierce looking spider patrols its lair."}
+        {
+            #variable mobname spider;
+            #variable hardmode 1;
+            #break
+        };
+        #case {"A twisted black spider is here waiting for dinner."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A black wolf wanders about, growling and frothing at the mouth."}
+        {
+            #variable mobname wolf;
+            #break
+        };
+        #case {"A black wolf looks at you and begins to growl."}
+        {
+            #variable mobname wolf;
+            #break
+        };
+        #case {"A shadowy spider sneaks through the darkness. (hiding)"}
+        {
+            #variable mobname shadowy;
+            #break
+        };
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {s;s;e;s;e;e;e;s;w;w;w;s;e;e;e;s;w;s;e;w;w;w;n;s;s;e;e;w;s;w;s;n;e;s;e;n;e;n;s;s;s;w;s;n;e;s;e;e;e;e;e;s;w;w;e;s;w;s;w;e;s;s;w;e;e;n;n;e;s;e;n;s;e;n;n;w;e;e;e;s;e;e;n;w;e;s;s;w;w;w;w;s;s;w;w;s;w;w;s;s;s;n;w;s;s;s;s;e;e;n;e;s;s;w;s;e;s;w;n;w;w;s;w;n;n;n;n;open blackweb;w;w;n;e;e;w;s;e;e;n;n;n;n;n;e;e;e;n;e;e;e;n;e;s;e;n;n;e;n;e;e;e;e;n;w;w;e;e;e;e;e;e;s;w;s;s;n;e;e;s;w;s;w;w;n;w;n;s;s;n;e;s;e;e;e;e;w;n;e;n;e;n;w;n;w;n;e;n;n;e;e;e;e;e;e;s;s;e;e;w;w;s;w;n;s;e;n;n;e;e;e;n;e;n;n;e;n;w;n;e;n;e;s;s;s;e;n;e;s;s;w;w;s;e;e;s;w;w;w;s;w;e;e;s;w;w;s;e;s;e;n;e;n;n;e;e;e;e;n;w;w;w;e;e;e;s;s;w;s;w;s;s;s;n;e;n;s;e;s;n;e;n;w;n;s;e;e;e;n;e;e;s;e;s;w;e;s;e;w;n;e;n;s;e;e;s;w;e;e;w;n;e;e;e;s;n;w;w;n;w;w;e;n;w;w;w;n;w;w;n;n;n;e;w;s;s;w;w;n;w;n;e;w;w;w;e;e;s;e;s;w;e;s;w;s;e;w;n;e;n;e;e;s;e;e;e;n;e;e;n;e;s;e;s;n;w;s;n;n;e;e;e;s;s;w;e;s;w;e;n;n;n;n;e;e;s;e;s;w;w;n;s;s;s;n;n;e;s;e;e;n;s;s;w;w;e;e;e;s;n;e;n;n;n;w;s;s;n;n;e;n;w;w;w;s;w;n;w;w;s;e;s;e;e;n;n;e;e;e;e;w;s;e;e;e;n;s;w;s;s;w;w;s;s;e;n;e;e;w;s;n;n;n;n;e;n;s;w;s;e;e;n;e;n;e;e;s;w;s;w;s;n;w;w;e;w;w;s;s;s;e;e;n;n;w;e;s;s;e;n;e;n;e;e;e;e;n;w;n;w;w;w;s;e;e;w;w;n;e;e;n;s;e;n;e;w;s;e;e;n;e;e;e;e;e;s;e;n;e;s;e;s;n;n;e;s;e;s;s;e;e;e;e;e;s;w;w;s;w;s;s;w;w;e;e;n;n;w;s;w;w;s;w;n;n;e;w;n;s;w;s;s;n;w;w;e;s;w;e;n;e;n;n;w;s;w;w;n;w;w;n;e;w;s;e;s;w;s;e;w;s;e;w;n;w;w;s;n;w;w;s;e;w;n;w;s;w;e;n;n;w;w;e;s;w;s;w;w;w;n;e;e;n;n;e;e;e;e;s;e;e;e;n;n;n;e;n;e;e;s;s;e;e;e;e;e;s;e;e;e;n;w;w;n;n;n;e;e;n;w;n;w;w;w;n;n;e;e;e;n;n;n;e;n;e;s;dismount;e;n;ride;e;s;e;e;e;s;s;w;w;n;w;w;w;n;n;n;w;n;w;w;n;w;w;n;w;w;n;w;n;w;w;w;n;n;n;n;s;e;e;n;w;n;w;n;n;e;n;n;w;w;n;n;n;e;e;e;e;e;n;n;e;e;n;e;n;dismount;d;u;ride;s;w;s;w;w;w;w;w;w;n;w;n;s;s;s;w;w;w;n;s;s;n;e;e;e;n;n;e;s;e;e;e;e;n;n;w;s;w;w;n;n;w;w;w;s;w;w;w;w;w;n;w}
+
+#CLASS {bot_path} CLOSE

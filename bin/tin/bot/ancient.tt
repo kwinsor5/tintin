@@ -1,0 +1,46 @@
+#class bot_path open;
+
+#var BOT[title] {Ancient Spider};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A malicious spider slides down its web with a look of hunger in its eyes."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A dark spider glares evilly at you."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"An enormous, swollen spider watches over her lair."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A shadowy spider sits content and bloated after its meal."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"A large, black spider watches you with evil in its many eyes."}
+        {
+            #variable mobname spider;
+            #break
+        };
+        #case {"The Ancient Spider is here, sucking the life from its latest victim."}
+        {
+            #variable mobname Ancient;
+            #var hardmode 1;
+            #break
+        };
+    };
+    _check_mob
+};
+
+#var {_bot_path} {};
+
+#class bot_path close;

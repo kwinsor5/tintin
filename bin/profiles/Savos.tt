@@ -1,0 +1,104 @@
+#class Savos open;
+
+food waybread;
+#var my[art][override] {1};
+#var character_ascii {art/Savos.ascii};
+primary twilight;
+secondary staff;
+
+
+#alias {heal} {
+    rr;
+    #5 cast 'cure self';
+    lose all;
+    cast 'guardian' agg;
+    #delay {healing}{_resume}{120};
+};
+
+
+#alias {respec regen} {
+    InfoMessage Specialization Set to Regeneration;
+    tell angel pracreset;
+    spec regen;
+    setup_mystic_default;
+    setup_warrior_default;
+    setup_ranger_default;
+    setup_mage_default;
+};
+
+#alias {respec illusion} {
+    InfoMessage Specialization Set to Illusions;
+    tell angel pracreset;
+    spec illusion;
+    #5 prac confuse;
+    setup_mystic_default;
+    setup_warrior_default;
+    setup_ranger_default;
+    setup_mage_default;
+};
+
+#alias {respec guardian} {
+    InfoMessage Specialization Set to Guardian;
+    tell angel pracreset;
+    spec guardian;
+    #5 prac guardian;
+    setup_mystic_default;
+    setup_warrior_default;
+    setup_ranger_default;
+    setup_mage_default;
+};
+
+#alias {setup_mystic_default} {
+    #5 prac poison;
+    #5 prac curing saturation;
+    #5 prac restlessness;
+    #5 prac dispel regeneration;
+    #5 prac insight;
+    #5 prac prag;
+    #5 prac fear;
+    #5 prac divination;
+    #5 prac sanctuary;
+    #5 prac vitality;
+    #5 prac terror;
+    #5 prac enchant weapon;
+    #5 prac hallucinate;
+    #5 prac regeneration;
+    #5 prac infravision;
+    #5 prac curse;
+    #5 prac revive;
+    #5 prac death ward;
+    #3 prac detect hidden;
+    #2 prac evasion;
+    #3 prac resist magic;
+    #3 prac slow digestion;
+    #3 prac detect magic;
+    #3 prac remove poison;
+};
+
+#alias {setup_warrior_default} {
+    #14 prac slashing;
+    #7 prac concussion;
+    #14 prac parry;
+    #5 prac rescue;
+    #3 prac orc;
+};
+
+#alias {setup_ranger_default} {
+    prac swim;
+    #5 prac pick;
+    #27 prac dodge;
+    #16 prac ride;
+    #20 prac track;
+    #18 prac search;
+    #20 prac fast;
+    #15 prac awareness;
+};
+
+#alias {setup_mage_default} {
+    #9 prac cure self;
+    #11 prac vitalize self;
+    #9 prac shield;
+    #8 prac create light;
+};
+
+#class Savos close;

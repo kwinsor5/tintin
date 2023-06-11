@@ -1,0 +1,16 @@
+#class xptrackervars open;
+
+#var {XP_TRACKER}
+{
+    {min}{0}
+    {max}{0}
+    {current}{0}
+    {total}{0}
+    {ticks}{0}
+    {current_avg}{0}
+    {total_avg}{0}
+    {overall_avg}{0}
+    {active}{1}
+}
+
+#class xptrackervars close;

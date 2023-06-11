@@ -1,0 +1,83 @@
+#class warrior_bot open;
+
+#action {%1 has recovered from a bash!}
+{
+    #if {$BOT[Warrior][auto_bash]}
+    {
+        bash;
+    };
+}
+
+#action {You swing at %1, reaching %2 bones!}
+{
+    #if {$BOT[Warrior][auto_swing]}
+    {
+        swing;
+    };
+}
+
+#action {%1 ducks as you attemp to swing at %2.} {
+    #if {$BOT[Warrior][auto_swing]}
+    {
+        swing;
+    };
+}
+
+#action {You kick %1} {
+    #if {$BOT[Warrior][auto_kick]} {
+        kick;
+    };
+}
+
+#action {You miss a kick %1} {
+    #if {$BOT[Warrior][auto_kick]} {
+        kick;
+    };
+}
+
+#alias {set auto bash}
+{
+    #if {$BOT[Warrior][auto_bash]}
+    {
+        WarningMessage Disabling Auto Bash...;
+        #var {BOT[Warrior][auto_bash]} {0};
+    };
+    #else
+    {
+        InfoMessage Enabling Auto Bash...;
+        #var {BOT[Warrior][auto_bash]} {1};
+    };
+    @PUBSUB_PUBLISH{class_toggle};
+};
+
+#alias {set auto swing}
+{
+    #if {$BOT[Warrior][auto_swing]}
+    {
+        WarningMessage Disabling Auto Swing...;
+        #var {BOT[Warrior][auto_swing]} {0};
+    };
+    #else
+    {
+        InfoMessage Enabling Auto Swing...;
+        #var {BOT[Warrior][auto_swing]} {1};
+    };
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+#alias {set auto kick}
+{
+    #if {$BOT[Warrior][auto_kick]}
+    {
+        WarningMessage Disabling Auto Kick...;
+        #var {BOT[Warrior][auto_kick]} {0};
+    };
+    #else
+    {
+        InfoMessage Enabling Auto Kick...;
+        #var {BOT[Warrior][auto_kick]} {1};
+    };
+    @PUBSUB_PUBLISH{class_toggle};
+}
+
+#class warrior_bot close;

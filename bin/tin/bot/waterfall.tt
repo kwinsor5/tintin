@@ -1,0 +1,31 @@
+#CLASS {bot_path} OPEN
+
+#var {BOT[title]}{Waterfall};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A massive albino snake is here, flicking its white tongue."}
+        {
+            #variable mobname snake;
+            #break
+        };
+        #case {"A huge, bulky troll sits in the corner, slowly eating an old corpse."}
+        {
+            #variable mobname troll;
+            #variable hardmode 1;
+            #break
+        };
+        #case {"A giant bat looms overhead."}
+        {
+            #variable mobname bat;
+            #break
+        }
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {n;n;w;w;w;w;d;e;n;w;w;w;#5 pick skulls;d;#5 pick skulls;u;e;e;s;u;e;e;e;e;s;s;u}
+
+#CLASS {bot_path} CLOSE

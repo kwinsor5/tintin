@@ -1,0 +1,7 @@
+#class Ufdirg open;
+
+food flesh
+#var my[art][override] {1};
+#var character_ascii {art/Ufdirg.ascii};
+
+#class Ufdirg close;

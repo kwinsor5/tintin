@@ -1,0 +1,20 @@
+#class bot_path open;
+
+#var BOT[title] {Honey Fungus};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A honey fungus has spread through the clearing, covering the trees and ground."}
+        {
+            #variable mobname fungus;
+            #break
+        };
+    };
+    _check_mob
+};
+
+#var {_bot_path} {};
+
+#class bot_path close;

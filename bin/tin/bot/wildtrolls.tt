@@ -1,0 +1,27 @@
+#CLASS {bot_path} OPEN
+
+#variable BOT[start_location] {2377};
+#var BOT[title] {Wild Troll's Cave};
+
+#ALIAS {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A large wild troll is here, green skinned and angry."}
+        {
+            #variable mobname troll;
+            #break
+        };
+        #case {"A cave troll is standing here, pounding his two huge fists together."}
+        {
+            #variable mobname troll;
+            #variable hardmode 1;
+            #break
+        };
+    };
+    _check_mob
+}
+
+#VARIABLE {_bot_path} {w;n;s;e}
+
+#CLASS {bot_path} CLOSE

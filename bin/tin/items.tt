@@ -1,0 +1,5 @@
+#class actions open;
+
+#action {Your %1 went out.} {get %1 all;hold %1}
+
+#class actions close;

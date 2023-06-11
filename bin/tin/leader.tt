@@ -1,0 +1,75 @@
+#nop Leader Class
+
+#class Leader open
+
+#var buffer 0;
+
+
+#high {Buffer Mode Disabled.}{Red};
+#high {Buffer Mode Enabled.}{Jade};
+
+#nop Keymapping ||
+#macro {^||} {
+	#if {$buffer > 0} {
+        #var buffer 0;
+		#class buffer kill;
+		#show Buffer Mode Disabled.
+	};
+	#else {
+        #var buffer 1;
+		_buffer;
+		#show Buffer Mode Enabled.
+	};
+}
+
+#nop Reset Followers
+#action {Your group consists of:} {
+	#var follower "";
+}
+
+#nop Capture Group Followers
+#action {HP:%1,%2S:%3, MV:%4 -- %5} {
+	#LOCAL follower_check %5;
+    #REGEXP {$follower_check}{{.*} (Head of group)} {#var follower_check &1};
+    #var follower[$follower_check] 0;
+};
+
+#alias {_buffer}
+{
+    #class buffer open;
+
+    #action {%%1 turns to fight %%2!} {
+        #LOCAL follower_check %%2;
+        #foreach {$follower} {name} {
+            #if {"$name" == "$follower_check"} {
+                InfoMessage Rescuing $name!;
+                rescue $name;
+            };
+        };
+    };
+
+    #nop Rescue Followers;
+    #action {%%1 attacks %%2!} {
+        #LOCAL follower_check %%2;
+        #foreach {$follower} {name} {
+            #if {"$name" == "$follower_check"} {
+                InfoMessag Rescuing $name!;
+                rescue $name;
+            };
+        };
+    };
+
+    #function rescue_follower
+    {
+        #LOCAL character %%1;
+        #if {&follower[$character] > 1 && $buffer > 0}
+        {
+            rescue $character;
+        };
+
+        #RETURN {#NOP};
+    };
+    #class buffer close;
+};
+
+#class Leader close

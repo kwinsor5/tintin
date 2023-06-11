@@ -1,0 +1,11 @@
+#class weaponvars open;
+
+#var {WEAPON}
+{
+    {primary}{}
+    {secondary}{}
+    {hitter}{}
+    {shield}{1}
+};
+
+#class weaponvars close;

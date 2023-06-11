@@ -1,0 +1,35 @@
+#class Urgor open
+
+#var food {flesh};
+#var {VoiceOverride[hisses]}{hisses};
+#var {VoiceOverride[mutters]}{mutters};
+#var {VoiceOverride[screeches]}{screeches};
+#var {VoiceOverride[cackles]}{cackles};
+#var {VoiceOverride[mumbles]}{mumbles};
+#var {VoiceOverride[burbles]}{burbles};
+#var {VoiceOverride[bellows]}{bellows};
+
+#alias {wa}
+{
+    wear all.metal;
+};
+
+#alias {ra}
+{
+    rem all.runed;
+    rem all.ebony;
+};
+
+#alias {sa %1}
+{
+    #local _args %1;
+
+    #regexp {$_args} {^{open|quest}$}
+    { say $_args; }
+    {
+        #math {dice} {1d7};
+        emote $VoiceOverride[+$dice] '$_args'
+    };
+}
+
+#class Urgor close

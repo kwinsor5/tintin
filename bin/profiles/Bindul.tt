@@ -1,0 +1,63 @@
+#nop Bindul file...
+
+#class Bindul open
+
+#var self Bindul;
+food loaf;
+set auto eat;
+AutoInsightOn;
+
+#alias {df}{drink waterskin}
+
+#alias {tar %1}
+{
+    #var tar %1;
+}
+
+#alias {ii}
+{
+    cast 'insight' $TARGET[target];
+}
+
+#alias {cc}
+{
+    cast 'curse' $TARGET[target];
+}
+
+#alias {h}
+{
+    cast 'hallucinate' $TARGET[target];
+}
+
+#alias {cut}
+{
+    cast 'curing saturation $TARGET[target];
+}
+
+#alias {ff}
+{
+    cast 'fear' $TARGET[target];
+}
+
+#alias {pp}
+{
+    cast 'poison' $TARGET[target];
+}
+
+#action {You attack %1!}{ins}
+
+#alias {AutoInsightOn} {
+    #action {The world seems dull again.}{ins $self};
+}
+
+#alias {AutoInsightOff} {
+    #unaction {The world seems dull again.};
+}
+
+#highlight {A fierce bear %1 hits %2.}{green}
+#highlight {A fierce bear hits %1.}{green}
+#highlight {A fierce bear deeply wounds %2.}{green}
+#highlight {A fierce bear severely wounds %2.}{green}
+#highlight {A fierce bear MUTILATES %2.}{green}
+
+#class Bindul close

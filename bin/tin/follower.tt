@@ -1,0 +1,61 @@
+#nop Aliases for followers setup
+
+#class {follower} kill;
+#CLASS {follower} OPEN;
+
+#nop required: map.var;
+
+#nop Actions for Following Leader
+#action {$leader attacks} {assist $leader};
+#action {$leader mounts} {ride};
+#action {$leader stops riding} {dismount};
+#action {$leader says 'flee'} {flee;set wimpy 999};
+#action {$leader says 'regen'} {rr $leader};
+
+#action {$leader is leaving %1, riding %2.}
+{
+
+    #if {!MAP[in_map]}
+    {
+        #RETURN {#NOP;};
+    };
+
+    #local _short "";
+    #format {_short}{%.1s}{%1};
+    #map move $_short;
+};
+
+#action {$leader leaves %1.}
+{
+
+    #if {!MAP[in_map]}
+    {
+        #RETURN {#NOP;};
+    };
+
+    #local _short "";
+    #format {_short}{%.1s}{%1};
+    #map move $_short;
+};
+
+#high {Leader Set: %1} { Jade };
+#high {Leader Unset} { Red };
+
+#alias {as} {assist $leader}
+
+#nop Set Leader
+#alias {fol %1} {
+	follow %1;
+	#var leader %1;
+    #show {Leader Set: $leader};
+}
+
+#nop Unset Leader
+#alias {unfol}
+{
+	follow self;
+    #show {Leader Unset};
+	#var leader {self};
+}
+
+#CLASS {follower} CLOSE;

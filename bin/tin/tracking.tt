@@ -1,0 +1,145 @@
+#class tracking open;
+
+#nop required: track.var
+
+#action {^The tracks of %1 lead %2.  Their condition is %3$}
+{
+    #if {$TRACK[active] == 0}
+    {
+        #RETURN {#NOP};
+    };
+
+    #if {$TRACK[found] == 0}
+    {
+        #var {TRACK[target_direction]} {};
+    };
+
+    #LOCAL _target %1;
+    #LOCAL _direction %2;
+    #LOCAL _condition %3;
+
+    #regex {$_target}{{.*}$TRACK[target]{.*}}
+    {
+        #math {TRACK[found]}{$TRACK[found]+1};
+        @add_direction{{$_direction}{$_condition}{2}};
+    };
+
+    #if {"$TRACK[mount]" == ""}
+    {
+        #RETURN {#NOP};
+    };
+
+    #regex {$_target}{{.*}{$TRACK[mount]}{.*}}
+    {
+        #math {TRACK[found]}{$TRACK[found]+1};
+        @add_direction{{$_direction}{$_condition}{1}};
+    };
+
+
+}{5};
+
+#FUNCTION {follow_target}
+{
+    #IF {$TRACK[active] == 0 || $TRACK[found] == 0}
+    {
+        #RETURN {#NOP};
+    };
+
+    #var max_weight 0;
+    #var track_direction "";
+    #local _short_direction "";
+
+    #foreach {$TRACK[target_direction][%*]}{tracks}
+    {
+        #if {$tracks[weight] >= $max_weight}
+        {
+            #var max_weight $tracks[weight];
+            #var track_direction $tracks[direction];
+        };
+    };
+
+
+    #show {<bff>\n\rFollowing <fff>$TRACK[target] <bff>$track_direction...};
+    $track_direction;
+    #format {_short_direction}{%.1s}{$track_direction};
+    #map move $_short_direction;
+    #RETURN {#NOP};
+}
+
+#FUNCTION {add_direction}
+{
+    #local _direction %1;
+    #local _condition %2;
+    #local _mod %3;
+    #local _total 0;
+	#foreach {$TRACK[tracks]}{cond}
+	{
+		#regex {$cond}{^$_condition$}
+		{
+            #math {_total}{$_mod+$TRACK[tracks][$cond]};
+            #var {TRACK[target_direction][$TRACK[found]]} {{direction}{$_direction}{weight}{$_total}};
+		};
+	};
+
+    #RETURN {#NOP};
+}
+
+#FUNCTION {set_tracking}
+{
+    #var {TRACK[target]} %1;
+    #var {TRACK[mount]} %2;
+    #var {TRACK[active]} {1};
+
+    #RETURN {#NOP};
+}
+
+#alias {track_olog} {
+    @set_tracking{{*an Olog-Hai*}{black warg|white warg|brown warg|lithe warg}};
+}
+
+#alias {track_hai}
+{
+    @set_tracking{{*an Uruk*}{black warg|white warg|brown warg|lithe warg|great black steed}};
+}
+
+#alias {track_elf}
+{
+    @set_tracking{{*an Elf*}{brown horse|white horse|silvery horse}};
+}
+
+#alias {track_dwarf}
+{
+    @set_tracking{{*a Dwarf*}{pony|mule|donkey}};
+}
+
+#alias {track_hobbit}
+{
+    @set_tracking{{*a Hobbit*}{pony|mule|donkey}};
+}
+
+#alias {track_human}
+{
+    @set_tracking{{*a Human*}{brown horse|white horse|ashen warhorse}};
+}
+
+#alias {track_haradrim}
+{
+    @set_tracking{{*a Human*}{brown horse|white horse}};
+}
+
+#alias {track_lhuth}
+{
+    @set_tracking{{*an Uruk*}{spotted-white warg|a horse}};
+}
+
+#alias {track_beorning}
+{
+    @set_tracking{{*a Bear*}{}};
+}
+
+#alias {stopTracking}
+{
+    #var {TRACK[active]} {0};
+};
+
+#class tracking close;

@@ -1,0 +1,30 @@
+#class bot_path open;
+
+#variable BOT[title] {Mirkwoods};
+
+#alias {_mob_check}
+{
+    #switch {"%0"}
+    {
+        #case {"A massive mirkwolf stares at you through blood red eyes."}                      {#var mobname massive; #break;};
+        #case {"A cave troll is standing here, pounding his two huge fists together."}          {#var mobname troll; #break;};
+        #case {"A huge mirkwolf tenses its massive frame in readiness."}                        {#var mobname huge; #break;};
+        #case {"A hunched forest troll moves around here, arms dragging on the ground."}        {#var mobname troll; #break};
+        #case {"An evil, black warg paces around the clearing."}                                {#var mobname evil; #break};
+        #case {"A malicious spider slides down its web with a look of hunger in its eyes."}     {#var mobname spider; #break};
+        #case {"A trained warg waits here for an order from its master."}                       {#var mobname trained; #break};
+        #case {"A large grizzly bear with golden fur stands here."}                             {#var mobname golden; #break};
+        #case {"A blind spider hangs from a web here."}                                         {#var mobname blind; #var hardmode 1;#break;};
+        #case {"A spry spider weaves the cobwebs together as it scurries around the chamber."}  {#var mobname spider; #break;};
+        #case {"A goblin hunter stands next to his kill, spear in hand."}                       {#var mobname goblin; #break;};
+        #case {"A trained warg waits here for an order from its masters."}                      {#var mobname trained; #break;};
+        #case {"A breeder assistant stands here trying to look busy."}                          {#var mobname breeder; #break;};
+        #case {"A twisted black spider is here waiting for dinner."}                            {#var mobname spider; #break;};
+        #case {"A toothy bear sneaks through the shadows. (hiding)"}                            {#var mobname bear; #break;};
+    };
+    _check_mob;
+}
+
+#var _bot_path {};
+
+#class bot_path close;

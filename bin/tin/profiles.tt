@@ -1,0 +1,70 @@
+#nop Load Profiles
+#class profile open
+
+#nop // Post login
+#action {Here we go...} {post_login}
+#action {Reconnecting.} {post_login}
+#action {You take over your own body, already in use!} {post_login}
+
+#alias load_profile {
+	#unaction {You are %%1 %%2, {a|an} %%3 (%%4) %%5 %%6.} {load_profile %%1};
+    #var my[name] {%1};
+	#read {profiles/%1.tt};
+
+    #nop Start Logging;
+    #local _time {};
+    #local _year {};
+    #local _month {};
+    #format {_year}{%t}{{%Y}};
+    #format {_month}{%t}{{%m}};
+    #format {_time}{%t}{{%Y%m%d-%H%M%S}};
+    #log append {log/$_year/$_month/%1_$_time.log};
+
+	#nop // Temporarily suppress output to prevent spam at login;
+	#gag %%1;
+	#delay {.05} {#ungag %%1}
+}
+
+#alias load_level {
+    #unaction {You have reached level %%1.}{load_level %%1;};
+    #var my[level] {%1};
+}
+
+#alias load_specialization {
+    #unaction {You are specialized in %%1.}{load_specialization %%1;};
+
+    #var my[specialization] {%0};
+}
+
+#alias load_race {
+    #var my[race] %0;
+    #if {!$my[art][override]} {
+        #var character_ascii {art/%1.ascii};
+    };
+}
+
+
+#alias post_login {
+	#unaction {Here we go...};
+	#unaction {Reconnecting.};
+
+	#nop // Load profile;
+	#action {You are %%1 %%2, {a|an} %%3 (%%4) %%5 %%6.} {load_profile %%1; load_race %%6;};
+    #action {You have reached level %%1.}{load_level %%1;};
+    #action {You are specialized in %%1.}{load_specialization %%1;};
+
+	#nop // Blow out your dragon's eye if you have one;
+	blow eye;
+
+    #nop // Set mapping settings;
+    #map flag static on;
+    #map flag nofollow off;
+
+	#nop // Continue the process;
+	info;
+    look;
+    stat;
+    #var SCREEN[is_loaded] {1};
+}
+
+#class profile close
