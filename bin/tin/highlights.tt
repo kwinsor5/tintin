@@ -92,6 +92,7 @@
 #highlight {a light mithril mail shirt}{light silver}
 #highlight {light mithril mail boots}{light silver}
 #highlight {a pair of fine, chainmail %1}{silver}
+#highlight {a crimson sash}{red}
 
 
 #nop cotton
@@ -106,7 +107,9 @@
 
 #nop weapons
 #highlight {a triple-headed morningstar}{silver}
+#highlight {a quicksilver rapier}{silver}
 #highlight {a dragon-toothed whip}{light ebony}
+#highlight {a black claw}{light ebony}
 #highlight {a twilight dagger}{violet}
 #highlight {an ornate mithril sword}{light silver}
 #highlight {an ancient mithril sword}{light silver}
@@ -116,6 +119,7 @@
 
 #nop jewelry
 #highlight {a bronze ring}{Tan}
+#highlight {a jade ring}{jade}
 #highlight {an iron ring}{light ebony}
 #highlight {a primitive necklace}{tan}
 #highlight {a plain golden ring}{Yellow}

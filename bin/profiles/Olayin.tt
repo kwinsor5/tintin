@@ -1,0 +1,36 @@
+#nop Olayin file...
+
+#class Olayin open
+
+#var self Olayin;
+#var follower huge silver-haired bear;
+food ration;
+set auto eat;
+
+#alias {df}{drink flask}
+
+#alias {tar %1}
+{
+    #var tar %1;
+}
+
+#alias {of} 
+{
+    o fo
+};
+
+#alias {a %1} 
+{
+    ambush %1;wear shield;aa
+}
+
+#action {You attack %1!}{of assist $self}
+#action {You leap from your cover towards %1, and hit it hard!}{of assist $self}
+
+#highlight {A $follower %1 hits %2.}{green}
+#highlight {A $follower hits %1.}{green}
+#highlight {A $follower deeply wounds %2.}{green}
+#highlight {A $follower severely wounds %2.}{green}
+#highlight {A $follower MUTILATES %2.}{green}
+
+#class Olayin close

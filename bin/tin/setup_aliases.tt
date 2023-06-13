@@ -2,9 +2,14 @@
 
 #class setup open
 #alias {{setup default}} {
+	col char bright cyan;
+	col obj green;
+	col roomname bright yellow;
+	col chat bright magenta;
 	set compact on;
 	set spam off;
     set advancedview on;
+
 }
 
 #alias {{setup alias}} {

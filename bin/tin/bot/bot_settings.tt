@@ -27,6 +27,13 @@
     @_class_prompt{};
 }
 
+#alias {set mystic bot}
+{
+    InfoMessage Loading Mystic Bot settings...;
+    #read {tin/bot/mystic.tt};
+    @_class_prompt{};
+}
+
 
 #alias {set auto step}
 {

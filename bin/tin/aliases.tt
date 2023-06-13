@@ -203,7 +203,7 @@
 
 #alias {RescueOn}
 {
-    #action {turns to fight %1!}{rescue %1}
+    #action {%1 turns to fight %2!}{rescue %2}
 }
 
 #alias {RescueOff}

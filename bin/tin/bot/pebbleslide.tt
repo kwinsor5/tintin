@@ -1,0 +1,31 @@
+#CLASS {bot_path} OPEN
+
+#variable BOT[start_location] {19181};
+#var BOT[title] {Pebbleslide};
+
+#ALIAS {_mob_check} 
+{
+    #switch {"%0"}
+    {
+        #case {"A grey spirit gazes upon you. (shadow)}
+        {
+            #variable mobname spirit;
+            #break
+        };
+        #case {"A flickering ball of pale flame dances through the air. (shadow)}
+        {
+            #variable mobname flame;
+            #break
+        };
+        #case {"A phantom, a spirit of discontent, moans as it floats here. (shadow)}
+        {
+            #variable mobname spirit;
+            #break
+        };
+    }
+    _check_mob
+}
+
+#VARIABLE {_bot_path}{w;w;w;n;s;s;s;w;s;s}
+
+#CLASS {bot_path} CLOSE

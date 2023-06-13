@@ -1,0 +1,5 @@
+#class mystic_bot open;
+
+@PUBSUB_SUBSCRIBE{class_toggle; _class_prompt};
+
+#class mystic_bot close;

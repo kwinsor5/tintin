@@ -16,7 +16,7 @@
         #var comm_window[active] {all};
         _setup_ultra_wide;
     };
-    #elseif {$_cols <= 250 && $_cols >= 175} {
+    #elseif {$_cols <= 250 && $_cols >= 150} {
         #var comm_window[active] {all};
         _setup_1080_p;
     };
